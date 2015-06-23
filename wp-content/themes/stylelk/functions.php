@@ -218,7 +218,7 @@ function tagPosts($curentpost,$numpost,$tag_slug){
 		return $html;
 	}
 	function stylelk_request_postpage(){
-		$args=array( 'post_type' => 'post','posts_per_page'=>'1');
+		$args=array( 'post_type' => 'post','posts_per_page'=>'5','orderby'=>'rand');
 		$the_query = new WP_Query( $args );
 		if($the_query->have_posts()):
 			while ($the_query->have_posts()):$the_query->the_post();
