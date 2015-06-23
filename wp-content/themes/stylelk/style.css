@@ -382,14 +382,15 @@ ul.sub-menu li a:hover{
 	
 }
 #tab-menu li a{
-	border: 1px #dddddd solid;
 	border-radius: 0;
 	font-size: 22px;
-	opacity:0.3;
+	border: 1px #eeeeee solid;
+	color: #eeeeee;
 }
-#tab-menu li.active a{
+#tab-menu li.active a{		
+	color: #333333;
 	border-bottom: none;
-	opacity:1;
+	
 }
 /*STORY WRAPPER*/
 .archive_page_name{
@@ -851,8 +852,33 @@ ul.sub-menu li a:hover{
  	background-color: #286da5;
  }
 /* ACCOUNT PAGE*/
-.user-infor input{
-	margin-bottom: 20px;
+.nav-account-page li{
+	display: block;
+}
+.nav-account-page li a{
+	font-family: "Montserrat";
+	text-align: right;
+}
+.user-infor{
+	color: #555555;
+}
+.user-infor .control-label{
+	text-align: left;
+	line-height: 30px;
+}
+.user-infor .form-control{
+	font-family: "Montserrat";
+	font-weight: bold;
+	color: #555555;
+	border-radius: 0;
+	-webkit-border-radius:0;
+}
+.user-infor .btn-primary{
+	border-radius: 0;
+	-webkit-border-radius:0;
+}
+#edit-avatar-content,#edit-newsletter-content{
+	min-height: 400px;
 }
 /*MAIN FOOTER*/
 #main-footer{

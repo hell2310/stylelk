@@ -5,6 +5,7 @@
 if(	isset($_POST['userID'])){
 	$user_id=$wpdb->escape(trim($_POST['userID']));
 	$email = $wpdb->escape(trim($_POST['userEmail']));
+	$displayname = $wpdb->escape(trim($_POST['userDisplayname']));
     $newpassword = $wpdb->escape(trim($_POST['userNewPassword'])); 
     $repeatpassword = $wpdb->escape(trim($_POST['userRepeatPassword'])); 
     if($email == ''){
@@ -30,46 +31,65 @@ if(	isset($_POST['userID'])){
 ?>
  	<div class="container body-content">
 		<div class="row">
-				<div class="col-md-3  visible-md visible-lg left-column">
-					<ul class="nav">
-						<li class="active"></li>
-						<li></li>
+				<hr>
+				<div class="col-md-3  left-column">
+					<ul class="nav nav-account-page">
+						<li><a><?php _e('Account Setting')?></a></li>
+						<li class="active"><a href="#edit-profile-content" data-toggle="tab"><?php _e('Profile')?></a></li>
+						<li><a href="#edit-avatar-content" data-toggle="tab"><?php _e('Avatar')?></a></li>
+						<li><a href="#edit-newsletter-content" data-toggle="tab"><?php _e('Newsletter')?></a></li>
 					</ul>
 				</div>
 				<div class="col-md-9 right-column">
-					<div class="page-content">
-						<?php global $current_user; $user_infor=wp_get_current_user();/* die(var_dump($user_infor));*/?>
-						<h1><?php _e('Edit Profile') ?></h1>
-						<?php if(isset($message)) echo $message;?>
-						<hr>
-						<form class="user-infor" method="POST">
-									<input name="userID" type="hidden" value="<?php echo $user_infor->ID; ?>">
-								<div>
-									<label><?php _e('User Name') ?></label>
-									<input class="form-control" name="userName" type="text" disabled="disabled" value="<?php echo $user_infor->user_login ; ?>">
-								</div>
-								<tr>							
-									<label><?php _e('User Email') ?></label>
-									<input class="form-control" name="userEmail" type="text" value="<?php echo $user_infor->user_email ; ?>" required="">
-								</tr>
-								<tr>							
-									<label><?php _e('User First Name') ?></label>
-									<input class="form-control" name="userFirstname" type="text" value="<?php echo $user_infor->user_firstname ; ?>">
-								</tr>
-								<tr>							
-									<label><?php _e('User Last Name') ?></label>
-									<input class="form-control" name="userLastname" type="text" value="<?php echo $user_infor->user_lastname ; ?>">
-								</tr>
-								<tr>							
-									<label><?php _e('New Password') ?></label>
-									<input class="form-control" name="userNewPassword" type="text">
-								</tr>
-								<tr>							
-									<label><?php _e('Repeat New Password') ?></label>
-									<input class="form-control" name="userRepeatPassword" type="text">
-								</tr>
-							<input class="btn btn-primary" type="submit" value="<?php _e('Update Profile')?>">
-						</form>
+					<div class="page-content tab-content">
+						<div id="edit-profile-content" class="tab-pane fade in active">
+							<?php global $current_user;  get_currentuserinfo();?>
+							<h1><?php _e('Edit Profile') ?></h1>
+							<?php if(isset($message)) echo $message;?>
+							<hr>
+							<form class="user-infor" method="POST">
+										<input name="userID" type="hidden" value="<?php echo $current_user->ID; ?>">
+									<div class="form-group row">
+										<label class="control-label col-md-3"><?php _e('User Name') ?></label>
+										<input class="col-md-6 form-control" name="userName" type="text" disabled="disabled" value="<?php echo $current_user->user_login ; ?>">
+									</div>
+									<div class="form-group row">							
+										<label class="control-label col-md-3"><?php _e('User Email') ?></label>
+										<input class="col-md-6 form-control" name="userEmail" type="text" value="<?php echo $current_user->user_email ; ?>" required="required">
+									</div>
+									<div class="form-group row">							
+										<label class="control-label col-md-3"><?php _e('Display Name') ?></label>
+										<input class="col-md-6 form-control" name="userDisplayname" type="text" value="<?php echo $current_user->user_nicename ; ?>" required="required">
+									</div>
+									<div class="form-group row">							
+										<label class="control-label col-md-3"><?php _e('User First Name') ?></label>
+										<input class="col-md-6 form-control" name="userFirstname" type="text" value="<?php echo $current_user->user_firstname ; ?>">
+									</div>
+									<div class="form-group row">							
+										<label class="control-label col-md-3"><?php _e('User Last Name') ?></label>
+										<input class="col-md-6 form-control" name="userLastname" type="text" value="<?php echo $current_user->user_lastname ; ?>">
+									</div>
+									<div class="form-group row">							
+										<label class="control-label col-md-3"><?php _e('New Password') ?></label>
+										<input class="col-md-6 form-control" name="userNewPassword" type="text">
+									</div>
+									<div class="form-group row">							
+										<label class="control-label col-md-3"><?php _e('Repeat New Password') ?></label>
+										<input class="col-md-6 form-control" name="userRepeatPassword" type="text">
+									</div>
+								<input class="btn btn-primary" type="submit" value="<?php _e('Update Profile')?>">
+							</form>
+						</div>
+						<div id="edit-avatar-content" class="tab-pane fade">
+							<h1><?php _e('Change Avatar') ?></h1>
+							<hr>
+							Avatar
+						</div>
+						<div id="edit-newsletter-content" class="tab-pane fade">
+							<h1><?php _e('Newsletter Setting') ?></h1>
+							<hr>
+							Newsletter
+						</div>
 					</div>
 			</div>
 		</div>
