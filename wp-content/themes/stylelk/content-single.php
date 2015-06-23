@@ -9,6 +9,7 @@
 				<li class="social-pinterest"><a href="http://www.pinterest.com/pin/create/button/?url=<?php the_permalink()?>" target='_blank'><span class="fa fa-pinterest"></span><span class="hidden-xs"> pin it</span></a></li>
 				<li class="social-email"><a href="mailto:?body=<?php the_permalink()?>" target='_blank'><span class="fa fa-envelope-o"></span><span class="hidden-xs"> email</span></a></li>
 				<li class="social-link"><a href="<?php the_permalink()?>" target='_blank'><span class="fa fa-link"></span><span class="hidden-xs"> link</span></a></li>
+				<li class="social-share-count"><p>Shares</p> <?php echo getRedditShareCount(get_the_ID())+getPinterestShareCount(get_the_ID())+getTwitterShareCount(get_the_ID())+getFacebookShareCount(get_the_ID());?></li>
 			</ul>
 			<div class="story-content">
 				<?php the_content() ?>

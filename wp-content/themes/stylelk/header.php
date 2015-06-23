@@ -73,7 +73,7 @@
 					<ul class="nav nav-pills pull-left hidden-xs user-menu">
 						<li class="menu-item-has-children"><a href="#"><span class="fa fa-user"></span> User</a>
 							<ul class="sub-menu">
-								<li><a href="#">Acount</a></li>
+								<?php wp_nav_menu( array( 'theme_location' => 'accountpage_menu', 'container' =>false, 'menu_class' => false) ); ?>
 								<li><a href="<?php echo wp_logout_url(HOME); ?>">Logout</a></li>
 							</ul>	
 						</li>

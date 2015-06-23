@@ -120,6 +120,7 @@
     	'pageinfor_menu'=>__('Page Infor Menu'),
     	'pageinfor_menu_1'=>__('Page Infor Menu 1'),
     	'pageinfor_menu_2'=>__('Page Infor Menu 2'),
+    	'accountpage_menu'=>__('Account Page'),
     	)
   	);
 	}
@@ -154,7 +155,7 @@
 	function popularPosts($curentpost,$numpost) {
 	    global $wpdb;
 	    global $post;
-	    $posts = $wpdb->get_results("SELECT $wpdb->posts.ID,$wpdb->posts.post_title,$wpdb->posts.comment_count,$wpdb->posts.post_date FROM $wpdb->posts INNER JOIN $wpdb->postmeta ON $wpdb->postmeta.post_id=$wpdb->posts.ID WHERE $wpdb->postmeta.meta_key='post_views_count' AND $wpdb->posts.post_type='post'  ORDER BY $wpdb->postmeta.meta_value  DESC LIMIT $curentpost, $numpost");	  
+	    $posts = $wpdb->get_results("SELECT $wpdb->posts.ID,$wpdb->posts.post_title,$wpdb->posts.comment_count,$wpdb->posts.post_date FROM $wpdb->posts INNER JOIN $wpdb->postmeta ON $wpdb->postmeta.post_id=$wpdb->posts.ID WHERE $wpdb->postmeta.meta_key='post_views_count' AND $wpdb->posts.post_type='post'  ORDER BY $wpdb->postmeta.meta_value+0  DESC LIMIT $curentpost, $numpost");	  
 	   	if ( $posts) : 
 			foreach ($posts as $post):
 				setup_postdata($post);
@@ -269,6 +270,25 @@ function getFacebookShareCount($urlCurrentPage) {
     $intFacebookShareCount =  (isset($arrFacebookShareDetails['shares']) ? $arrFacebookShareDetails['shares'] : 0);
     return ($intFacebookShareCount) ? $intFacebookShareCount : '0';
 }
+function getRedditShareCount($urlCurrentPage) {
+    $htmlRedditShareDetails = wp_remote_get('http://reddit.com/api/info.json?url='.$urlCurrentPage, array('timeout' => 1));
+    if (is_wp_error($htmlRedditShareDetails)) {
+        return 0;
+    }
+    $arrRedditShareDetails = json_decode($htmlRedditShareDetails['body'], true);
+    $intRedditShareCount =  (isset($arrRedditShareDetails['count']) ? $arrRedditShareDetails['count'] : 0);
+    return ($intRedditShareCount) ? $intRedditShareCount : '0';
+}
+function getPinterestShareCount($urlCurrentPage) {
+    $htmlPinterestShareDetails = wp_remote_get('http://api.pinterest.com/v1/urls/count.json?callback=&url='.$urlCurrentPage, array('timeout' => 6));
+    if (is_wp_error($htmlPinterestShareDetails)) {
+        return 0;
+    }
+    $arrPinterestShareDetails = json_decode($htmlPinterestShareDetails['body'], true);
+    $intPinterestShareCount =  (isset($arrPinterestShareDetails['count']) ? $arrPinterestShareDetails['count'] : 0);
+    return ($intPinterestShareCount) ? $intPinterestShareCount : '0';
+}
+
 
 
 /*LOGIN PAGE*/

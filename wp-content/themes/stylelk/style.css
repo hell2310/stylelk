@@ -475,7 +475,6 @@ ul.sub-menu li a:hover{
 }
 .newsletter-column form p:first-of-type{
 	width: 88%;
-
 }
 .newsletter-email{
 	padding-right: 10px;
@@ -486,7 +485,7 @@ ul.sub-menu li a:hover{
 	width: 100%;
 	color: #444444;
 	height: 34px;
-	line-height: 34px;
+	line-height: 12px;
 	background-color: transparent;
 	border: 1px #aaaaaa solid;
 }
@@ -541,18 +540,27 @@ ul.sub-menu li a:hover{
 }
 .nav-interative-social{
 	margin-bottom: 20px;
+	position: relative;
 }
 .nav-interative-social li{
 	margin: 0 4px;
 	font-family: "Montserrat";
 	font-size:12px;
 	text-transform: capitalize;	
+	min-width: 90px;
+}
+.nav-interative-social .social-share-count{
+	min-width: 0;
+	text-align: center;	
+	font-weight: bold;
+	text-transform: uppercase;
+	position: absolute;
+	left: 0;
+	top: 0;
+	line-height: 35px;
 }
 .nav-interative-social span.fa{
 	font-size: 18px;
-}
-.nav-interative-social li{
-	min-width: 90px;
 }
 @media(max-width:768px){
 	.nav-interative-social li{
@@ -653,8 +661,12 @@ ul.sub-menu li a:hover{
 	color: #006FBB;	
 }
 /*SLIDER BANNER*/
+.banner{
+	text-align: center;
+}
 .ad-banner{
 	margin-bottom: 30px;
+	
 }
 /*ABOUT PAGE*/
 .menu-pageinfor li{
