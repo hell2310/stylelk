@@ -52,7 +52,7 @@ if(isset($_POST['email'])){
 						<p>By signing up, you agree to our <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>.</p>
 						<input type="submit" class="btn btn-primary btn-block" value="Sign up">
 
-						<p>Have account? <a href="#">Login</a></p>
+						<p>Have account? <a href="<?php echo HOME.'/?page_id=9'; ?>">Login</a></p>
 					</form>
 <?php endif;?>
 				</div>			

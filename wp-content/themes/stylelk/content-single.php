@@ -1,15 +1,16 @@
 <!-- DISPLAY POST WRAPPER IN POST PAGE -->
 <div class="row story-wrapper postpage-story-wrapper">
 		<div class="story-image" > <a href="<?php the_permalink() ?>"><?php the_post_thumbnail() ?></a></div>
-		<h1 class="story-title"><?php the_title() ?></h1>
+		<h1 class="story-title"><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h1>
 			<ul class="nav nav-align-right nav-interative-social">
+				<li class="social-share-count"><span><?php echo getRedditShareCount(get_the_ID())+getPinterestShareCount(get_the_ID())+getTwitterShareCount(get_the_ID())+getFacebookShareCount(get_the_ID());?></span> <b>Shares</b></li>
 				<li class="social-fb"><a href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink()?>" target='_blank'><span class="fa fa-facebook"></span><span class="hidden-xs"> like</span></a></li>
 				<li class="social-twitter"><a href="https://twitter.com/intent/tweet?url=<?php the_permalink()?>" target='_blank'><span class="fa fa-twitter"></span><span class="hidden-xs"> tweet</span></a></li>
 				<li class="social-reddit"><a href="http://www.reddit.com/submit?url=<?php the_permalink()?>" target='_blank'><span class="fa fa-reddit"></span><span class="hidden-xs"> submit</span></a></li>
 				<li class="social-pinterest"><a href="http://www.pinterest.com/pin/create/button/?url=<?php the_permalink()?>" target='_blank'><span class="fa fa-pinterest"></span><span class="hidden-xs"> pin it</span></a></li>
 				<li class="social-email"><a href="mailto:?body=<?php the_permalink()?>" target='_blank'><span class="fa fa-envelope-o"></span><span class="hidden-xs"> email</span></a></li>
-				<li class="social-link"><a href="<?php the_permalink()?>" target='_blank'><span class="fa fa-link"></span><span class="hidden-xs"> link</span></a></li>
-				<li class="social-share-count"><p>Shares</p> <?php echo getRedditShareCount(get_the_ID())+getPinterestShareCount(get_the_ID())+getTwitterShareCount(get_the_ID())+getFacebookShareCount(get_the_ID());?></li>
+				<li class="social-link"><a ><span class="fa fa-link"></span><span class="hidden-xs"> link</span></a><div class="link-container"><label>Share this link</label><input type="text" value="<?php the_permalink()?>"></div></li>
+				
 			</ul>
 			<div class="story-content">
 				<?php the_content() ?>

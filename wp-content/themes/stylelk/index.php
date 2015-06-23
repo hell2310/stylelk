@@ -1,5 +1,4 @@
 <?php get_header(); ?>
-			<hr>
 			<section id="content" class="row">
 				<div class="col-md-8 left-column">
 					<ul id="tab-menu"class="nav nav-tabs hidden-xs">

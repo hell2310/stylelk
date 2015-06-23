@@ -3,7 +3,7 @@
                 <div class="col-md-8 left-column">
                     <h2 class="archive_page_name">
                     <?php
-                        if ( is_tag() ) :
+                   /*     if ( is_tag() ) :
                                 printf( __('Posts Tagged: %1$s'), single_tag_title( '', false ) );
                         elseif ( is_category() ) :
                                 printf( __('Posts Categorized: %1$s'), single_cat_title( '', false ) );
@@ -13,7 +13,7 @@
                                 printf( __('Monthly Archives: %1$s'), get_the_time('F Y') );
                         elseif ( is_year() ) :
                                 printf( __('Yearly Archives: %1$s'), get_the_time('Y') );
-                        endif;
+                        endif;*/
                     ?>
                     </h2>
                     <div class="tab-content">

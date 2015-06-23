@@ -16,8 +16,8 @@
 			<ul class="nav nav-pills pull-right hidden-xs menu-social">
 				<li><a href="<?php echo (get_option('qs_contact_facebook')); ?>"><span class="fa fa-facebook" ></span></a></li>
 				<li><a href="<?php echo (get_option('qs_contact_twitter')); ?>"><span class="fa fa-twitter"></span></a></li>
-				<li><a href="<?php echo (get_option('qs_contact_google_plus')); ?>"><span class="fa fa-google-plus"></span></a></li>
-				<li><a href="<?php echo (get_option('qs_contact_youtube')); ?>"><span class="fa fa-youtube"></span></a></li>
+				<li><a href="<?php echo (get_option('qs_contact_pinterest')); ?>"><span class="fa fa-pinterest"></span></a></li>
+				<li><a href="<?php echo (get_option('qs_contact_instagram')); ?>"><span class="fa fa-instagram"></span></a></li>
 			</ul>
 			<div class="pull-left search-form-fix"><span class="fa fa-search btn-toggle-search"></span>
 				<?php echo get_search_form(); ?>
@@ -60,8 +60,8 @@
 					<ul class="nav nav-pills pull-right hidden-xs menu-social">
 						<li><a href="<?php echo (get_option('qs_contact_facebook')); ?>"><span class="fa fa-facebook" ></span></a></li>
 						<li><a href="<?php echo (get_option('qs_contact_twitter')); ?>"><span class="fa fa-twitter"></span></a></li>
-						<li><a href="<?php echo (get_option('qs_contact_google_plus')); ?>"><span class="fa fa-google-plus"></span></a></li>
-						<li><a href="<?php echo (get_option('qs_contact_youtube')); ?>"><span class="fa fa-youtube"></span></a></li>
+						<li><a href="<?php echo (get_option('qs_contact_pinterest')); ?>"><span class="fa fa-pinterest"></span></a></li>
+						<li><a href="<?php echo (get_option('qs_contact_instagram')); ?>"><span class="fa fa-instagram"></span></a></li>
 					</ul>
 					<div class="pull-left search-form-fix"><span class="fa fa-search btn-toggle-search"></span>
 						<?php echo get_search_form(); ?>
@@ -85,10 +85,12 @@
 					?>				
 				</div>
 			</nav>
+			<?php if(is_home()): ?>
 			<?php get_template_part('logo');?>	
-			<nav id="main-menu" class="navbar navbar-default hidden-xs">
+			<nav id="main-menu" class="navbar navbar-default hidden-xs"><!-- MAIN MENU -->
 				<?php wp_nav_menu( array( 'theme_location' => 'short_categories_menu', 'container' =>false, 'menu_class' => 'nav') ); ?>
 			</nav>	
+			<?php endif; ?>
 		</header>
 	<?php if(is_home()): ?>
 		<nav id="mobile-nav" class="container visible-xs">

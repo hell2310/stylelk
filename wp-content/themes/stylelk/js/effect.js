@@ -40,9 +40,15 @@ $(window).on("load",function(){
 
 			/*add icon to dropdown menu*/
 			$(".menu-item-has-children>a").append(" <span class='fa fa-angle-down'></span>");
-		/*	sidedown submenu*/
+			/*	sidedown submenu*/
 			$(".menu-item-has-children").on("click",function(){
 				$(this).children("ul").slideToggle();
+			})
+
+			/*show link post*/
+			$(".social-link").click(function(){
+				$(".link-container").slideToggle();
+				$(".link-container input").focus();
 			})
 });
 /*MENU FIXER*/

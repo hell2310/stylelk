@@ -198,6 +198,10 @@ ul.menu-social li a span{
 	font-size: 12px;
 	font-family: "Montserrat";
 }
+#navbar-top .menu-home .logo a{
+	display: block;
+	line-height: 40px;
+}
 .menu-home li a span{
 	font-size: 20px;
 }
@@ -205,6 +209,7 @@ ul.menu-social li a span{
 	height: 20px !important;
 	line-height: 20px !important;
 }
+
 .search-form-fix{
 	padding-left: 15px;
 	position: relative;
@@ -344,13 +349,24 @@ ul.sub-menu li a:hover{
 	margin-bottom: 15px;
 	margin: 10px 0;
 }
-#mobile-nav li{
-	border: 1px #000000 solid;
-	width: 47%;
-	opacity: 0.5;
+#mobile-nav li {
+	width: 50%;
 }
-#mobile-nav li.active{
-	opacity: 1;
+#mobile-nav li:first-child{
+	padding-left: 10px;
+}
+#mobile-nav li:last-child{
+	padding-right: 10px;
+}
+#mobile-nav li.active a{
+	border: 1px #333333 solid;
+	color: #333333;
+}
+#mobile-nav li a{
+	border: 1px #eeeeee solid;
+	padding: 7px 0;
+	font-size: 16px;
+	color: #eeeeee;
 }
 #slider{
 	margin-bottom: 10px;
@@ -536,29 +552,37 @@ ul.sub-menu li a:hover{
 .story-title{
 	margin-bottom: 20px;
 }
+.story-title:hover a{
+  color: #13538f;
+}
 .story-title a{
 	font-size: 25px;
 }
 .nav-interative-social{
 	margin-bottom: 20px;
-	position: relative;
 }
 .nav-interative-social li{
-	margin: 0 4px;
+	margin: 0 3px;
+	margin-bottom: 10px;
 	font-family: "Montserrat";
 	font-size:12px;
 	text-transform: capitalize;	
 	min-width: 90px;
+	position: relative;
 }
 .nav-interative-social .social-share-count{
+	vertical-align: -10px;
+	margin-bottom: 0px;
 	min-width: 0;
 	text-align: center;	
-	font-weight: bold;
 	text-transform: uppercase;
-	position: absolute;
-	left: 0;
-	top: 0;
-	line-height: 35px;
+	width:50px;
+}
+.nav-interative-social .social-share-count span{
+	line-height: 15px;
+	color: #55acee;
+	font-size: 24px;
+	font-weight: bold;
 }
 .nav-interative-social span.fa{
 	font-size: 18px;
@@ -572,6 +596,10 @@ ul.sub-menu li a:hover{
 	padding: 8px 5px;
 	color: #ffffff;
 	text-align: center;	
+}
+.nav-interative-social li a:hover,.nav-interative-social li a:focus{
+	color: #ffffff;;
+	cursor: pointer;
 }
 .social-fb{
 	background-color: #3b5998;
@@ -590,6 +618,15 @@ ul.sub-menu li a:hover{
 }
 .social-link{
 	background-color: #999999;
+
+}
+.link-container{
+	background: #f5f5f5;
+	padding: 10px;
+	display: none;
+	position: absolute;
+	top: 110%;
+	left: 0;
 }
 /*Story content*/
 .story-content{
@@ -766,12 +803,28 @@ ul.sub-menu li a:hover{
 	margin: 30px auto;
 	padding: 30px 90px;
 	float: none !important;
-	background:#f6f6f6;
+	background: #f6f6f6;	
 	font-family: "Montserrat";
+	max-width: 570px;
+}
+@media(max-width:768px){
+	#login-register-container{
+		background:transparent;
+		margin: 30px auto;
+	}
+}
+@media(max-width:568px){
+	#login-register-container{
+		padding:  30px 10px;	
+	}
+	#login-register-container h1{
+		font-family: "Montserrat";
+	}
 }
 #login-register-container h1{
 	 font-size: 24px;
 	 font-family: "Oswald";
+	 font-weight: bold;
 }
 #login-register-container p{
 	margin: 30px 0;
