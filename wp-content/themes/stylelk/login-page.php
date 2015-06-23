@@ -5,7 +5,7 @@
  ?>
  <div class="container body-content">
 			<div class="row">
-				<div id="login-register-container" class="col-lg-6 col-md-6">
+				<div id="login-register-container">
 					<h1>Login to STYLELK</h1>
 					<p>Connect to STYLELK with your Facebook account</p>
 					<p><a class="btn btn-primary btn-block facebook-connect" href="http://localhost/stylelk/wp-login.php?loginFacebook=1&redirect=http://localhost/stylelk" onclick="window.location = 'http://localhost/stylelk/wp-login.php?loginFacebook=1&redirect='+window.location.href; return false;"><span class="fa fa-facebook"></span>  Login with facebook</a></p>

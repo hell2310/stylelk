@@ -850,6 +850,10 @@ ul.sub-menu li a:hover{
  #login-register-container .facebook-connect:hover,#login-register-container .button-primary:hover{
  	background-color: #286da5;
  }
+/* ACCOUNT PAGE*/
+.user-infor input{
+	margin-bottom: 20px;
+}
 /*MAIN FOOTER*/
 #main-footer{
 	padding: 30px 0;

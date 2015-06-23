@@ -30,7 +30,7 @@ if(isset($_POST['email'])){
  ?>
  <div class="container body-content">
 			<div class="row">
-				<div id="login-register-container" class="col-lg-6 col-md-6">
+				<div id="login-register-container">
 					<h1>Register to STYLELK</h1>
 <?php if(!$success==''&&$error=='') : ?>
 					<p> <?php echo $success; ?></p>

@@ -335,14 +335,13 @@ add_filter( 'authenticate', 'verify_username_password', 1, 3);
 REGISTER PAGE*/
 add_action( 'register_form', 'myplugin_add_registration_fields' );
 function myplugin_add_registration_fields() {
-
     //Get and set any values already sent
     $user_extra = ( isset( $_POST['user_extra'] ) ) ? $_POST['user_extra'] : '';
     ?>
 
     <p>
         <label for="user_extra"><?php _e( 'Extra Field', 'myplugin_textdomain' ) ?><br />
-            <input type="text" name="user_extra" id="user_extra" class="input" value="<?php echo esc_attr( stripslashes( $user_extra ) ); ?>" size="25" /></label>
+        <input type="text" name="user_extra" id="user_extra" class="input" value="<?php echo esc_attr( stripslashes( $user_extra ) ); ?>" size="25" /></label>
     </p>
 
     <?php

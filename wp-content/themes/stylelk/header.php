@@ -71,10 +71,10 @@
 					if( is_user_logged_in()):
 						?>
 					<ul class="nav nav-pills pull-left hidden-xs user-menu">
-						<li class="menu-item-has-children"><a href="#"><span class="fa fa-user"></span> User</a>
+						<li class="menu-item-has-children"><a href="#"><span class="fa fa-user"></span> <b><?php _e('Account') ?></b></a>
 							<ul class="sub-menu">
 								<?php wp_nav_menu( array( 'theme_location' => 'accountpage_menu', 'container' =>false, 'menu_class' => false) ); ?>
-								<li><a href="<?php echo wp_logout_url(HOME); ?>">Logout</a></li>
+								<li><a href="<?php echo wp_logout_url(HOME); ?>"><?php _e('Logout') ?></a></li>
 							</ul>	
 						</li>
 					</ul>

@@ -2,8 +2,8 @@
 			<section id="content" class="row">
 				<div class="col-md-8 left-column">
 					<ul id="tab-menu"class="nav nav-tabs hidden-xs">
-						<li class="pull-right active"><a href="#latest-content" data-toggle="tab">LATEST STORIES</a></li>
-						<li class="pull-left"><a href="#popular-content" data-toggle="tab">POPULAR STORIES</a></li>
+						<li class="pull-right active"><a href="#latest-content" data-toggle="tab"><?php _e('LATEST STORIES') ?></a></li>
+						<li class="pull-left"><a href="#popular-content" data-toggle="tab"><?php _e('POPULAR STORIES') ?></a></li>
 					</ul>
 					<div class="tab-content">
 					<!-- 	LATEST STORIES -->
@@ -43,7 +43,7 @@
 					</div> <!-- END TABCONTENT -->
 				</div>
 				<div class="col-md-4 visible-md visible-lg right-column newsletter-column">
-					<h4>follow us</h4>
+					<h4><?php _e('follow us')?></h4>
 					<hr>
 						<?php  $newsletter=new NewsletterWidget;
 						echo $newsletter->get_widget_form();  ?>
