@@ -6,6 +6,8 @@ if(	isset($_POST['userID'])){
 	$user_id=$wpdb->escape(trim($_POST['userID']));
 	$email = $wpdb->escape(trim($_POST['userEmail']));
 	$displayname = $wpdb->escape(trim($_POST['userDisplayname']));
+	$firstname=$wpdb->escape(trim($_POST['userFirstname']));
+	$lastname=$wpdb->escape(trim($_POST['userLastname']));
     $newpassword = $wpdb->escape(trim($_POST['userNewPassword'])); 
     $repeatpassword = $wpdb->escape(trim($_POST['userRepeatPassword'])); 
     if($email == ''){
@@ -19,7 +21,10 @@ if(	isset($_POST['userID'])){
     	$message="Password Invalid";
     }
     else{
-    	$user_id = wp_update_user( array( 'ID' => $user_id, 'user_email' => $email ) );
+    	if((! $newpassword=''|!$repeatpassword='')&&( $newpassword==$repeatpassword))
+		$user_id = wp_update_user( array( 'ID' => $user_id, 'user_email' => $email,'user_pass'=>$newpassword,'user_nicename'=>$displayname,'first_name'=>$firstname,'last_name'=>$lastnames ) );
+    	else
+    	$user_id = wp_update_user( array( 'ID' => $user_id, 'user_email' => $email,'user_nicename'=>$displayname,'first_name'=>$firstname,'last_name'=>$lastnames ) );
     	if(is_wp_error( $user_id ) ){
     		$message="Error Update";
     	}
@@ -83,12 +88,14 @@ if(	isset($_POST['userID'])){
 						<div id="edit-avatar-content" class="tab-pane fade">
 							<h1><?php _e('Change Avatar') ?></h1>
 							<hr>
-							Avatar
+							<img src="http://www.gravatar.com/avatar/566a2e2f4f0aaa0110e809b1ee400231?s=150&r=g&d=mm">
+							<p><?php _e('Image')?></p>
+							<hr>
 						</div>
 						<div id="edit-newsletter-content" class="tab-pane fade">
 							<h1><?php _e('Newsletter Setting') ?></h1>
 							<hr>
-							Newsletter
+							
 						</div>
 					</div>
 			</div>

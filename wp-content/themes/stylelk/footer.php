@@ -1,5 +1,5 @@
 		<?php if(!is_page()): ?>
-			<p class="loadmore">Load more</p> 
+			<p class="loadmore"><?php _e('Load more') ?></p> 
 		</div> <!-- END BODY-CONTENT -->
 		<?php endif; ?>
 		<?php if(is_page()|is_404()):?>
@@ -10,7 +10,7 @@
 						<div class="row">
 							<?php wp_nav_menu( array( 'theme_location' => 'pageinfor_menu', 'container' =>false, 'menu_class' => 'col-md-6 col-sm-6 col-xs-6 nav menu-pageinfor' )); ?>
 							<div class="col-md-6">
-								<h4>CONNECT WITH US</h4>
+								<h4><?php _e('CONNECT WITH US') ?></h4>
 								<ul class="nav nav-pills menu-social">
 									<li><a href="<?php echo (get_option('qs_contact_facebook')); ?>"><span class="fa fa-facebook" ></span></a></li>
 									<li><a href="<?php echo (get_option('qs_contact_twitter')); ?>"><span class="fa fa-twitter"></span></a></li>
