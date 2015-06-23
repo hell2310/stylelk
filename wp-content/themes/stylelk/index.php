@@ -28,8 +28,7 @@
 						<?php	
 							global $wpdb;
 							global $post;
-	    					/*$posts = $wpdb->get_results("SELECT $wpdb->posts.ID,$wpdb->posts.post_title,$wpdb->posts.post_date,$wpdb->postmeta.meta_value FROM $wpdb->posts INNER JOIN $wpdb->postmeta ON $wpdb->postmeta.post_id=$wpdb->posts.ID WHERE $wpdb->postmeta.meta_key='post_views_count' AND $wpdb->posts.post_type='post' AND post_status='publish' ORDER BY $wpdb->postmeta.meta_value  DESC");*/	  
-	   						$posts = $wpdb->get_results("SELECT meta_value FROM $wpdb->postmeta WHERE meta_key='post_views_count' ORDER BY meta_value ASC");
+	    					$posts = $wpdb->get_results("SELECT $wpdb->posts.ID,$wpdb->posts.post_title,$wpdb->posts.post_date,$wpdb->postmeta.meta_value FROM $wpdb->posts INNER JOIN $wpdb->postmeta ON $wpdb->postmeta.post_id=$wpdb->posts.ID WHERE $wpdb->postmeta.meta_key='post_views_count' AND $wpdb->posts.post_type='post' AND post_status='publish' ORDER BY $wpdb->postmeta.meta_value  DESC");	 
 	   						if ($posts) : 
 								foreach ($posts as $post) {
 									setup_postdata( $post );
