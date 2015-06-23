@@ -87,8 +87,8 @@ body{
 	padding:0 30px;
 }
 #slide_menu h1{
-	height: 52px;
-	line-height: 50px;
+	height: 50px;
+	line-height: 40px;
 	border-bottom:1px #dddddd solid;
 	margin:0;
 }
@@ -108,7 +108,7 @@ body{
   left: 30px;
   content: '';
   margin-left: 20px;
-  margin-top: 10px;
+  margin-top: 5px;
 }
 .close-slide:hover{
 	cursor: pointer;
@@ -183,9 +183,12 @@ ul.menu-social li a span{
 	opacity: 0.5;
 	z-index: 999;
 	height: 100%;
-	width: 100%;
+	width: 200%;
 }
 /* NAV TOP*/
+#navbar-top{
+	background: #ffffff;
+}
 #navbar-top ul.nav li{
 	height: 50px;
 	line-height: 50px;
@@ -210,11 +213,10 @@ ul.menu-social li a span{
 	padding: 15px;
 }
 .search-form-fix form{
-	padding: 10px;
-	padding-top: 0;
+	padding:0 10px;
 	border: 1px #dddddd solid;
 	border-top: none;
-	min-width: 300px;
+	width: 300px;
 	position: absolute;
 	background-color: #ffffff;
 	top: 107%;
@@ -224,28 +226,33 @@ ul.menu-social li a span{
 	z-index: 99;
 	text-align: right;
 }
+.search-form-fix form span{
+	padding: 0;
+}
+@media (max-width: 768px){
+	.search-form-fix form{width: auto; right: 0}
+	.search-form-fix{position: static;}
+}
 .btn-toggle-search:hover{
 	cursor: pointer;
 }
 .input-search,.btn-search{
-	float: right;
-	display: inline-block;
 	font-family: "Montserrat";
+	margin-bottom: 10px;
+}
+.search-form-fix form.input-group .input-search,.search-form-fix form span.input-group-btn .btn-search{
+	border-radius: 0;
+	border: 1px #dddddd solid;
 }
 .input-search{
 	box-shadow: none;
-	border: 1px #dddddd solid;
-	width: 68%;
-	line-height: 25px;	
+	font-size: 14px;
+	line-height: 14px;	
+	z-index: 2;
 }
 .btn-search{
-	background: #dddddd;
-	line-height: 27px;	 
-	width: 30%;
-	padding: 0 10px;
+	background: #dddddd; 
 	font-size: 14px;
-	border: none;
-
 }
 /*LOGO*/
 #logo{
@@ -471,6 +478,7 @@ ul.sub-menu li a:hover{
 	padding-right: 10px;
 }
 .newsletter-submit,.newsletter-email{ 
+	float: right;
 	font-size: 12px;
 	width: 100%;
 	color: #777777;
@@ -481,7 +489,11 @@ ul.sub-menu li a:hover{
 }
 .newsletter-submit{
 	min-width:34px;
+	max-width: 40px;
 	font-weight: bold;
+	padding:0 10px;
+	font-size: 16px;
+	line-height: 16px;
 }
 .loadmore{
 	font-family: "Montserrat";

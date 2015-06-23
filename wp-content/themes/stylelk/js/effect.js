@@ -25,9 +25,17 @@ $(window).on("load",function(){
 			})
 
 			/*fadeIn fadeOut searchform*/
+			var i=0;
 			$(".btn-toggle-search").click(function(){
-				$(this).next().slideToggle();
-				$(this).next().children(".input-search").focus();
+				if(i==0){
+					$(this).next().css("display","table");
+					$(this).next().children(".input-search").focus();
+					i=1;
+				}
+				else if(i==1){
+					$(this).next().css("display","none");
+					i=0;
+				}
 			})
 
 			/*add icon to dropdown menu*/

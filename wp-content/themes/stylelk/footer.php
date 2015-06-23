@@ -1,3 +1,7 @@
+		<?php if(!is_page()): ?>
+			<p class="loadmore">Load more</p> 
+		</div> <!-- END BODY-CONTENT -->
+		<?php endif; ?>
 		<?php if(is_page()|is_404()):?>
 		<footer id="main-footer">
 			<div class="container">
@@ -33,9 +37,7 @@
 			</div>
 		</footer>
 		<?php endif;?>
-
-	</div><!-- END WRAPPER -->
-	
+	</div><!-- END WRAPPER -->	
 	<!-- BACK TO TOP -->
 	<a href="<?php echo HOME;?>"class="scroll-up fa fa-chevron-up" onclick="$('html,body').animate({scrollTop:0},'slow');return false;"></a>	
 </body>

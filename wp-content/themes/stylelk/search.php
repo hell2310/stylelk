@@ -12,14 +12,12 @@
                                 endwhile;
         ?>  
       </div>
-                <div class="col-md-4 visible-md visible-lg right-column">
+                <div class="col-md-4 visible-md visible-lg right-column newsletter-column">
                     <h4>follow us</h4>
                     <hr>
-                    <?php echo do_action('[subscription_form]'); ?>
-                    <form class="input-group navbar-form  newsletter">
-                        <input class="form-control" type="text" placeholder="Sign up for out newsletter">
-                        <button type="submit" class="fa fa-angle-double-left"></button>
-                    </form>
+                    <?php $newsletter=new NewsletterWidget;
+                    echo $newsletter->get_widget_form(); 
+                    ?>
                     <p class="banner"><a href="#"><img src="<?php echo get_template_directory_uri();?>/images/banner.jpg"></a></p>
                 </div>
     </section>

@@ -4,8 +4,7 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
 	<?php wp_head(); ?>
 </head>
-<body <?php body_class(); ?> >	
-	
+<body <?php body_class(); ?> >		
 	<div class="blur-screen"></div><!-- BLUR SCREEN 0.5 OPACITY #000000 BACK-GROUND -->
 	<nav id="fixer-menu" class="navbar navbar-default"><!-- FIXER MENU -->
 		<div class="container">
@@ -15,13 +14,13 @@
 			</ul>
 			<?php wp_nav_menu( array( 'theme_location' => 'short_categories_menu', 'container' =>false, 'menu_class' => "nav pull-right")); ?>
 			<ul class="nav nav-pills pull-right hidden-xs menu-social">
-						<li><a href="<?php echo (get_option('qs_contact_facebook')); ?>"><span class="fa fa-facebook" ></span></a></li>
-						<li><a href="<?php echo (get_option('qs_contact_twitter')); ?>"><span class="fa fa-twitter"></span></a></li>
-						<li><a href="<?php echo (get_option('qs_contact_google_plus')); ?>"><span class="fa fa-google-plus"></span></a></li>
-						<li><a href="<?php echo (get_option('qs_contact_youtube')); ?>"><span class="fa fa-youtube"></span></a></li>
+				<li><a href="<?php echo (get_option('qs_contact_facebook')); ?>"><span class="fa fa-facebook" ></span></a></li>
+				<li><a href="<?php echo (get_option('qs_contact_twitter')); ?>"><span class="fa fa-twitter"></span></a></li>
+				<li><a href="<?php echo (get_option('qs_contact_google_plus')); ?>"><span class="fa fa-google-plus"></span></a></li>
+				<li><a href="<?php echo (get_option('qs_contact_youtube')); ?>"><span class="fa fa-youtube"></span></a></li>
 			</ul>
 			<div class="pull-left search-form-fix"><span class="fa fa-search btn-toggle-search"></span>
-						<?php echo get_search_form(); ?>
+				<?php echo get_search_form(); ?>
 			</div>
 		</div>
 	</nav>
@@ -29,9 +28,10 @@
 		<h1 class="pagename"><a href="<?php echo HOME;?>"><img src="<?php echo esc_url(get_theme_mod( 'stylelk_logo'));?> "></a><span class="pull-left close-slide"></span></h1>
 		<?php wp_nav_menu( array( 'theme_location' => 'categories_menu', 'container' =>false, 'menu_class' => 'nav menu-categories') ); ?>
 		<div class="newsletter-form">	
-			<?php $newsletter=new NewsletterWidget;
+			<?php 
+			$newsletter=new NewsletterWidget;
 			echo $newsletter->get_widget_form(); 
-		?>
+			?>
 		</div>
 		<ul class="nav nav-pills menu-social">
 			<li><a href="<?php echo (get_option('qs_contact_facebook')); ?>"><span class="fa fa-facebook" ></span></a></li>
@@ -80,8 +80,7 @@
 					</ul>
 					<?php
 					else :
-						wp_nav_menu( array( 'theme_location' => 'user_menu', 'container' =>false, 'menu_class' => 'nav nav-pills pull-left hidden-xs user-menu') ); 
-					
+						wp_nav_menu( array( 'theme_location' => 'user_menu', 'container' =>false, 'menu_class' => 'nav nav-pills pull-left hidden-xs user-menu') ); 				
 					endif;
 					?>				
 				</div>
@@ -98,4 +97,10 @@
 				<li class="pull-left"><a href="#popular-content" data-toggle="tab">POPULAR STORIES</a></li>
 			</ul>
 		</nav>
+	<?php endif; ?>
+	<?php if(!is_page()): ?>
+		<div class="container body-content">
+			<section id="slider" class="hidden-xs">
+				<!-- insert BANNER -->
+			</section>
 	<?php endif; ?>

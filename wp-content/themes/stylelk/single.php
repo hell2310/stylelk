@@ -1,8 +1,4 @@
 <?php get_header(); ?>
-	<div class="container body-content">
-		<section class="ad-banner">
-			<!-- BANNER -->
-		</section>
 		<section id="content" class="row">
 				<div  class="col-md-8 left-column">
 					<div class="tab-content">
@@ -25,7 +21,4 @@
 					<p class="banner"><a href="#"><img src="<?php echo get_template_directory_uri();?>/images/banner.jpg"></a></p>
 				</div>
 		</section>
-		<p class="loadmore">Load more ...</p>   
-	</div><!-- content-area -->
-<?php 
-get_footer(); ?>
+<?php get_footer(); ?>
