@@ -8,7 +8,7 @@
 				<div id="login-register-container">
 					<h1>Login to STYLELK</h1>
 					<p>Connect to STYLELK with your Facebook account</p>
-					<p><a class="btn btn-primary btn-block facebook-connect" href="http://localhost/stylelk/wp-login.php?loginFacebook=1&redirect=http://localhost/stylelk" onclick="window.location = 'http://localhost/stylelk/wp-login.php?loginFacebook=1&redirect='+window.location.href; return false;"><span class="fa fa-facebook"></span>  Login with facebook</a></p>
+					<p><a class="btn btn-primary btn-block facebook-connect" href="<?php echo HOME; ?>/wp-login.php?loginFacebook=1&redirect=<?php echo HOME;?>" onclick="window.location = '<?php echo HOME;?>/wp-login.php?loginFacebook=1&redirect='+window.location.href; return false;"><span class="fa fa-facebook"></span>  Login with facebook</a></p>
 					<hr>
 					<p>Sign in with your email address username.</p>
 
