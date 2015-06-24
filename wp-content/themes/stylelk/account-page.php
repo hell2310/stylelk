@@ -88,8 +88,9 @@ if(	isset($_POST['userID'])){
 						<div id="edit-avatar-content" class="tab-pane fade">
 							<h1><?php _e('Change Avatar') ?></h1>
 							<hr>
-							<img src="http://www.gravatar.com/avatar/566a2e2f4f0aaa0110e809b1ee400231?s=150&r=g&d=mm">
-							<p><?php _e('Image')?></p>
+							<?php echo do_shortcode('[basic-user-avatars]'); ?>
+							<!-- <img src="http://www.gravatar.com/avatar/566a2e2f4f0aaa0110e809b1ee400231?s=150&r=g&d=mm">
+							 -->
 							<hr>
 						</div>
 						<div id="edit-newsletter-content" class="tab-pane fade">
