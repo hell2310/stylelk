@@ -203,12 +203,12 @@ ul.menu-social li a span{
 	display: block;
 	line-height: 40px;
 }
-#navbar-top #menu-short-categories-top li a{
+#navbar-top ul.menu-short-categories-top li a{
 	text-transform: uppercase;
 	font-family: "Oswald";
-	font-size: 18px;
+	font-size: 16px;
 }
-#navbar-top #menu-short-categories-top li ul.sub-menu li{
+#navbar-top ul.menu-short-categories-top li ul.sub-menu li{
 	height: 24px;
 	line-height: 24px;
 	min-width: 120px;
@@ -342,6 +342,13 @@ ul.sub-menu li a:hover{
 }
 #fixer-menu .menu-social li {
 	padding: 10px 0;
+}
+#fixer-menu ul.user-menu li a{
+	font-family: Montserrat;
+	text-transform: capitalize;
+	font-size: 14px;	
+	line-height: 26px;
+
 }
 .logo img{
 	height: 20px;
@@ -848,7 +855,13 @@ ul.sub-menu li a:hover{
 }
 #login-register-container p{
 	margin: 30px 0;
-	 font-size: 14px;
+	font-size: 14px;
+}
+#loginform p{
+	margin: 10px;
+}
+#loginform input{
+	padding: 5px;
 }
 .login-password input, .login-password label,.login-username input, .login-username label{
 	display: inline-block;

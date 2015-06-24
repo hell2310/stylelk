@@ -12,7 +12,7 @@
 				<li class="visible-small mainmenu-btn"><img src="<?php echo get_template_directory_uri();?>/images/slide-menu.svg"></li>
 				<li class="visible-small logo"><a href="<?php echo HOME;?>"><img src="<?php echo esc_url(get_theme_mod( 'stylelk_logo')); ?>"></a></li>
 			</ul>
-			<?php wp_nav_menu( array( 'theme_location' => 'short_categories_menu', 'container' =>false, 'menu_class' => "nav pull-right")); ?>
+			<?php wp_nav_menu( array( 'theme_location' => 'short_categories_menu_top', 'container' =>false, 'menu_class' => "nav pull-right")); ?>
 			<ul class="nav nav-pills pull-right hidden-xs menu-social">
 				<li><a href="<?php echo (get_option('qs_contact_facebook')); ?>"><span class="fa fa-facebook" ></span></a></li>
 				<li><a href="<?php echo (get_option('qs_contact_twitter')); ?>"><span class="fa fa-twitter"></span></a></li>
@@ -22,6 +22,22 @@
 			<div class="pull-left search-form-fix"><span class="fa fa-search btn-toggle-search"></span>
 				<?php echo get_search_form(); ?>
 			</div>
+			<?php 
+					if( is_user_logged_in()):
+						?>
+					<ul class="nav nav-pills pull-left hidden-xs user-menu">
+						<li class="menu-item-has-children"><a ><span class="fa fa-user"></span> <b><?php _e('Account') ?></b></a>
+							<ul class="sub-menu">
+								<?php wp_nav_menu( array( 'theme_location' => 'accountpage_menu', 'container' =>false, 'menu_class' => false) ); ?>
+								<li><a href="<?php echo wp_logout_url(HOME); ?>"><?php _e('Logout') ?></a></li>
+							</ul>	
+						</li>
+					</ul>
+					<?php
+					else :
+						wp_nav_menu( array( 'theme_location' => 'user_menu', 'container' =>false, 'menu_class' => 'nav nav-pills pull-left hidden-xs user-menu') ); 				
+					endif;
+			?>
 		</div>
 	</nav>
 	<nav id="slide_menu"><!-- SLIDER MENU -->
@@ -53,9 +69,9 @@
 			<nav id="navbar-top" class="navbar navbar-default">
 				<div class="container">
 					<ul class="nav nav-pills pull-right menu-home">
-						<li class="mainmenu-btn"><a href="#"><span class="fa fa-bars"></span></a></li>
+						<li class="mainmenu-btn"><a ><span class="fa fa-bars"></span></a></li>
 						<li class="hidden-xs"><a href="<?php echo HOME; ?>"><span class="fa fa-home"></span></a></li>	
-						<li class="visible-xs logo"><a href="#"><img src="<?php echo esc_url(get_theme_mod( 'stylelk_logo'));?>"></a></li>					
+						<li class="visible-xs logo"><a href="<?php echo HOME; ?>"><img src="<?php echo esc_url(get_theme_mod( 'stylelk_logo'));?>"></a></li>					
 					</ul>
 
 					<ul class="nav nav-pills pull-right hidden-xs menu-social">
@@ -65,7 +81,7 @@
 						<li><a href="<?php echo (get_option('qs_contact_instagram')); ?>"><span class="fa fa-instagram"></span></a></li>
 					</ul>
 					<?php if(!is_home()):?>
-					<?php wp_nav_menu( array( 'theme_location' => 'short_categories_menu_top', 'container' =>false, 'menu_class' => "nav pull-right hidden-xs hidden-sm")); ?>
+					<?php wp_nav_menu( array( 'theme_location' => 'short_categories_menu_top', 'container' =>false, 'menu_class' => "nav pull-right hidden-xs hidden-sm menu-short-categories-top")); ?>
 					<?php endif;?>
 					<div class="pull-left search-form-fix"><span class="fa fa-search btn-toggle-search"></span>
 						<?php echo get_search_form(); ?>
@@ -75,7 +91,7 @@
 					if( is_user_logged_in()):
 						?>
 					<ul class="nav nav-pills pull-left hidden-xs user-menu">
-						<li class="menu-item-has-children"><a href="#"><span class="fa fa-user"></span> <b><?php _e('Account') ?></b></a>
+						<li class="menu-item-has-children"><a><span class="fa fa-user"></span> <b><?php _e('Account') ?></b></a>
 							<ul class="sub-menu">
 								<?php wp_nav_menu( array( 'theme_location' => 'accountpage_menu', 'container' =>false, 'menu_class' => false) ); ?>
 								<li><a href="<?php echo wp_logout_url(HOME); ?>"><?php _e('Logout') ?></a></li>

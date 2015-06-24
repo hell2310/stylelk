@@ -53,8 +53,8 @@ $(window).on("load",function(){
 });
 /*MENU FIXER*/
 $(window).scroll(function(){
-			if($(window).width()<=768){
-				if($(window).scrollTop()>50){
+			if(post_addr==1|post_addr==2){
+				if($(window).scrollTop()>200){
 					$("#fixer-menu").css({"display":"block"});
 				}
 				else
@@ -63,7 +63,7 @@ $(window).scroll(function(){
 				}
 			}
 			else{
-				if($(window).scrollTop()>200)
+				if($(window).scrollTop()>50)
 				{	
 					$("#fixer-menu").css({"display":"block"});
 				}

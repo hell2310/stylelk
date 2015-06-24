@@ -23,7 +23,10 @@
 			</div>
 		</div><!-- END CONTENT -->
  
-
+		<script type="text/javascript">
+			$("#user_login").attr('placeholder','Email');
+			$("#user_pass").attr('placeholder','Password');
+		</script>
 <?php
  get_footer();
  ?>
