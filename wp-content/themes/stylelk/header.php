@@ -65,7 +65,7 @@
 						<li><a href="<?php echo (get_option('qs_contact_instagram')); ?>"><span class="fa fa-instagram"></span></a></li>
 					</ul>
 					<?php if(!is_home()):?>
-					<?php wp_nav_menu( array( 'theme_location' => 'short_categories_menu_top', 'container' =>false, 'menu_class' => "nav pull-right visible-md")); ?>
+					<?php wp_nav_menu( array( 'theme_location' => 'short_categories_menu_top', 'container' =>false, 'menu_class' => "nav pull-right hidden-xs hidden-sm")); ?>
 					<?php endif;?>
 					<div class="pull-left search-form-fix"><span class="fa fa-search btn-toggle-search"></span>
 						<?php echo get_search_form(); ?>
