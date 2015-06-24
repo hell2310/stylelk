@@ -116,6 +116,7 @@
     	array(
     	'user_menu'=>__('User'),
     	'short_categories_menu'=>__('Short Categories Menu'),
+    	'short_categories_menu_top'=>('Short Categories Menu in Top Menu'),
     	'categories_menu'=>__('Categories Menu'),
     	'pageinfor_menu'=>__('Page Infor Menu'),
     	'pageinfor_menu_1'=>__('Page Infor Menu 1'),

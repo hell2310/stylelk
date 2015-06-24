@@ -3,7 +3,7 @@
 		<div class="story-image" > <a href="<?php the_permalink() ?>"><?php the_post_thumbnail() ?></a></div>
 		<h1 class="story-title"><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h1>
 			<ul class="nav nav-align-right nav-interative-social">
-				<li class="social-share-count"><span><?php echo getRedditShareCount(get_the_ID())+getPinterestShareCount(get_the_ID())+getTwitterShareCount(get_the_ID())+getFacebookShareCount(get_the_ID());?></span> <b>Shares</b></li>
+				<li class="hidden-xs social-share-count"><span><?php echo getRedditShareCount(get_the_ID())+getPinterestShareCount(get_the_ID())+getTwitterShareCount(get_the_ID())+getFacebookShareCount(get_the_ID());?></span> <b>Shares</b></li>
 				<li class="social-fb"><a href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink()?>" target='_blank'><span class="fa fa-facebook"></span><span class="hidden-xs"> like</span></a></li>
 				<li class="social-twitter"><a href="https://twitter.com/intent/tweet?url=<?php the_permalink()?>" target='_blank'><span class="fa fa-twitter"></span><span class="hidden-xs"> tweet</span></a></li>
 				<li class="social-reddit"><a href="http://www.reddit.com/submit?url=<?php the_permalink()?>" target='_blank'><span class="fa fa-reddit"></span><span class="hidden-xs"> submit</span></a></li>
@@ -16,8 +16,8 @@
 				<?php the_content() ?>
 			</div>
 			<ul class="nav nav-align-right story-infor"><li><strong>Date: </strong><p><?php the_date() ?></p></li>/<li><strong>Author: </strong><p><a href="<?php the_author_link() ?>"><?php the_author() ?></a></p></li></ul>
-			<ul class="nav nav-align-right story-infor"><li><strong>Category:</strong><p><?php the_category() ?></p></li>/<li><strong>tag: </strong><p><?php the_tags('','','')?></p></li>/<li><strong>views: </strong><p><?php echo getPostViews(get_the_ID()); ?></p></li></ul>
-			<p class="story-comment"><a>comments</a></p>
+			<ul class="nav nav-align-right story-infor"><li><strong>Category: </strong><p><?php the_category() ?></p></li>/<li><strong>tag: </strong><p><?php the_tags('','','')?></p></li>/<li><strong>views: </strong><p><?php echo getPostViews(get_the_ID()); ?></p></li></ul>
+			<p class="story-comment"><a><?php echo get_comments_number();?> <?php _e('comments')?></a></p>
 			<?php 
 				global $wpdb;
 				global $post;
