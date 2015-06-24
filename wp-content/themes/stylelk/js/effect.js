@@ -53,7 +53,7 @@ $(window).on("load",function(){
 });
 /*MENU FIXER*/
 $(window).scroll(function(){
-			if(post_addr==1|post_addr==2){
+			if((post_addr==1|post_addr==2)&&($(window).width()>768)){
 				if($(window).scrollTop()>200){
 					$("#fixer-menu").css({"display":"block"});
 				}
