@@ -6,19 +6,16 @@
 		define( 'IMAGES', THEME_URL . '/images' );
 		define( 'HOME', esc_url( home_url()) );
 	require_once( CORE . '/init.php' );
-
 	/* ADD $content_width
 	*/
 	if ( ! isset( $content_width ) ) {	
 	    $content_width = 620;
 	 }
-
 	/*ADD THEME SET UP */
 	if(!function_exists('stylelk_theme_setup')){
 	   		function stylelk_theme_setup(){
 				/*add function thumbnail*/
 				add_theme_support( 'post-thumbnails' );
-				/* Auto add <title>*/
 				add_theme_support( 'title-tag' );
 				/* Add theme support menu*/
 				add_theme_support( 'menus' );
@@ -61,6 +58,13 @@
 	}
 	wp_localize_script( 'ajax-script', 'ajax_object', array( 'ajaxurl' => admin_url('admin-ajax.php' ) ) );
 
+
+	function viewport_meta() { 
+    ?>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <?php
+	}
+	add_filter('wp_head', 'viewport_meta');
 /*ADD AJAXURL VALUE */
 	
 	function embed_ajax() {

@@ -56,7 +56,7 @@
 			<li><a href="<?php echo (get_option('qs_contact_youtube')); ?>"><span class="fa fa-youtube"></span></a></li>
 			<li><a href="<?php echo (get_option('qs_contact_instagram')); ?>"><span class="fa fa-instagram"></span></a></li>
 			<li><a href="<?php echo (get_option('qs_contact_pinterest')); ?>"><span class="fa fa-pinterest"></span></a></li>
-			<li><a href="<?php echo (get_option('qs_contact_rss')); ?>"><span class="fa fa-rss"></span></a></li>
+			<li><a href="<?php echo HOME; ?>/?feed=rss"><span class="fa fa-rss"></span></a></li>
 		</ul>
 		<?php wp_nav_menu( array( 'theme_location' => 'pageinfor_menu_1', 'container' =>false, 'menu_class' => 'menu-pageinfor') ); ?>				
 		<div class="menu-footer">
