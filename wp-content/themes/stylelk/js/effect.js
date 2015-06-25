@@ -10,18 +10,18 @@ $(window).on("load",function(){
 			});
 			$(".close-slide").click(function(){
 				$("body").css("overflow","visible");
+				$("#slide_menu").animate({right:-(menuwidth+20)},400);
 				$(".wrapper").css({"opacity":1,transform:"translateX(0)","-webkit-transform":"translateX(0)"});
 				$("#fixer-menu").css({"opacity":1,transform:"translateX(0)","-webkit-transform":"translateX(0)"});
-				$(".blur-screen").css({"display":"none"});
-				$("#slide_menu").animate({right:-(menuwidth+20)},500);
-
+				$(".blur-screen").css({"display":"none"});				
 			})
 			$(".blur-screen").click(function(){
 				$("body").css("overflow","visible");
+				$("#slide_menu").animate({right:-(menuwidth+20)},400);
 				$(".wrapper").css({"opacity":1,transform:"translateX(0)","-webkit-transform":"translateX(0)"});
 				$("#fixer-menu").css({"opacity":1,transform:"translateX(0)","-webkit-transform":"translateX(0)"});
 				$(".blur-screen").css({"display":"none"});
-				$("#slide_menu").animate({right:-(menuwidth+20)},500);
+				
 			})
 
 			/*fadeIn fadeOut searchform*/

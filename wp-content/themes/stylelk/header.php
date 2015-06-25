@@ -70,19 +70,24 @@
 				<div class="container">
 					<ul class="nav nav-pills pull-right menu-home">
 						<li class="mainmenu-btn"><a ><span class="fa fa-bars"></span></a></li>
+						<?php if(!is_home()):?>
+						<li class="logo"><a href="<?php echo HOME; ?>"><img src="<?php echo esc_url(get_theme_mod( 'stylelk_logo'));?>"></a></li>										
+						<?php endif;?>
+						<?php if(is_home()):?>
 						<li class="hidden-xs"><a href="<?php echo HOME; ?>"><span class="fa fa-home"></span></a></li>	
 						<li class="visible-xs logo"><a href="<?php echo HOME; ?>"><img src="<?php echo esc_url(get_theme_mod( 'stylelk_logo'));?>"></a></li>					
+						<?php endif;?>
 					</ul>
-
+					<?php if(!is_home()):?>
+					<?php wp_nav_menu( array( 'theme_location' => 'short_categories_menu_top', 'container' =>false, 'menu_class' => "nav pull-right hidden-xs hidden-sm menu-short-categories-top")); ?>
+					<?php endif;?>
 					<ul class="nav nav-pills pull-right hidden-xs menu-social">
 						<li><a href="<?php echo (get_option('qs_contact_facebook')); ?>"><span class="fa fa-facebook" ></span></a></li>
 						<li><a href="<?php echo (get_option('qs_contact_twitter')); ?>"><span class="fa fa-twitter"></span></a></li>
 						<li><a href="<?php echo (get_option('qs_contact_pinterest')); ?>"><span class="fa fa-pinterest"></span></a></li>
 						<li><a href="<?php echo (get_option('qs_contact_instagram')); ?>"><span class="fa fa-instagram"></span></a></li>
 					</ul>
-					<?php if(!is_home()):?>
-					<?php wp_nav_menu( array( 'theme_location' => 'short_categories_menu_top', 'container' =>false, 'menu_class' => "nav pull-right hidden-xs hidden-sm menu-short-categories-top")); ?>
-					<?php endif;?>
+					
 					<div class="pull-left search-form-fix"><span class="fa fa-search btn-toggle-search"></span>
 						<?php echo get_search_form(); ?>
 					</div>	

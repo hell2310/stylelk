@@ -18,7 +18,7 @@
 						'remember'       => true
 					);
 					wp_login_form($args);?>
-					<p><a href="#">Lost Password?</a></p>
+					<p><a href="<?php echo HOME;?>/wp-login.php?action=lostpassword">Lost Password?</a></p>
 				</div>			
 			</div>
 		</div><!-- END CONTENT -->

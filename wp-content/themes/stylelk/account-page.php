@@ -16,15 +16,17 @@ if(	isset($_POST['userID'])){
     else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
     	$message="Invalid Email";
     }
-    else if((! $newpassword=''|!$repeatpassword='')&&( $newpassword!=$repeatpassword))
+    else if((! $newpassword==''|!$repeatpassword=='')&&( $newpassword!=$repeatpassword))
     {
     	$message="Password Invalid";
     }
     else{
-    	if((! $newpassword=''|!$repeatpassword='')&&( $newpassword==$repeatpassword))
-		$user_id = wp_update_user( array( 'ID' => $user_id, 'user_email' => $email,'user_pass'=>$newpassword,'user_nicename'=>$displayname,'first_name'=>$firstname,'last_name'=>$lastnames ) );
+    	if((! $newpassword==''&&!$repeatpassword=='')&&( $newpassword==$repeatpassword)){
+		$user_id = wp_update_user( array( 'ID' => $user_id, 'user_email' => $email,'user_displayname'=>$displayname,'first_name'=>$firstname,'last_name'=>$lastname ) );
+    	wp_set_password( $newpassword, $user_id );
+    	}
     	else
-    	$user_id = wp_update_user( array( 'ID' => $user_id, 'user_email' => $email,'user_nicename'=>$displayname,'first_name'=>$firstname,'last_name'=>$lastnames ) );
+    	$user_id = wp_update_user( array( 'ID' => $user_id, 'user_email' => $email,'user_displayname'=>$displayname,'first_name'=>$firstname,'last_name'=>$lastname ) );
     	if(is_wp_error( $user_id ) ){
     		$message="Error Update";
     	}
@@ -64,7 +66,7 @@ if(	isset($_POST['userID'])){
 									</div>
 									<div class="form-group row">							
 										<label class="control-label col-md-3"><?php _e('Display Name') ?></label>
-										<input class="col-md-6 form-control" name="userDisplayname" type="text" value="<?php echo $current_user->user_nicename ; ?>" required="required">
+										<input class="col-md-6 form-control" name="userDisplayname" type="text" value="<?php echo $current_user->display_name ; ?>" >
 									</div>
 									<div class="form-group row">							
 										<label class="control-label col-md-3"><?php _e('User First Name') ?></label>
@@ -76,11 +78,11 @@ if(	isset($_POST['userID'])){
 									</div>
 									<div class="form-group row">							
 										<label class="control-label col-md-3"><?php _e('New Password') ?></label>
-										<input class="col-md-6 form-control" name="userNewPassword" type="text">
+										<input class="col-md-6 form-control" name="userNewPassword" type="password">
 									</div>
 									<div class="form-group row">							
 										<label class="control-label col-md-3"><?php _e('Repeat New Password') ?></label>
-										<input class="col-md-6 form-control" name="userRepeatPassword" type="text">
+										<input class="col-md-6 form-control" name="userRepeatPassword" type="password">
 									</div>
 								<input class="btn btn-primary" type="submit" value="<?php _e('Update Profile')?>">
 							</form>

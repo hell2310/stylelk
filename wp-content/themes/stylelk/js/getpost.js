@@ -28,7 +28,8 @@ $(document).ready(function(){
 						$(".loadmore").html('Loading...');
 						$.ajax({
 						url:ajaxurl, 
-						data:{	action:'load_data_request',
+						data:{	
+							action:'load_data_request',
 							numpost:numpost,
 							currentpost:currentpost,
 							post_addr:post_addr,

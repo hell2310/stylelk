@@ -14,6 +14,7 @@
 	padding: 0;
 }
 /*OVERRIDED BOOTSTRAP*/
+
 @media (min-width:1200px){.container{width:1050px}}
 a{
 	text-decoration: none;
@@ -189,6 +190,10 @@ ul.menu-social li a span{
 /* NAV TOP*/
 #navbar-top{
 	background: #ffffff;
+	border-radius: 0;
+	-webkit-border-radius: 0;
+	border: none;
+	border-bottom: 1px #dddddd solid;
 }
 #navbar-top ul.nav li{
 	height: 50px;
