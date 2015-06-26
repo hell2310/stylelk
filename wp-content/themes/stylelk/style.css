@@ -1,5 +1,4 @@
-
- /* 
+/* 
  * Theme Name: STYLELK Theme
  * Description: STYLELK Theme
  * Theme URI: 
@@ -14,7 +13,6 @@
 	padding: 0;
 }
 /*OVERRIDED BOOTSTRAP*/
-
 @media (min-width:1200px){.container{width:1050px}}
 a{
 	text-decoration: none;
@@ -25,7 +23,7 @@ a:hover,.nav>li>a:hover,.nav>li>a:focus{
 	text-decoration: none;
 	color: #428bca;
 }
-.nav li{
+.nav li,ul.nav-align-right p,ul.nav-align-right ul{
 	display: inline-block;
 }
 ul{
@@ -33,16 +31,6 @@ ul{
 }
 ul.nav-align-right{
 	text-align: right;
-}
-ul.nav-align-right p{
-	display: inline-block;
-}
-ul.nav-align-right ul{
-	display: inline-block;
-
-}
-ul.story-infor{
-	text-transform: capitalize;
 }
 /*FONTs*/
 @font-face{
@@ -451,7 +439,13 @@ ul.sub-menu li a:hover{
 .story-content ul li{
 	font-family: "Montserrat";
 	font-size: 12px;
+
+}
+ul.story-time li{
 	color: #006fbb;
+}
+li.divider{
+	margin: 0;
 }
 .story-content h2{
 	margin: 10px 0;
@@ -466,6 +460,9 @@ ul.sub-menu li a:hover{
 		color: #006FBB;
 		text-transform: capitalize;
 		-webkit-text-transform:capitalize;
+}
+ul.story-infor{
+	text-transform: capitalize;
 }
 .interative,.interative li,.interative li a{
 	color: #333333;
@@ -683,17 +680,13 @@ ul.sub-menu li a:hover{
 }
 .story-infor li{
 	margin: 0 5px;
+}
 
-}
-.story-infor li p{
-	margin: 0;
-}
-.story-infor li .post-categories li{
+.story-infor li p,.story-infor li.divider,.story-infor li .post-categories li{
 	margin: 0;
 }
 .story-infor li a{
-	display: inline !important;
-	
+	display: inline !important;	
 	padding: 0;
 	color: #999999;
 }
@@ -721,10 +714,6 @@ ul.sub-menu li a:hover{
 {	
 	color: #006FBB;
 	font-size: 11px;
-}
-.yma-like-infor li{
-	padding: 0 5px;
-	
 }
 .yma-like-infor li a{
 	color: #006FBB;	
@@ -953,4 +942,7 @@ ul.sub-menu li a:hover{
 	font-size: 50px;
 	padding: 100px 0;
 	color: #ffffff;
+}
+#edit-profile-content{
+	min-height: 500px;
 }

@@ -47,7 +47,7 @@
         <?php } ?>
         
         <div id="container">
-            <h1><?php echo get_option('blogname'); ?></h1>
+            <h1><a href="<?php echo HOME;?>"><?php echo get_option('blogname'); ?></a></h1>
             <?php echo $message; ?>
         </div>
     </body>

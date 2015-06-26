@@ -81,7 +81,7 @@ class NewsletterWidget extends WP_Widget {
         if (strpos($options_profile['subscribe'], 'http://') !== false) {
             $form .= '<p><input class="newsletter-submit" type="image" src="' . $options_profile['subscribe'] . '"/></p>';
         } else {
-            $form .= '<p><button class="input-group newsletter-submit fa fa-angle-double-left" type="submit" value="' . $options_profile['subscribe'] . '"/></button></p>';
+            $form .= '<p><button class="input-group newsletter-submit fa fa-angle-double-left" type="submit" value="' . $options_profile['subscribe'] . '"></button></p>';
         }
 
         $form .= '</form>';

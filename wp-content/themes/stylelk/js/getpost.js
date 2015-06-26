@@ -2,7 +2,7 @@ $(document).ready(function(){
 	var isloadingData=0;
 		$(window).on("scroll",function(){
 				poisition=$(".loadmore").position();
-				var numpost=2;
+				var numpost=10;
 				var categoy_id;
 				var tag_slug;
 				if(post_addr==3) categoy_id=cat_id;
@@ -21,7 +21,7 @@ $(document).ready(function(){
 						currentpost=$(".tab-content").children(".story-wrapper").length;
 				}
 /*-------------------------------------------------------*/
-				if($(window).scrollTop()>(poisition.top-$(window).height())&&isloadingData==0) loadData();
+				if($(window).scrollTop()>(poisition.top-$(window).height()-$(window).height()/2)&&isloadingData==0) loadData();
 				
 				function loadData(){
 					 	isloadingData=1;

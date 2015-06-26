@@ -39,6 +39,6 @@
 		<?php endif;?>
 	</div><!-- END WRAPPER -->	
 	<!-- BACK TO TOP -->
-	<a href="<?php echo HOME;?>"class="scroll-up fa fa-chevron-up" onclick="$('html,body').animate({scrollTop:0},'slow');return false;"></a>	
+	<a href="<?php echo HOME;?>" class="scroll-up fa fa-chevron-up" onclick="$('html,body').animate({scrollTop:0},'slow');return false;"></a>	
 </body>
 </html>

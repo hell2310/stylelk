@@ -51,6 +51,9 @@ if (is_file(WP_CONTENT_DIR . '/extensions/newsletter/subscription/page.php')) {
                 border-bottom: 1px solid #aaa;
                 margin-top: 0;
             }
+            a{
+                text-decoration: none;
+            }
             h2 {
                 font-size: 20px;
             }
@@ -73,7 +76,7 @@ if (is_file(WP_CONTENT_DIR . '/extensions/newsletter/subscription/page.php')) {
         </script>
         <?php } ?>
         <div id="container">
-            <h1><?php echo get_option('blogname'); ?></h1>
+           <h1><a href="<?php echo HOME;?>"><?php echo get_option('blogname'); ?></a></h1>
             <?php echo $message; ?>
         </div>
     </body>

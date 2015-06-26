@@ -1,4 +1,6 @@
-<?php get_header();
+<?php 
+
+get_header();
 /*
  Template Name: Login Page
  */
@@ -11,13 +13,16 @@
 					<p><a class="btn btn-primary btn-block facebook-connect" href="<?php echo HOME; ?>/wp-login.php?loginFacebook=1&redirect=<?php echo HOME;?>" onclick="window.location = '<?php echo HOME;?>/wp-login.php?loginFacebook=1&redirect='+window.location.href; return false;"><span class="fa fa-facebook"></span>  Login with facebook</a></p>
 					<hr>
 					<p>Sign in with your email address username.</p>
-
+				<?php if( !is_user_logged_in()): ?>
 					<?php 
 					$args=array(
 						'label_username' => __( 'Email / Username' ),
 						'remember'       => true
 					);
 					wp_login_form($args);?>
+				<?php else : ?>
+					<p><?php echo _e('You have been login');?></p>
+				<?php endif;?>
 					<p><a href="<?php echo HOME;?>/wp-login.php?action=lostpassword">Lost Password?</a></p>
 				</div>			
 			</div>

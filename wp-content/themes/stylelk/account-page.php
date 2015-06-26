@@ -85,14 +85,13 @@ if(	isset($_POST['userID'])){
 										<input class="col-md-6 form-control" name="userRepeatPassword" type="password">
 									</div>
 								<input class="btn btn-primary" type="submit" value="<?php _e('Update Profile')?>">
+								<input class="btn btn-primary" onclick=" query_delete()" value="<?php _e('Close Account')?>">
 							</form>
 						</div>
 						<div id="edit-avatar-content" class="tab-pane fade">
 							<h1><?php _e('Change Avatar') ?></h1>
 							<hr>
 							<?php echo do_shortcode('[basic-user-avatars]'); ?>
-							<!-- <img src="http://www.gravatar.com/avatar/566a2e2f4f0aaa0110e809b1ee400231?s=150&r=g&d=mm">
-							 -->
 							<hr>
 						</div>
 						<div id="edit-newsletter-content" class="tab-pane fade">
@@ -104,4 +103,22 @@ if(	isset($_POST['userID'])){
 			</div>
 		</div>
 	</div><!-- END CONTENT -->
+	<script type="text/javascript">
+	function query_delete(){
+		$("#edit-profile-content").html('<p>Are you want close this Account<p><input class="btn btn-primary" onclick=" delete_account()" value="<?php _e('Close Account')?>">')
+	}
+	function delete_account(){
+		var user_id=<?php echo $current_user->ID; ?>;
+		$.ajax({url:ajaxurl, 
+				data:{	
+						action:'delete_account',
+						user_id:user_id
+						},
+				type:"POST", 
+				success: function(result){
+				$("#edit-profile-content").html("Account have closed !");
+	    				}
+	    				});	
+	}
+	</script>
 <?php get_footer(); ?>

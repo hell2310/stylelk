@@ -31,6 +31,13 @@
 	}
 	add_action('init','stylelk_theme_setup');
 	/*register style*/
+	function viewport_meta() { 
+    ?>
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1">
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1"/> -->
+    <?php
+	}
+	add_filter('wp_head', 'viewport_meta');
 	if(!function_exists('stylelk_register_style')){
 	function stylelk_register_style()
 	{
@@ -59,12 +66,7 @@
 	wp_localize_script( 'ajax-script', 'ajax_object', array( 'ajaxurl' => admin_url('admin-ajax.php' ) ) );
 
 
-	function viewport_meta() { 
-    ?>
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <?php
-	}
-	add_filter('wp_head', 'viewport_meta');
+
 /*ADD AJAXURL VALUE */
 	
 	function embed_ajax() {
@@ -75,9 +77,9 @@
 	var cat_id='';
 	var tag_slug_name='';
 	<?php if(is_home()):?> post_addr=1; 
-	<?php elseif(is_category()):?> post_addr=3; cat_id=<?php echo $_REQUEST['cat']; ?>;
+	<?php elseif(is_category()):?> post_addr=3; cat_id=<?php echo get_cat_id( single_cat_title("",false) ); ?>;
 	<?php elseif(is_single()):?> post_addr=4; 
-	<?php elseif(is_tag()):?> post_addr=5; tag_slug_name=<?php echo $_REQUEST['tag']; ?>;
+	<?php elseif(is_tag()):?> post_addr=5; tag_slug_name=<?php echo single_tag_title( '', false ); ?>;
 	<?php endif;?>
 	</script>
 	<?php
@@ -192,7 +194,7 @@
 	function categoryPosts($curentpost,$numpost,$categoy_id){
 		global $wpdb;
 		global $post;
-		$args=array('cat'=>$categoy_id);
+		$args=array('cat'=>$categoy_id,'posts_per_page'=>$numpost,'offset'=>$curentpost);
 		$the_query=new WP_Query($args);
 		if ($the_query->have_posts()) : 
 			while ($the_query->have_posts()): $the_query->the_post();
@@ -209,7 +211,7 @@
 function tagPosts($curentpost,$numpost,$tag_slug){
 		global $wpdb;
 		global $post;
-		$args=array('tag'=>$tag_slug);
+		$args=array('tag'=>$tag_slug,'posts_per_page'=>$numpost,'offset'=>$curentpost);
 		$the_query=new WP_Query($args);
 		if ($the_query->have_posts()) : 
 			while ($the_query->have_posts()): $the_query->the_post();
@@ -256,6 +258,15 @@ function tagPosts($curentpost,$numpost,$tag_slug){
 	}
 	add_action( 'wp_ajax_load_data_request', 'load_data_request' );
 	add_action( 'wp_ajax_nopriv_load_data_request', 'load_data_request' );
+	function delete_account(){
+		if(isset($_REQUEST['user_id'])){
+		$result=wp_delete_user($_REQUEST['user_id'] );
+		return $result;
+		die();
+		}
+	}
+	add_action( 'wp_ajax_delete_account', 'delete_account' );
+	add_action( 'wp_ajax_nopriv_delete_account', 'delete_account' );
 /*GET SOCIAL SHARE COUNT*/
 function getTwitterShareCount($urlCurrentPage) {
     $htmlTwitterShareDetails = wp_remote_get('http://urls.api.twitter.com/1/urls/count.json?url='.$urlCurrentPage, array('timeout' => 6));

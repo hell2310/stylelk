@@ -9,8 +9,8 @@
 	<nav id="fixer-menu" class="navbar navbar-default"><!-- FIXER MENU -->
 		<div class="container">
 			<ul class="nav pull-right">
-				<li class="visible-small mainmenu-btn"><img src="<?php echo get_template_directory_uri();?>/images/slide-menu.svg"></li>
-				<li class="visible-small logo"><a href="<?php echo HOME;?>"><img src="<?php echo esc_url(get_theme_mod( 'stylelk_logo')); ?>"></a></li>
+				<li class="visible-small mainmenu-btn"><img src="<?php echo get_template_directory_uri();?>/images/slide-menu.svg" alt="slide button"></li>
+				<li class="visible-small logo"><a href="<?php echo HOME;?>"><img src="<?php echo esc_url(get_theme_mod( 'stylelk_logo')); ?>" alt="Stylelk"></a></li>
 			</ul>
 			<?php wp_nav_menu( array( 'theme_location' => 'short_categories_menu_top', 'container' =>false, 'menu_class' => "nav pull-right")); ?>
 			<ul class="nav nav-pills pull-right hidden-xs menu-social">
@@ -71,11 +71,11 @@
 					<ul class="nav nav-pills pull-right menu-home">
 						<li class="mainmenu-btn"><a ><span class="fa fa-bars"></span></a></li>
 						<?php if(!is_home()):?>
-						<li class="logo"><a href="<?php echo HOME; ?>"><img src="<?php echo esc_url(get_theme_mod( 'stylelk_logo'));?>"></a></li>										
+						<li class="logo"><a href="<?php echo HOME; ?>"><img src="<?php echo esc_url(get_theme_mod( 'stylelk_logo'));?>" alt="Stylelk"></a></li>										
 						<?php endif;?>
 						<?php if(is_home()):?>
 						<li class="hidden-xs"><a href="<?php echo HOME; ?>"><span class="fa fa-home"></span></a></li>	
-						<li class="visible-xs logo"><a href="<?php echo HOME; ?>"><img src="<?php echo esc_url(get_theme_mod( 'stylelk_logo'));?>"></a></li>					
+						<li class="visible-xs logo"><a href="<?php echo HOME; ?>"><img src="<?php echo esc_url(get_theme_mod( 'stylelk_logo'));?>" alt="Stylelk"></a></li>					
 						<?php endif;?>
 					</ul>
 					<?php if(!is_home()):?>
