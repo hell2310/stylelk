@@ -7,6 +7,9 @@ $success = '';
 global $wpdb, $PasswordHash, $current_user, $user_ID;
 if(isset($_POST['email'])){
     $email = $wpdb->escape(trim($_POST['email']));
+    $user_login=$email;
+    $user_firstname=explode('@',$email);
+    $user_firstname=$user_firstname[0];
     $password = $wpdb->escape(trim($_POST['password'])); 
     if( $email == '' || $password == "") {
         $error = 'Please don\'t leave the required fields.';
@@ -17,12 +20,20 @@ if(isset($_POST['email'])){
     }      
     else {
  
-        $user_id = wp_insert_user( array ('user_login' => apply_filters('pre_user_user_login', $email),'user_pass' => apply_filters('pre_user_user_pass', $password), 'user_email' => apply_filters('pre_user_user_email', $email), 'role' => 'subscriber' ) );
+        $user_id = wp_insert_user( array ('user_login' => apply_filters('pre_user_user_login', $user_login),'user_pass' => apply_filters('pre_user_user_pass', $password), 'user_email' => apply_filters('pre_user_user_email', $email),'first_name'=> $user_firstname, 'role' => 'subscriber' ) );
         if( is_wp_error($user_id) ) {
             $error = 'Error on user creation.';
         } else {
             do_action('user_register', $user_id);
-            
+            $user = get_user_by( 'id', $user_id );     
+            $creds = array();
+			$creds['user_login'] = $user_login;
+			$creds['user_password'] = $password;
+			$creds['remember'] = true;
+    		$user = wp_signon( $creds, false );  
+    		if ( is_wp_error($user) )
+       		die(var_dump(is_wp_error($user)));
+            redirect_to_page(HOME.'/resgiter-success');
             $success = 'You\'re successfully register';
         }
     }
@@ -30,7 +41,7 @@ if(isset($_POST['email'])){
  ?>
  <div class="container body-content">
 			<div class="row">
-				<div id="login-register-container">
+				<div class="login-register-container">
 					<h1>Register to STYLELK</h1>
 <?php if(!$success==''&&$error=='') : ?>
 					<p> <?php echo $success; ?></p>

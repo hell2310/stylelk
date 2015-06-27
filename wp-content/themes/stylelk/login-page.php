@@ -7,7 +7,7 @@ get_header();
  ?>
  <div class="container body-content">
 			<div class="row">
-				<div id="login-register-container">
+				<div class="login-register-container">
 					<h1>Login to STYLELK</h1>
 					<p>Connect to STYLELK with your Facebook account</p>
 					<p><a class="btn btn-primary btn-block facebook-connect" href="<?php echo HOME; ?>/wp-login.php?loginFacebook=1&redirect=<?php echo HOME;?>" onclick="window.location = '<?php echo HOME;?>/wp-login.php?loginFacebook=1&redirect='+window.location.href; return false;"><span class="fa fa-facebook"></span>  Login with facebook</a></p>

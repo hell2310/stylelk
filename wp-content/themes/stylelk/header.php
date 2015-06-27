@@ -6,7 +6,9 @@
 </head>
 <body <?php body_class(); ?> >		
 	<div class="blur-screen"></div><!-- BLUR SCREEN 0.5 OPACITY #000000 BACK-GROUND -->
-	<nav id="fixer-menu" class="navbar navbar-default"><!-- FIXER MENU -->
+	<!-- FIXER MENU -->
+	<?php if(!is_page_template('account-page.php')): ?>
+	<nav id="fixer-menu" class="navbar navbar-default">
 		<div class="container">
 			<ul class="nav pull-right">
 				<li class="visible-small mainmenu-btn"><img src="<?php echo get_template_directory_uri();?>/images/slide-menu.svg" alt="slide button"></li>
@@ -26,7 +28,7 @@
 					if( is_user_logged_in()):
 						?>
 					<ul class="nav nav-pills pull-left hidden-xs user-menu">
-						<li class="menu-item-has-children"><a ><span class="fa fa-user"></span> <b><?php _e('Account') ?></b></a>
+						<li class="menu-item-has-children"><a ><span class="fa fa-user"></span> <b><?php global  $current_user; echo $current_user->user_firstname ; ?></b></a>
 							<ul class="sub-menu">
 								<?php wp_nav_menu( array( 'theme_location' => 'accountpage_menu', 'container' =>false, 'menu_class' => false) ); ?>
 								<li><a href="<?php echo wp_logout_url(HOME); ?>"><?php _e('Logout') ?></a></li>
@@ -40,7 +42,9 @@
 			?>
 		</div>
 	</nav>
-	<nav id="slide_menu"><!-- SLIDER MENU -->
+	<?php endif; ?>
+	<!-- SLIDER MENU -->
+	<nav id="slide_menu">
 		<h1 class="pagename"><a href="<?php echo HOME;?>"><img src="<?php echo esc_url(get_theme_mod( 'stylelk_logo'));?> "></a><span class="pull-left close-slide"></span></h1>
 		<?php wp_nav_menu( array( 'theme_location' => 'categories_menu', 'container' =>false, 'menu_class' => 'nav menu-categories') ); ?>
 		<div class="newsletter-form">	
@@ -96,7 +100,7 @@
 					if( is_user_logged_in()):
 						?>
 					<ul class="nav nav-pills pull-left hidden-xs user-menu">
-						<li class="menu-item-has-children"><a><span class="fa fa-user"></span> <b><?php _e('Account') ?></b></a>
+						<li class="menu-item-has-children"><a><span class="fa fa-user"></span> <b><?php global  $current_user; echo $current_user->user_firstname ; ?></b></a>
 							<ul class="sub-menu">
 								<?php wp_nav_menu( array( 'theme_location' => 'accountpage_menu', 'container' =>false, 'menu_class' => false) ); ?>
 								<li><a href="<?php echo wp_logout_url(HOME); ?>"><?php _e('Logout') ?></a></li>
@@ -110,8 +114,18 @@
 					?>				
 				</div>
 			</nav>
+			<?php if(is_page_template('account-page.php')): ?>
+				<nav class="navbar navbar-default container hidden-xs nav-map-maker">
+					<ul class="nav pull-right">
+						<li><span class="fa fa-map-marker"></span> <?php echo get_location(); ?></li>
+						<li><span class="fa fa-globe"></span> <?php echo _e(English);?></li>
+					</ul>
+				</nav>
+			<?php endif;?>
+			<?php if(is_home()|is_page_template('account-page.php')): ?>
+				<?php get_template_part('logo');?>	
+			<?php endif; ?>
 			<?php if(is_home()): ?>
-			<?php get_template_part('logo');?>	
 			<nav id="main-menu" class="navbar navbar-default hidden-xs"><!-- MAIN MENU -->
 				<?php wp_nav_menu( array( 'theme_location' => 'short_categories_menu', 'container' =>false, 'menu_class' => 'nav') ); ?>
 			</nav>	

@@ -819,7 +819,7 @@ ul.story-infor{
 }
 
 /*LOGIN PAGE*/
-#login-register-container{
+.login-register-container{
 	margin: 30px auto;
 	padding: 30px 90px;
 	float: none !important;
@@ -828,25 +828,25 @@ ul.story-infor{
 	max-width: 570px;
 }
 @media(max-width:768px){
-	#login-register-container{
+	.login-register-container{
 		background:transparent;
 		margin: 30px auto;
 	}
 }
 @media(max-width:568px){
-	#login-register-container{
+	.login-register-container{
 		padding:  30px 10px;	
 	}
-	#login-register-container h1{
+	.login-register-container h1{
 		font-family: "Montserrat";
 	}
 }
-#login-register-container h1{
+.login-register-container h1{
 	 font-size: 24px;
 	 font-family: "Oswald";
 	 font-weight: bold;
 }
-#login-register-container p{
+.login-register-container p{
 	margin: 30px 0;
 	font-size: 14px;
 }
@@ -860,20 +860,20 @@ ul.story-infor{
 	display: inline-block;
 	width: 100%;
 }
-#login-register-container a,#login-register-container .button-primary,#login-register-container input{
+.login-register-container a,.login-register-container .button-primary,.login-register-container input{
 	border-radius: 0;
 }
-#login-register-container .facebook-connect,#login-register-container .button-primary{
+.login-register-container .facebook-connect,.login-register-container .button-primary{
 	width: 100%;
 	color: #ffffff;
   	background-color: #3388cd;
   	border:0;
   	padding: 6px 12px;
  }
- #login-register-container .button-primary{
+ .login-register-container .button-primary{
  	height: 32px;
  }
- #login-register-container .facebook-connect:hover,#login-register-container .button-primary:hover{
+ .login-register-container .facebook-connect:hover,.login-register-container .button-primary:hover{
  	background-color: #286da5;
  }
 /* ACCOUNT PAGE*/
@@ -943,6 +943,43 @@ ul.story-infor{
 	padding: 100px 0;
 	color: #ffffff;
 }
-#edit-profile-content{
+.login-register-container,#edit-profile-content{
 	min-height: 500px;
+}
+.none-padding{
+	padding: 0;
+}
+.birthday-select select{
+	width: auto;
+	display: inline-block;
+}
+.account-btn input{
+	font-family: "Montserrat";
+
+}
+.account-btn input:last-child{
+	color: #337ab7;
+	background: #ffffff;
+	border: none;
+}
+.nav-map-maker{
+	min-height: 0;
+	border: none;
+	background: transparent;
+	border-radius: 0;
+	margin-bottom: 0;
+}
+.nav-map-maker ul li{
+	font-family: "Montserrat";
+	font-size: 12px;
+	margin: 0 5px;
+}
+#edit-profile-content h1{
+	margin-bottom: 30px;
+}
+.register-success-container{
+	text-align: center;
+}
+.register-success-container p a{
+	width: 100%;
 }
