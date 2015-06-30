@@ -8,12 +8,22 @@
  * Tags: Magazine
  * Textdomain: Admin
  */
+@-webkit-viewport   { width: device-width; }
+@-moz-viewport      { width: device-width; }
+@-ms-viewport       { width: device-width; }
+@-o-viewport        { width: device-width; }
+@viewport           { width: device-width; }
+html{
+	width: 100%;
+}
  *{
 	margin: 0;
 	padding: 0;
 }
 /*OVERRIDED BOOTSTRAP*/
-@media (min-width:1200px){.container{width:1050px}}
+@media screen and (min-width:1200px){
+	.container{width:1050px}
+}
 a{
 	text-decoration: none;
 	color: #333333;
@@ -56,18 +66,30 @@ img{
 	height: auto;
 }
 body{
+	width: 100%;
 	font-family: Oswald,sans-serif;
 	position: relative;
+	overflow-x: hidden;
+}
+body.hidden-overflow{
+	overflow: hidden;
+}
+.wrapper{	
+	width: 100%;
+	position: relative;
+	top: 0;
+	left: 0;
 }
 /*MAIN MENU COLLAPSE*/
 #slide_menu{
-	display: none;
+	display: block;
 	font-family: "Montserrat";
 	text-transform: capitalize;
 	height: 100%;
 	overflow-y: auto;
 	position: fixed;
-	right: -100%;
+	width: 300px;
+	right:-300px;
 	top: 0;
 	z-index: 9999;
 	background: #ffffff;
@@ -86,15 +108,15 @@ body{
 }
 .close-slide{
 	color: #ffffff;
-	padding: 25px 20px;
+	padding: 25px 40px;
 }
 .close-slide::before,.close-slide::after{
-  width: 1px;
+  width: 1.2px;
   height: 18px;
   background: #000000;
   position: absolute;
   top: 10px;
-  left: 30px;
+  left: 20px;
   content: '';
   margin-left: 20px;
   margin-top: 5px;
@@ -103,12 +125,15 @@ body{
 	cursor: pointer;
 }
 .close-slide::before{
-	transform: rotate(45deg);
 	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	transform: rotate(45deg);
+	
 }
 .close-slide::after{
-	transform: rotate(135deg);
+	-moz-transform: rotate(135deg);
 	-webkit-transform: rotate(135deg);
+	transform: rotate(135deg);
 }
 
 #slide_menu ul{
@@ -173,7 +198,7 @@ ul.menu-social li a span{
 	z-index: 999;
 	height: 100%;
 	min-height: 1000px;
-	width: 200%;
+	width: 100%;
 }
 /* NAV TOP*/
 #navbar-top{
@@ -238,7 +263,7 @@ ul.menu-social li a span{
 .search-form-fix form span{
 	padding: 0;
 }
-@media (max-width: 768px){
+@media screen and (max-width: 768px){
 	.search-form-fix form{width: auto; right: 0}
 	.search-form-fix{position: static;}
 }
@@ -320,7 +345,7 @@ ul.sub-menu li a:hover{
 .mainmenu-btn:hover{
 	cursor: pointer;
 }
-@media(max-width: 992px){
+@media screen and (max-width: 992px){
 	#fixer-menu ul{
 		text-align: inherit;
 		padding: 0 10px;
@@ -607,7 +632,7 @@ ul.story-infor{
 .nav-interative-social span.fa{
 	font-size: 18px;
 }
-@media(max-width:768px){
+@media screen and (max-width:768px){
 	.nav-interative-social li{
 		min-width: 35px;
 	}
@@ -673,6 +698,10 @@ ul.story-infor{
 .story-comment a:hover{
 	background-color: #e1e1e1;
 }
+.comment-content{
+	display: none;
+	font-family: "Montserrat";
+}
 .story-infor{
 	font-family: "Montserrat";
 	font-size: 11px;
@@ -719,9 +748,6 @@ ul.story-infor{
 	color: #006FBB;	
 }
 /*SLIDER BANNER*/
-.banner{
-	text-align: center;
-}
 .ad-banner{
 	margin-bottom: 30px;
 	
@@ -827,13 +853,13 @@ ul.story-infor{
 	font-family: "Montserrat";
 	max-width: 570px;
 }
-@media(max-width:768px){
+@media screen and (max-width:768px){
 	.login-register-container{
 		background:transparent;
 		margin: 30px auto;
 	}
 }
-@media(max-width:568px){
+@media screen and (max-width:568px){
 	.login-register-container{
 		padding:  30px 10px;	
 	}
@@ -851,7 +877,7 @@ ul.story-infor{
 	font-size: 14px;
 }
 #loginform p{
-	margin: 10px;
+	margin: 10px 0;
 }
 #loginform input{
 	padding: 5px;
@@ -875,6 +901,14 @@ ul.story-infor{
  }
  .login-register-container .facebook-connect:hover,.login-register-container .button-primary:hover{
  	background-color: #286da5;
+ }
+
+ .message-login{
+ 	text-align: center;
+ 	border: 1px solid #ebccd1;
+ 	background-color: #f2dede;
+  	color: #a94442;
+  	padding: 15px;
  }
 /* ACCOUNT PAGE*/
 .nav-account-page li{
@@ -929,7 +963,6 @@ ul.story-infor{
 #main-footer button:hover{
 	background-color: #dddddd;
 }
-
 #main-footer p{
 	text-align: left;
 }
@@ -937,7 +970,7 @@ ul.story-infor{
 .page_not_found{
 	background: #999999;
 	text-align: center;
-	font-family: Montserrat;
+	font-family: "Montserrat";
 	text-transform: uppercase;
 	font-size: 50px;
 	padding: 100px 0;
@@ -955,7 +988,6 @@ ul.story-infor{
 }
 .account-btn input{
 	font-family: "Montserrat";
-
 }
 .account-btn input:last-child{
 	color: #337ab7;
@@ -967,6 +999,7 @@ ul.story-infor{
 	border: none;
 	background: transparent;
 	border-radius: 0;
+	-webkit-border-radius: 0;
 	margin-bottom: 0;
 }
 .nav-map-maker ul li{
@@ -983,3 +1016,12 @@ ul.story-infor{
 .register-success-container p a{
 	width: 100%;
 }
+/*.story-content div.gallery{
+	position: relative;
+}
+.gallery-item:first-child{
+	position: relative;
+	top: 0;
+	left:0;
+}*/
+

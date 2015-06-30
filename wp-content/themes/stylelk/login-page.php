@@ -4,15 +4,23 @@ get_header();
 /*
  Template Name: Login Page
  */
+ if(isset($_REQUEST['page_id']))
+ {
+ 	if(strpos($_REQUEST['page_id'],'empty') !== false) $message=__('Enter username and/or password');
+ 	if(strpos($_REQUEST['page_id'],'failed') !== false) $message=__('Incorrect username and/or password');
+ }
  ?>
  <div class="container body-content">
 			<div class="row">
 				<div class="login-register-container">
-					<h1>Login to STYLELK</h1>
-					<p>Connect to STYLELK with your Facebook account</p>
-					<p><a class="btn btn-primary btn-block facebook-connect" href="<?php echo HOME; ?>/wp-login.php?loginFacebook=1&redirect=<?php echo HOME;?>" onclick="window.location = '<?php echo HOME;?>/wp-login.php?loginFacebook=1&redirect='+window.location.href; return false;"><span class="fa fa-facebook"></span>  Login with facebook</a></p>
+					<h1><?php _e('Login to STYLELK')?></h1>
+					<p><?php _e('Connect to STYLELK with your Facebook account')?></p>
+					<p><a class="btn btn-primary btn-block facebook-connect" href="<?php echo HOME; ?>/wp-login.php?loginFacebook=1&redirect=<?php echo HOME;?>" onclick="window.location = '<?php echo HOME;?>/wp-login.php?loginFacebook=1&redirect='+window.location.href; return false;"><span class="fa fa-facebook"></span>  <?php _e('Login with facebook')?></a></p>
 					<hr>
-					<p>Sign in with your email address username.</p>
+					<p><?php _e('Sign in with your email address username.')?></p>
+				<?php if(isset($message)) :?>
+					<p class="message-login"><?php echo $message;?></p>
+				<?php endif; ?>
 				<?php if( !is_user_logged_in()): ?>
 					<?php 
 					$args=array(
@@ -21,9 +29,9 @@ get_header();
 					);
 					wp_login_form($args);?>
 				<?php else : ?>
-					<p><?php echo _e('You have been login');?></p>
+					<p><?php _e('You have been login')?></p>
 				<?php endif;?>
-					<p><a href="<?php echo HOME;?>/wp-login.php?action=lostpassword">Lost Password?</a></p>
+					<p><a href="<?php echo HOME;?>/forgot-password-request"><?php _e('Lost Password ?')?></a></p>
 				</div>			
 			</div>
 		</div><!-- END CONTENT -->

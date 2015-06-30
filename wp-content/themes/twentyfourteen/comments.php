@@ -46,7 +46,6 @@ if ( post_password_required() ) {
 			) );
 		?>
 	</ol><!-- .comment-list -->
-
 	<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
 	<nav id="comment-nav-below" class="navigation comment-navigation" role="navigation">
 		<h1 class="screen-reader-text"><?php _e( 'Comment navigation', 'twentyfourteen' ); ?></h1>

@@ -6,25 +6,15 @@
 		define( 'IMAGES', THEME_URL . '/images' );
 		define( 'HOME', esc_url( home_url()) );
 	require_once( CORE . '/init.php' );
-	/* ADD $content_width
-	*/
-	if ( ! isset( $content_width ) ) {	
-	    $content_width = 620;
-	 }
 	/*ADD THEME SET UP */
 	if(!function_exists('stylelk_theme_setup')){
 	   		function stylelk_theme_setup(){
-				/*add function thumbnail*/
 				add_theme_support( 'post-thumbnails' );
 				add_theme_support( 'title-tag' );
-				/* Add theme support menu*/
 				add_theme_support( 'menus' );
-				/*Add theme suport widget*/
 				add_theme_support('widgets');
-				/*Add theme suport logo*/
 				add_theme_support('logo');
 				add_theme_support('sharing');
-				/*Add them support woocommerce*/
 				add_theme_support( 'html5', array('search-form', 'comment-form', 'comment-list', 'gallery', 'caption') );
 				add_theme_support( 'post-formats', array( 'aside', 'gallery','link','image','quote','status','video','audio','chat' ) );
 			}
@@ -32,8 +22,10 @@
 	add_action('init','stylelk_theme_setup');
 	/*register style*/
 	function viewport_meta() { 
-    ?>
+    ?>	<meta charset="<?php bloginfo( 'charset' ); ?>">
     	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1">
+      	<meta name="apple-mobile-web-app-capable" content="yes">
+      	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
       	<link rel="apple-touch-icon" sizes="57x57" href="<?php echo get_template_directory_uri();?>/images/apple-icon-57x57.png">
 		<link rel="apple-touch-icon" sizes="60x60" href="<?php echo get_template_directory_uri();?>/images/apple-icon-60x60.png">
 		<link rel="apple-touch-icon" sizes="72x72" href="<?php echo get_template_directory_uri();?>/images/apple-icon-72x72.png">
@@ -53,7 +45,7 @@
 		<meta name="theme-color" content="#ffffff">
     <?php
 	}
-	add_filter('wp_head', 'viewport_meta');
+	add_action('wp_head', 'viewport_meta',1);
 	if(!function_exists('stylelk_register_style')){
 	function stylelk_register_style()
 	{
@@ -75,16 +67,11 @@
 		wp_enqueue_script('getpost-script');
 		wp_dequeue_style('open-sans-css');
  		wp_deregister_style('open-sans-css');
-
 	}
 	add_action('wp_enqueue_scripts','stylelk_register_style');
 	}
-	wp_localize_script( 'ajax-script', 'ajax_object', array( 'ajaxurl' => admin_url('admin-ajax.php' ) ) );
-
-
-
 /*ADD AJAXURL VALUE */
-	
+	wp_localize_script( 'ajax-script', 'ajax_object', array( 'ajaxurl' => admin_url('admin-ajax.php' ) ) );
 	function embed_ajax() {
 	?>
 	<script type="text/javascript">
@@ -148,7 +135,6 @@
   	);
 	}
 	add_action( 'init', 'register_my_menus' );
-
 /*    FUNCTION GET VIEWS POST  */
 	function getPostViews($postID){
     $count_key = 'post_views_count';
@@ -173,7 +159,6 @@
     }
 	}
 	remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0); 
-
 /*FUNCTION RETURN HTML WHEN USE AJAX LOAMORE*/
 	function popularPosts($curentpost,$numpost) {
 	    global $wpdb;
@@ -182,7 +167,7 @@
 	   	if ( $posts) : 
 			foreach ($posts as $post):
 				setup_postdata($post);
-				$html.=get_template_part('content');
+				$html.=get_template_part('content','short');
 			endforeach;
 				wp_reset_postdata();
 		else:
@@ -198,7 +183,7 @@
 		if ( $posts) : 
 			foreach ($posts as $post):
 				setup_postdata($post);
-				$html.=get_template_part('content');
+				$html.=get_template_part('content','short');
 			endforeach;
 				wp_reset_postdata();
 		else:
@@ -215,7 +200,7 @@
 		if ($the_query->have_posts()) : 
 			while ($the_query->have_posts()): $the_query->the_post();
 				setup_postdata($post);
-				$html.=get_template_part('content');
+				$html.=get_template_part('content','short');
 			endwhile;
 				wp_reset_postdata();
 		else:
@@ -232,7 +217,7 @@ function tagPosts($curentpost,$numpost,$tag_slug){
 		if ($the_query->have_posts()) : 
 			while ($the_query->have_posts()): $the_query->the_post();
 				setup_postdata($post);
-				$html.=get_template_part('content');
+				$html.=get_template_part('content','short');
 			endwhile;
 				wp_reset_postdata();
 		else:
@@ -245,7 +230,7 @@ function tagPosts($curentpost,$numpost,$tag_slug){
 		$the_query = new WP_Query( $args );
 		if($the_query->have_posts()):
 			while ($the_query->have_posts()):$the_query->the_post();
-				$html.=get_template_part( 'content','single' );
+				$html.=get_template_part( 'content',get_post_format());
 			endwhile;
 		endif;
 		return $html;
@@ -321,8 +306,6 @@ function getPinterestShareCount($urlCurrentPage) {
     return ($intPinterestShareCount) ? $intPinterestShareCount : '0';
 }
 
-
-
 /*LOGIN PAGE*/
 function my_login_redirect( $redirect_to, $request, $user ) {
         global $user;
@@ -349,14 +332,14 @@ function redirect_login_page() {
 }
 add_action('init','redirect_login_page');
 function login_failed() {
-    $login_page  = home_url( '/?page_id=9' );
+    $login_page  = HOME.'/login';
     wp_redirect( $login_page . '?login=failed' );
     exit;
 }
 add_action( 'wp_login_failed', 'login_failed' ); 
  
 function verify_username_password( $user, $username, $password ) {
-    $login_page  = home_url( '/?page_id=9' );
+    $login_page  = HOME.'/login';
     if( $username == "" || $password == "" ) {
         wp_redirect( $login_page . "?login=empty" );
         exit;
@@ -391,12 +374,14 @@ function get_location(){
 	$location=str_replace('"','', $location[1]);
 	return $location;
 }
+/*ADD REDIRECT PAGE*/
 function app_output_buffer() {
     ob_start();
-} // soi_output_buffer
+} 
 add_action('init', 'app_output_buffer');
 function redirect_to_page($url=HOME){
 	wp_redirect($url);
 	exit;
 }
+
 ?>
