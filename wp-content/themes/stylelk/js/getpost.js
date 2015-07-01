@@ -5,8 +5,10 @@ $(document).ready(function(){
 				var numpost=10;
 				var categoy_id;
 				var tag_slug;
+				var get_post_id;
 				if(post_addr==3) categoy_id=cat_id;
 				if(post_addr==5) tag_slug=tag_slug_name;
+				if(post_addr==4) get_post_id=post_id;
 				if(post_addr==1|post_addr==2){
 					if($("#latest-content").hasClass("active")){
 						post_addr=1;
@@ -26,7 +28,7 @@ $(document).ready(function(){
 				function loadData(){
 					 	isloadingData=1;
 						$(".loadmore").html('Loading...');
-						$.ajax({
+						$.ajax({	
 						url:ajaxurl, 
 						data:{	
 							action:'load_data_request',
@@ -34,17 +36,17 @@ $(document).ready(function(){
 							currentpost:currentpost,
 							post_addr:post_addr,
 							categoy_id:categoy_id,
-							tag_slug:tag_slug
+							tag_slug:tag_slug,
+							get_post_id:get_post_id
 						},
 				 		type:"POST", 
-					 		success: function(result){
+					 	success: function(result){
 					 		if(post_addr==1) $("#latest-content").append(result);
 		        			else if(post_addr==2) $("#popular-content").append(result);
 		        			else  $(".tab-content").append(result);
 		        			if(result=='') $(".loadmore").html('END');
-		        		isloadingData=0;
-	    				}
-	    				});	
+		        		isloadingData=0;}
+	    				})
 	    		}
 
 		});

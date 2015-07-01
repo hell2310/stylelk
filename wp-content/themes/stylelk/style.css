@@ -471,7 +471,7 @@ ul.story-infor{
 	text-transform: capitalize;
 }
 .interative,.interative li,.interative li a{
-	color: #333333;
+	color: #999999;
 }
 .interative-social li{
 	margin: 5px;
@@ -1004,6 +1004,13 @@ ul.story-infor{
 	background: #dddddd;
 	min-height: 500px;
 	line-height: 100px;
+}
+.youtube-player{
+	width: 100% !important;
+}
+.comment-body{
+	margin-bottom: 10px;
+	border-bottom: 1px #dddddd solid;
 }
 /*.story-content div.gallery{
 	position: relative;

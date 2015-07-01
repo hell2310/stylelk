@@ -45,6 +45,23 @@
 		<meta name="msapplication-TileColor" content="#ffffff">
 		<meta name="msapplication-TileImage" content="<?php echo get_template_directory_uri();?>/images/ms-icon-144x144.png">
 		<meta name="theme-color" content="#ffffff">
+		<script>
+		window.fbAsyncInit = function() {
+		FB.init({
+		appId : '1603443363261032',
+		xfbml : true,
+		version : 'v2.3'
+		});
+		};
+
+		(function(d, s, id){
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) {return;}
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/en_US/sdk.js";
+		fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+		</script>
     <?php
 	}
 	add_action('wp_head', 'viewport_meta',1);
@@ -83,7 +100,7 @@
 	var tag_slug_name='';
 	<?php if(is_home()):?> post_addr=1; 
 	<?php elseif(is_category()):?> post_addr=3; cat_id=<?php echo get_cat_id( single_cat_title("",false) ); ?>;
-	<?php elseif(is_single()):?> post_addr=4; 
+	<?php elseif(is_single()):?> post_addr=4; post_id=<?php echo get_the_ID()?>;
 	<?php elseif(is_tag()):?> post_addr=5; tag_slug_name=<?php echo single_tag_title( '', false ); ?>;
 	<?php endif;?>
 	</script>
@@ -227,8 +244,9 @@ function tagPosts($curentpost,$numpost,$tag_slug){
 		endif;
 		return $html;
 	}
-	function stylelk_request_postpage(){
-		$args=array( 'post_type' => 'post','posts_per_page'=>'5','orderby'=>'rand');
+	function stylelk_request_postpage($curentpost,$numpost,$post_id){
+		$post_id_array=array($post_id);
+		$args=array( 'post_type' => 'post','offset'=>$curentpost,'posts_per_page'=>$numpost,'post__not_in'=>$post_id_array);
 		$the_query = new WP_Query( $args );
 		if($the_query->have_posts()):
 			while ($the_query->have_posts()):$the_query->the_post();
@@ -243,7 +261,8 @@ function tagPosts($curentpost,$numpost,$tag_slug){
 			$currentpost=$_REQUEST['currentpost'];
 			$numpost=$_REQUEST['numpost'];
 			$post_addr=$_REQUEST['post_addr'];
-			$categoy_id=$_REQUEST['categoy_id'];		
+			$categoy_id=$_REQUEST['categoy_id'];	
+			$post_id=$_REQUEST['get_post_id'];
 			if($post_addr==1):
 				$result = latestPosts($currentpost,$numpost);
 			elseif ($post_addr==2):
@@ -251,7 +270,7 @@ function tagPosts($curentpost,$numpost,$tag_slug){
 			elseif ($post_addr==3):
 				$result = tagPosts($currentpost,$numpost,$categoy_id);
 			elseif($post_addr==4):
-				$result=stylelk_request_postpage();
+				$result=stylelk_request_postpage($curentpost,$numpost,$post_id);
 			elseif($_post_addr==5):
 				categoryPosts($curentpost,$numpost,$tag_slug);
 			endif;
@@ -384,6 +403,19 @@ add_action('init', 'app_output_buffer');
 function redirect_to_page($url=HOME){
 	wp_redirect($url);
 	exit;
+}
+
+function comment_list_theme( $comment,$args,$depth) {
+    $GLOBALS['comment'] = $comment;
+    ?>
+   <article class="comment-body">
+ 	<div class="comment-author vcard"><?php comment_author(); ?></div><!-- .comment-author -->
+ 	<div class="comment-content"><?php comment_text();?></div><!-- .comment-content -->
+ 	<?php comment_date(); ?>
+ 	<div class="reply"><a href="<?php echo comment_reply_link();?>"><?php _e('Reply'); ?></div>
+ 
+	</article><!-- .comment-body -->
+    <?php
 }
 
 ?>

@@ -1,13 +1,17 @@
 <div class="comment-content comment-content-<?php echo get_the_ID(); ?>">
 <?php 
 $comments = get_comments(array('post_id' => get_the_ID()));
-$args=array('style' => 'ol');
 if ( get_comments_number()>0  ) : ?>
-		<ol class="comment-list">
 			<?php
-				wp_list_comments($args,$comments);
+			 wp_list_comments(array('style'=>'','callback'=>'comment_list_theme'),$comments);
 			?>
-		</ol><!-- .comment-list -->
-	<?php endif; // have_comments() ?>
-<?php comment_form(); ?>
+<?php endif; ?>
+<?php 
+$fields=array(
+	'author'=>'<p class="comment-form-author"><label for="author">'.__('Name').'</label<span class="required">*</span></br><input name="author" class="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) .'" required aria-required="true"></p>',
+	'email'=>'<p class="comment-form-email"><label for="email">'.__('Email').'</label><span class="required">*</span></br><input name="email" class="email" type="email"  value="' . esc_attr( $commenter['comment_author_email'] ) .'" required aria-required="true"></p>'
+	);
+$comment_field='<p class="comment-form-comment"><label for="comment">' . __( 'Comment') . '</label></br><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>';
+$arg=array('fields'=>$fields,'label_submit'=>'Comment','title_reply'=>'','comment_notes_after'=>'','comment_field'=>$comment_field);
+comment_form($arg); ?>
 </div>
