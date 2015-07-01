@@ -26,6 +26,8 @@
     	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1">
       	<meta name="apple-mobile-web-app-capable" content="yes">
       	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+      	<link href='http://fonts.googleapis.com/css?family=Montserrat:700,400' rel='stylesheet' type='text/css'>
+      	<link href='http://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
       	<link rel="apple-touch-icon" sizes="57x57" href="<?php echo get_template_directory_uri();?>/images/apple-icon-57x57.png">
 		<link rel="apple-touch-icon" sizes="60x60" href="<?php echo get_template_directory_uri();?>/images/apple-icon-60x60.png">
 		<link rel="apple-touch-icon" sizes="72x72" href="<?php echo get_template_directory_uri();?>/images/apple-icon-72x72.png">
@@ -104,10 +106,10 @@
 	}
 	add_action( 'customize_register', 'stylelk_theme_customizer' );
 /*	REMOVE ADMIN BAR */
-	function remove_admin_login_header() {
+/*	function remove_admin_login_header() {
 	remove_action('wp_head', '_admin_bar_bump_cb');
 	}
-	add_action('get_header', 'remove_admin_login_header');
+	add_action('get_header', 'remove_admin_login_header');*/
 	/*ADD WIDGETS*/
 	function stylelk_register_widget(){
 		register_sidebar(array( 

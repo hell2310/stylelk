@@ -17,7 +17,7 @@
 		<ul class="nav nav-pills menu-social">
 			<li><a href="<?php echo (get_option('qs_contact_facebook')); ?>" target="_blank"><span class="fa fa-facebook" ></span></a></li>
 			<li><a href="<?php echo (get_option('qs_contact_twitter')); ?>" target="_blank"><span class="fa fa-twitter"></span></a></li>
-			<li><a href="<?php echo (get_option('qs_contact_google_plus')); ?>" target="_blank"><span class="fa fa-google-plus"></span></a></li>
+			<li><a href="<?php echo (get_option('qs_contact_google')); ?>" target="_blank"><span class="fa fa-google-plus"></span></a></li>
 			<li><a href="<?php echo (get_option('qs_contact_youtube')); ?>" target="_blank"><span class="fa fa-youtube"></span></a></li>
 			<li><a href="<?php echo (get_option('qs_contact_custom_instagram')); ?>" target="_blank"><span class="fa fa-instagram"></span></a></li>
 			<li><a href="<?php echo (get_option('qs_contact_custom_pinterest')); ?>" target="_blank"><span class="fa fa-pinterest"></span></a></li>

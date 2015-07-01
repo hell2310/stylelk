@@ -1,4 +1,4 @@
-<div class="comment-content">
+<div class="comment-content comment-content-<?php echo get_the_ID(); ?>">
 <?php 
 $comments = get_comments(array('post_id' => get_the_ID()));
 $args=array('style' => 'ol');

@@ -42,25 +42,6 @@ ul{
 ul.nav-align-right{
 	text-align: right;
 }
-/*FONTs*/
-@font-face{
-	font-family: "Montserrat";
-	src: url("fonts/Montserrat-Regular.otf") format("opentype");
-	font-weight: bold;	
-}
-@font-face{
-	font-family: "Montserrat";
-	src: url("fonts/Montserrat-Light.otf") format("opentype");
-}
-@font-face{
-	font-family: "Oswald";
-	src: url("fonts/Oswald-Regular.ttf") format("truetype");
-}
-@font-face{
-	font-family: "Oswald";
-	src: url("fonts/Oswald-Medium.ttf") format("truetype");
-	font-weight: bold;
-}
 img{
 	max-width: 100%;
 	height: auto;
@@ -83,7 +64,7 @@ body.hidden-overflow{
 /*MAIN MENU COLLAPSE*/
 #slide_menu{
 	display: block;
-	font-family: "Montserrat";
+	font-family: "Montserrat",sans-serif;
 	text-transform: capitalize;
 	height: 100%;
 	overflow-y: auto;
@@ -215,7 +196,7 @@ ul.menu-social li a span{
 #navbar-top ul.nav li a{
 	padding: 0 10px;
 	font-size: 12px;
-	font-family: "Montserrat";
+	font-family: "Montserrat",sans-serif;
 }
 #navbar-top .menu-home .logo a{
 	display: block;
@@ -223,7 +204,7 @@ ul.menu-social li a span{
 }
 #navbar-top ul.menu-short-categories-top li a{
 	text-transform: uppercase;
-	font-family: "Oswald";
+	font-family: "Oswald",sans-serif;
 	font-size: 16px;
 }
 #navbar-top ul.menu-short-categories-top li ul.sub-menu li{
@@ -271,7 +252,7 @@ ul.menu-social li a span{
 	cursor: pointer;
 }
 .input-search,.btn-search{
-	font-family: "Montserrat";
+	font-family: "Montserrat",sans-serif;
 	margin-bottom: 10px;
 }
 #navbar-top .search-form-fix form{
@@ -429,7 +410,7 @@ ul.sub-menu li a:hover{
 }
 /*STORY WRAPPER*/
 .archive_page_name{
-	font-family: "Montserrat";
+	font-family: "Montserrat",sans-serif;
 	text-transform: capitalize;
 }
 .story-wrapper{
@@ -462,7 +443,7 @@ ul.sub-menu li a:hover{
 }
 
 .story-content ul li{
-	font-family: "Montserrat";
+	font-family: "Montserrat",sans-serif;
 	font-size: 12px;
 
 }
@@ -475,7 +456,7 @@ li.divider{
 .story-content h2{
 	margin: 10px 0;
 	font-size: 22px;
-	font-family: "Oswald";
+	font-family: "Oswald",sans-serif;
 }
 .post-categories{
 	text-align: right;
@@ -495,7 +476,7 @@ ul.story-infor{
 .interative-social li{
 	margin: 5px;
  	background-color: #eeeeee;
- 	font-family: "Montserrat";
+ 	font-family: "Montserrat",sans-serif;
  	font-size: 11px;
 }
 .interative-social li a{
@@ -518,7 +499,7 @@ ul.story-infor{
 }
 /*NEWS LETTER*/
 .right-column{
-	font-family: "Montserrat";
+	font-family: "Montserrat",sans-serif;
 }
 .newsletter-column form{
 	width: 100%;
@@ -561,7 +542,7 @@ ul.story-infor{
 	line-height: 24px;
 }
 .loadmore{
-	font-family: "Montserrat";
+	font-family: "Montserrat",sans-serif;
 	text-align: center;
 	font-size: 18px;
 	color: #444444;
@@ -609,7 +590,7 @@ ul.story-infor{
 .nav-interative-social li{
 	margin: 0 3px;
 	margin-bottom: 10px;
-	font-family: "Montserrat";
+	font-family: "Montserrat",sans-serif;
 	font-size:12px;
 	text-transform: capitalize;	
 	min-width: 90px;
@@ -689,7 +670,7 @@ ul.story-infor{
 	text-transform: uppercase;
 	font-size: 14px;
 	font-weight: bold;
-	font-family: "Montserrat";
+	font-family: "Montserrat",sans-serif;
 	text-align: center;
 }
 .story-comment a:hover,.story-comment a:focus{
@@ -700,10 +681,10 @@ ul.story-infor{
 }
 .comment-content{
 	display: none;
-	font-family: "Montserrat";
+	font-family: "Montserrat",sans-serif;
 }
 .story-infor{
-	font-family: "Montserrat";
+	font-family: "Montserrat",sans-serif;
 	font-size: 11px;
 	color: #999999;
 }
@@ -727,7 +708,7 @@ ul.story-infor{
 .yma-like-post{
 	margin: 0;
 	padding: 10px 0;
-	font-family: "Montserrat";
+	font-family: "Montserrat",sans-serif;
 	border-top: 1px #dddddd solid;
 }
 .yma-like-post .col-md-2{
@@ -756,12 +737,12 @@ ul.story-infor{
 .menu-pageinfor li{
 	display: block;
 	text-align: right;
-	font-family: "Montserrat";
+	font-family: "Montserrat",sans-serif;
 	text-transform: capitalize;
 	-webkit-text-transform:capitalize;
 }
 .page-content h1{
-	font-family: "Montserrat";
+	font-family: "Montserrat",sans-serif;
 	margin-top: 0;
 	font-size: 24px;
 	font-weight: bold;
@@ -769,7 +750,7 @@ ul.story-infor{
 	-webkit-text-transform:capitalize;
 }
 .page-content h2{
-	font-family:"Montserrat";
+	font-family:"Montserrat",sans-serif;
 	font-size: 16px;
 	font-weight: bold;
 }
@@ -850,7 +831,7 @@ ul.story-infor{
 	padding: 30px 90px;
 	float: none !important;
 	background: #f6f6f6;	
-	font-family: "Montserrat";
+	font-family: "Montserrat",sans-serif;
 	max-width: 570px;
 }
 @media screen and (max-width:768px){
@@ -864,12 +845,12 @@ ul.story-infor{
 		padding:  30px 10px;	
 	}
 	.login-register-container h1{
-		font-family: "Montserrat";
+		font-family: "Montserrat",sans-serif;
 	}
 }
 .login-register-container h1{
 	 font-size: 24px;
-	 font-family: "Oswald";
+	 font-family: "Oswald",sans-serif;
 	 font-weight: bold;
 }
 .login-register-container p{
@@ -915,7 +896,7 @@ ul.story-infor{
 	display: block;
 }
 .nav-account-page li a{
-	font-family: "Montserrat";
+	font-family: "Montserrat",sans-serif;
 	text-align: right;
 }
 .user-infor{
@@ -926,7 +907,7 @@ ul.story-infor{
 	line-height: 30px;
 }
 .user-infor .form-control{
-	font-family: "Montserrat";
+	font-family: "Montserrat",sans-serif;
 	font-weight: bold;
 	color: #555555;
 	border-radius: 0;
@@ -970,7 +951,7 @@ ul.story-infor{
 .page_not_found{
 	background: #999999;
 	text-align: center;
-	font-family: "Montserrat";
+	font-family: "Montserrat",sans-serif;
 	text-transform: uppercase;
 	font-size: 50px;
 	padding: 100px 0;
@@ -987,7 +968,7 @@ ul.story-infor{
 	display: inline-block;
 }
 .account-btn input{
-	font-family: "Montserrat";
+	font-family: "Montserrat",sans-serif;
 }
 .account-btn input:last-child{
 	color: #337ab7;
@@ -1003,7 +984,7 @@ ul.story-infor{
 	margin-bottom: 0;
 }
 .nav-map-maker ul li{
-	font-family: "Montserrat";
+	font-family: "Montserrat",sans-serif;
 	font-size: 12px;
 	margin: 0 5px;
 }
@@ -1015,6 +996,14 @@ ul.story-infor{
 }
 .register-success-container p a{
 	width: 100%;
+}
+.search-message{
+	font-family: "Montserrat",sans-serif;
+	font-size: 20px;
+	text-align: center;
+	background: #dddddd;
+	min-height: 500px;
+	line-height: 100px;
 }
 /*.story-content div.gallery{
 	position: relative;

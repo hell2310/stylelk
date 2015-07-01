@@ -5,11 +5,15 @@
   </section>
   <section id="content" class="row">
     <div class="col-md-8 left-column">
+    <?php if(have_posts()): ?>
       <?php 
         while ( have_posts() ) : the_post();
           get_template_part( 'content','short');
         endwhile;
       ?>  
+    <?php else: ?>
+      <p class="search-message" ><?php _e('No have post in search key !') ?></p>
+    <?php endif; ?>
     </div>
     <div class="col-md-4 visible-md visible-lg right-column newsletter-column">
       <h4><?php _e('follow us') ?></h4>

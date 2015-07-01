@@ -18,7 +18,7 @@ get_header();
             $user = get_user_by_email($username);
         } else
         {
-            $error[] = '<p>' . __('Username or Email was not found, try again!') . '</p>';
+            $error=__('Username or Email was not found, try again!');
         }
      if ($user_exists)
         {
@@ -31,7 +31,7 @@ get_header();
             $message .= sprintf(__('Username: %s'), $user_login) . "\r\n\r\n";
             $message .= __('To reset your password visit the following address, otherwise just ignore this email and nothing will happen.') . "\r\n\r\n";
             if (FALSE == wp_mail($user_email, sprintf(__('[%s] Password Reset'), get_option('blogname')), $message))
-            $error[] = '<p>' . __('The e-mail could not be sent.') . "<br />\n" . __('Possible reason: your host may have disabled the mail() function...') . '</p>';
+            $error=__('The e-mail could not be sent.') . "<br />\n" . __('Possible reason: your host may have disabled the mail() function...');
         }
  }
  ?>
@@ -50,12 +50,10 @@ get_header();
             				<button type="submit" class="btn btn-primary"><?php _e('Get New Password')?></button>
         				</div>
 					</form>	
-				<?php else: if(!isset( $error)): ?>
-					<p><?php _e('The password for this user has already been requested within the last 24 hours.') ?></p>
+				<?php else: if(isset( $error)&&$error!=""): ?>
+                    <p><?php echo $error; ?></p>					
 				<?php else: ?>
-					<p><?php foreach ($error as $error) {
-						echo $error;
-					} ?></p>
+					<p><?php _e('The password for this user has already been requested within the last 24 hours.') ?></p>
 				<?php endif; endif;?>
 				</div>			
 			</div>
