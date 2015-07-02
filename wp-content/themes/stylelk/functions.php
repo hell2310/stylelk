@@ -28,6 +28,7 @@
       	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
       	<link href='http://fonts.googleapis.com/css?family=Montserrat:700,400' rel='stylesheet' type='text/css'>
       	<link href='http://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
+      	<link href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
       	<link rel="apple-touch-icon" sizes="57x57" href="<?php echo get_template_directory_uri();?>/images/apple-icon-57x57.png">
 		<link rel="apple-touch-icon" sizes="60x60" href="<?php echo get_template_directory_uri();?>/images/apple-icon-60x60.png">
 		<link rel="apple-touch-icon" sizes="72x72" href="<?php echo get_template_directory_uri();?>/images/apple-icon-72x72.png">
@@ -69,7 +70,7 @@
 	function stylelk_register_style()
 	{
 		wp_register_style( 'bootstrap-style', get_template_directory_uri() . '/css/bootstrap.min.css', 'all' );
-		wp_register_style( 'fontawesome-style', get_template_directory_uri() . '/css/font-awesome.min.css', 'all' );
+		/*wp_register_style( 'fontawesome-style', get_template_directory_uri() . '/css/font-awesome.min.css', 'all' );*/
 		wp_register_style( 'bootstrap-rtl-style', get_template_directory_uri() . '/css/bootstrap-rtl.min.css', 'all' );
 		wp_register_style( 'main-style', get_template_directory_uri() . '/style.css', 'all' );
 		wp_register_script('jquery-script',get_template_directory_uri() . '/js/jquery.2.1.4.js', 'all' );
@@ -77,7 +78,7 @@
 		wp_register_script('effect-script',get_template_directory_uri() . '/js/effect.js', 'all' );
 		wp_register_script('getpost-script',get_template_directory_uri() . '/js/getpost.js', 'all' );
 		wp_enqueue_style('bootstrap-style');
-		wp_enqueue_style('fontawesome-style');
+		/*wp_enqueue_style('fontawesome-style');*/
 		wp_enqueue_style('bootstrap-rtl-style');
 		wp_enqueue_style('main-style');
 		wp_enqueue_script('jquery-script');
@@ -244,9 +245,9 @@ function tagPosts($curentpost,$numpost,$tag_slug){
 		endif;
 		return $html;
 	}
-	function stylelk_request_postpage($curentpost,$numpost,$post_id){
+	function stylelk_request_postpage($currentpost,$numpost,$post_id){
 		$post_id_array=array($post_id);
-		$args=array( 'post_type' => 'post','offset'=>$curentpost,'posts_per_page'=>$numpost,'post__not_in'=>$post_id_array);
+		$args=array( 'post_type' => 'post','offset'=>$currentpost,'posts_per_page'=>$numpost,'post__not_in'=>$post_id_array);
 		$the_query = new WP_Query( $args );
 		if($the_query->have_posts()):
 			while ($the_query->have_posts()):$the_query->the_post();
@@ -270,7 +271,7 @@ function tagPosts($curentpost,$numpost,$tag_slug){
 			elseif ($post_addr==3):
 				$result = tagPosts($currentpost,$numpost,$categoy_id);
 			elseif($post_addr==4):
-				$result=stylelk_request_postpage($curentpost,$numpost,$post_id);
+				$result=stylelk_request_postpage($currentpost,$numpost,$post_id);
 			elseif($_post_addr==5):
 				categoryPosts($curentpost,$numpost,$tag_slug);
 			endif;
@@ -404,17 +405,22 @@ function redirect_to_page($url=HOME){
 	wp_redirect($url);
 	exit;
 }
-
+/*template comment list*/
 function comment_list_theme( $comment,$args,$depth) {
     $GLOBALS['comment'] = $comment;
     ?>
    <article class="comment-body">
- 	<div class="comment-author vcard"><?php comment_author(); ?></div><!-- .comment-author -->
- 	<div class="comment-content"><?php comment_text();?></div><!-- .comment-content -->
- 	<?php comment_date(); ?>
- 	<div class="reply"><a href="<?php echo comment_reply_link();?>"><?php _e('Reply'); ?></div>
- 
-	</article><!-- .comment-body -->
+   	<div class="comment-wrapper">			
+   		<div class="comment-avatar"><?php echo get_avatar($comment,50);?></div>
+	 	<ul class="comment-infor">
+		 	<li class="comment-author"><?php comment_author(); ?></li>
+		 	<li class="comments-time"><?php echo human_time_diff(get_comment_time('U'),current_time('timestamp')).' ago'; ?></li>	
+	 	</ul>
+ 	</div>
+ 	<div class="clearfix"></div>
+ 	<div class="comment-text"><?php comment_text();?></div>	
+	<div class="comment-reply"><a href="#"><?php _e('Reply'); ?></div>	
+	</article>
     <?php
 }
 

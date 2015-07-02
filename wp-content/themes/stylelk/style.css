@@ -1012,6 +1012,32 @@ ul.story-infor{
 	margin-bottom: 10px;
 	border-bottom: 1px #dddddd solid;
 }
+.comment-infor,.comment-avatar {
+	float: right;
+}
+.comment-infor{
+	margin: 0;
+	padding: 0 10px;
+}
+.comment-infor li{
+	display: block;
+	list-style: none;
+	font-style: italic;
+}
+.comment-author{
+	text-align: right;
+	color: #006FBB;
+	font-weight: bold;
+}
+.comment-text p{
+	margin: 10px 0;
+}
+.comment-reply a{
+	color: #999999;
+}
+.comment-input{
+	border-radius: 10px;
+}
 /*.story-content div.gallery{
 	position: relative;
 }
