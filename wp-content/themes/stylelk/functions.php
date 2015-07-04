@@ -16,10 +16,12 @@
 				add_theme_support('logo');
 				add_theme_support('sharing');
 				add_theme_support( 'html5', array('search-form', 'comment-form', 'comment-list', 'gallery', 'caption') );
-				add_theme_support( 'post-formats', array( 'aside', 'gallery','link','image','quote','status','video','audio','chat' ) );
+				/*add_theme_support( 'post-formats', array( 'aside', 'gallery','link','image','quote','status','video','audio','chat' ) );*/
 			}
 	}
 	add_action('init','stylelk_theme_setup');
+	show_admin_bar(false);
+
 	/*register style*/
 	function viewport_meta() { 
     ?>	<meta charset="<?php bloginfo( 'charset' ); ?>">
@@ -99,6 +101,8 @@
 	var post_addr=0;
 	var cat_id='';
 	var tag_slug_name='';
+	var post_id='';
+	var post_type='';
 	<?php if(is_home()):?> post_addr=1; 
 	<?php elseif(is_category()):?> post_addr=3; cat_id=<?php echo get_cat_id( single_cat_title("",false) ); ?>;
 	<?php elseif(is_single()):?> post_addr=4; post_id=<?php echo get_the_ID()?>;
