@@ -1,0 +1,368 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: STYLELK Theme\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: Sat Jul 04 2015 08:53:45 GMT+0700 (SE Asia Standard Time)\n"
+"PO-Revision-Date: Sat Jul 04 2015 09:02:34 GMT+0700 (SE Asia Standard Time)\n"
+"Last-Translator: admin <amin@gmail.com>\n"
+"Language-Team: \n"
+"Language: Arabic\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100 >= 3 "
+"&& n%100<=10 ? 3 : n%100 >= 11 && n%100<=99 ? 4 : 5\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ..\n"
+"X-Poedit-KeywordsList: _:1;gettext:1;dgettext:2;ngettext:1,2;dngettext:2,3;"
+"__:1;_e:1;_c:1;_n:1,2;_n_noop:1,2;_nc:1,2;__ngettext:1,2;__ngettext_noop:1,2;"
+"_x:1,2c;_ex:1,2c;_nx:1,2,4c;_nx_noop:1,2,3c;_n_js:1,2;_nx_js:1,2,3c;"
+"esc_attr__:1;esc_html__:1;esc_attr_e:1;esc_html_e:1;esc_attr_x:1,2c;"
+"esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
+"X-Loco-Target-Locale: ar_AE\n"
+"X-Generator: Loco - https://localise.biz/"
+
+#: ../index.php:6 ../header.php:136
+msgid "POPULAR STORIES"
+msgstr ""
+
+#: ../index.php:53 ../single.php:16 ../archive.php:51 ../search.php:19
+msgid "follow us"
+msgstr ""
+
+#: ../footer.php:2
+msgid "Load more"
+msgstr ""
+
+#: ../footer.php:13
+msgid "CONNECT WITH US"
+msgstr ""
+
+#: ../footer.php:33 ../header.php:29
+msgid "2015"
+msgstr ""
+
+#: ../footer.php:33 ../header.php:29
+msgid "Stylelk. All right Resever"
+msgstr "styylyllyyy"
+
+#: ../header.php:58 ../header.php:104
+msgid "Logout"
+msgstr ""
+
+#: ../functions.php:118 ../functions.php:124
+msgid "Logo"
+msgstr ""
+
+#: ../functions.php:138
+msgid "FIXER MENU"
+msgstr ""
+
+#: ../functions.php:140
+msgid "Area display cart and checkout button"
+msgstr ""
+
+#: ../functions.php:150
+msgid "User"
+msgstr ""
+
+#: ../functions.php:151
+msgid "Short Categories Menu"
+msgstr ""
+
+#: ../functions.php:153
+msgid "Categories Menu"
+msgstr ""
+
+#: ../functions.php:154
+msgid "Page Infor Menu"
+msgstr ""
+
+#: ../functions.php:155
+msgid "Page Infor Menu 1"
+msgstr ""
+
+#: ../functions.php:156
+msgid "Page Infor Menu 2"
+msgstr ""
+
+#: ../functions.php:157
+msgid "Account Page"
+msgstr ""
+
+#: ../functions.php:383
+msgid "Extra Field"
+msgstr ""
+
+#: ../functions.php:426
+msgid "Reply"
+msgstr ""
+
+#: ../login-page.php:9
+msgid "Enter username and/or password"
+msgstr ""
+
+#: ../login-page.php:10
+msgid "Incorrect username and/or password"
+msgstr ""
+
+#: ../login-page.php:16
+msgid "Login to STYLELK"
+msgstr ""
+
+#: ../login-page.php:17 ../register-page.php:45
+msgid "Connect to STYLELK with your Facebook account"
+msgstr ""
+
+#: ../login-page.php:18
+msgid "Login with facebook"
+msgstr ""
+
+#: ../login-page.php:20
+msgid "Sign in with your email address username."
+msgstr ""
+
+#: ../login-page.php:27
+msgid "Email / Username"
+msgstr ""
+
+#: ../login-page.php:32
+msgid "You have been login"
+msgstr ""
+
+#: ../login-page.php:34
+msgid "Lost Password ?"
+msgstr ""
+
+#: ../searchform.php:3
+msgid "Search"
+msgstr ""
+
+#: ../archive.php:24
+msgid "Not have post in category"
+msgstr ""
+
+#: ../archive.php:43
+msgid "Not have post in tag"
+msgstr ""
+
+#: ../search.php:15
+msgid "No have post in search key !"
+msgstr ""
+
+#: ../register-page.php:15
+msgid "Please don't leave the required fields."
+msgstr ""
+
+#: ../register-page.php:17
+msgid "Invalid email address."
+msgstr ""
+
+#: ../register-page.php:19
+msgid "Email already exist."
+msgstr ""
+
+#: ../register-page.php:24
+msgid "Error on user creation."
+msgstr ""
+
+#: ../register-page.php:36
+msgid "You're successfully register"
+msgstr ""
+
+#: ../register-page.php:44
+msgid "Register to STYLELK"
+msgstr ""
+
+#: ../register-page.php:55 ../account-page.php:82 ../comments.php:12
+msgid "Email"
+msgstr ""
+
+#: ../register-page.php:59
+msgid "Password"
+msgstr ""
+
+#: ../register-page.php:62
+msgid "By signing up, you agree to our"
+msgstr ""
+
+#: ../register-page.php:62
+msgid "Terms of Use"
+msgstr ""
+
+#: ../register-page.php:62
+msgid "and"
+msgstr ""
+
+#: ../register-page.php:62
+msgid "Privacy Policy"
+msgstr ""
+
+#: ../register-page.php:65
+msgid "Have account?"
+msgstr ""
+
+#: ../register-page.php:65
+msgid "Login"
+msgstr ""
+
+#: ../account-page.php:63
+msgid "Account Setting"
+msgstr ""
+
+#: ../account-page.php:64
+msgid "Profile"
+msgstr ""
+
+#: ../account-page.php:65
+msgid "Avatar"
+msgstr ""
+
+#: ../account-page.php:66
+msgid "Newsletter"
+msgstr ""
+
+#: ../account-page.php:73
+msgid "Edit Profile"
+msgstr ""
+
+#: ../account-page.php:78
+msgid "User Name"
+msgstr ""
+
+#: ../account-page.php:86
+msgid "Display Name"
+msgstr ""
+
+#: ../account-page.php:90
+msgid "First Name"
+msgstr ""
+
+#: ../account-page.php:94
+msgid "Last Name"
+msgstr ""
+
+#: ../account-page.php:98
+msgid "New Password"
+msgstr ""
+
+#: ../account-page.php:102
+msgid "Repeat New Password"
+msgstr ""
+
+#: ../account-page.php:106
+msgid "Location"
+msgstr ""
+
+#: ../account-page.php:110
+msgid "Birthday"
+msgstr ""
+
+#: ../account-page.php:136
+msgid "Update Profile"
+msgstr ""
+
+#: ../account-page.php:137 ../account-page.php:159
+msgid "Close Account"
+msgstr ""
+
+#: ../account-page.php:143
+msgid "Change Avatar"
+msgstr ""
+
+#: ../account-page.php:149
+msgid "Newsletter Setting"
+msgstr ""
+
+#: ../register-success.php:10
+msgid "SIGN UP COMPLETE"
+msgstr ""
+
+#: ../register-success.php:12
+msgid "You have successfully created your account!"
+msgstr ""
+
+#: ../register-success.php:13
+msgid "Return"
+msgstr ""
+
+#: ../content-short.php:79
+msgid "Comments"
+msgstr ""
+
+#: ../content.php:93
+msgid "comments"
+msgstr ""
+
+#: ../content-none.php:2
+msgid "Not have post"
+msgstr ""
+
+#: ../forgot-password-request.php:21
+msgid "Username or Email was not found, try again!"
+msgstr ""
+
+#: ../forgot-password-request.php:29
+msgid "Someone has asked to reset the password for the following site and username."
+msgstr ""
+
+#: ../forgot-password-request.php:31
+#, php-format
+msgid "Username: %s"
+msgstr ""
+
+#: ../forgot-password-request.php:32
+msgid ""
+"To reset your password visit the following address, otherwise just ignore "
+"this email and nothing will happen."
+msgstr ""
+
+#: ../forgot-password-request.php:33
+#, php-format
+msgid "[%s] Password Reset"
+msgstr ""
+
+#: ../forgot-password-request.php:34
+msgid "The e-mail could not be sent."
+msgstr ""
+
+#: ../forgot-password-request.php:34
+msgid "Possible reason: your host may have disabled the mail() function..."
+msgstr ""
+
+#: ../forgot-password-request.php:42
+msgid "Forgot Password"
+msgstr ""
+
+#: ../forgot-password-request.php:43
+msgid ""
+"Please enter your username or email address. You will receive a link to "
+"create a new password via email."
+msgstr ""
+
+#: ../forgot-password-request.php:46
+msgid "Username or email address:"
+msgstr ""
+
+#: ../forgot-password-request.php:50
+msgid "Get New Password"
+msgstr ""
+
+#: ../forgot-password-request.php:56
+msgid ""
+"The password for this user has already been requested within the last 24 "
+"hours."
+msgstr ""
+
+#: ../comments.php:11
+msgid "Name"
+msgstr ""
+
+#: ../comments.php:14
+msgid "Comment"
+msgstr ""
+
+#: ../index.php:5 ../header.php:135
+msgid "LATEST STORIES"
+msgstr "ádasdasdasdasdasd"

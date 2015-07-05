@@ -30,6 +30,7 @@
       	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
       	<link href='http://fonts.googleapis.com/css?family=Montserrat:700,400' rel='stylesheet' type='text/css'>
       	<link href='http://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
+      	<link href='http://fonts.googleapis.com/css?family=Droid+Arabic+Kufi	' rel='stylesheet' type='text/css'>
       	<link href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
       	<link rel="apple-touch-icon" sizes="57x57" href="<?php echo get_template_directory_uri();?>/images/apple-icon-57x57.png">
 		<link rel="apple-touch-icon" sizes="60x60" href="<?php echo get_template_directory_uri();?>/images/apple-icon-60x60.png">
@@ -102,7 +103,6 @@
 	var cat_id='';
 	var tag_slug_name='';
 	var post_id='';
-	var post_type='';
 	<?php if(is_home()):?> post_addr=1; 
 	<?php elseif(is_category()):?> post_addr=3; cat_id=<?php echo get_cat_id( single_cat_title("",false) ); ?>;
 	<?php elseif(is_single()):?> post_addr=4; post_id=<?php echo get_the_ID()?>;

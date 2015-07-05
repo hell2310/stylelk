@@ -48,7 +48,7 @@ img{
 }
 body{
 	width: 100%;
-	font-family: Oswald,sans-serif;
+	font-family: "Droid Arabic Kufi","Oswald",sans-serif;
 	position: relative;
 	overflow-x: hidden;
 }
@@ -64,7 +64,7 @@ body.hidden-overflow{
 /*MAIN MENU COLLAPSE*/
 #slide_menu{
 	display: block;
-	font-family: "Montserrat",sans-serif;
+	font-family: "Droid Arabic Kufi","Montserrat",sans-serif;
 	text-transform: capitalize;
 	height: 100%;
 	overflow-y: auto;
@@ -195,7 +195,8 @@ ul.menu-social li a span{
 }
 #navbar-top ul.nav li a{
 	padding: 0 10px;
-	font-family: "Montserrat",sans-serif;
+	font-size: 14px;
+	font-family: "Droid Arabic Kufi","Montserrat",sans-serif;
 }
 #navbar-top .menu-home .logo a{
 	display: block;
@@ -203,7 +204,7 @@ ul.menu-social li a span{
 }
 #navbar-top ul.menu-short-categories-top li a{
 	text-transform: uppercase;
-	font-family: "Oswald",sans-serif;
+	font-family: "Droid Arabic Kufi","Oswald",sans-serif;
 	font-size: 16px;
 }
 #navbar-top ul.menu-short-categories-top li ul.sub-menu li{
@@ -251,7 +252,7 @@ ul.menu-social li a span{
 	cursor: pointer;
 }
 .input-search,.btn-search{
-	font-family: "Montserrat",sans-serif;
+	font-family: "Droid Arabic Kufi","Montserrat",sans-serif;
 	margin-bottom: 10px;
 }
 #navbar-top .search-form-fix form{
@@ -260,6 +261,9 @@ ul.menu-social li a span{
 .search-form-fix form.input-group .input-search,.search-form-fix form span.input-group-btn .btn-search{
 	border-radius: 0;
 	border: 1px #dddddd solid;
+}
+.search-form-fix form.input-group .input-search{
+	line-height: 30px;
 }
 .input-search{
 	box-shadow: none;
@@ -409,7 +413,7 @@ ul.sub-menu li a:hover{
 }
 /*STORY WRAPPER*/
 .archive_page_name{
-	font-family: "Montserrat",sans-serif;
+	font-family: "Droid Arabic Kufi","Montserrat",sans-serif;
 	text-transform: capitalize;
 }
 .story-wrapper{
@@ -442,7 +446,7 @@ ul.sub-menu li a:hover{
 }
 
 .story-content ul li{
-	font-family: "Montserrat",sans-serif;
+	font-family: "Droid Arabic Kufi","Montserrat",sans-serif;
 	font-size: 12px;
 
 }
@@ -455,7 +459,7 @@ li.divider{
 .story-content h2{
 	margin: 10px 0;
 	font-size: 22px;
-	font-family: "Oswald",sans-serif;
+	font-family: "Droid Arabic Kufi","Oswald",sans-serif;
 }
 .post-categories{
 	text-align: right;
@@ -475,7 +479,7 @@ ul.story-infor{
 .interative-social li{
 	margin: 5px;
  	background-color: #eeeeee;
- 	font-family: "Montserrat",sans-serif;
+ 	font-family: "Droid Arabic Kufi","Montserrat",sans-serif;
  	font-size: 11px;
 }
 .interative-social li a{
@@ -498,7 +502,7 @@ ul.story-infor{
 }
 /*NEWS LETTER*/
 .right-column{
-	font-family: "Montserrat",sans-serif;
+	font-family: "Droid Arabic Kufi","Montserrat",sans-serif;
 }
 .newsletter-column form{
 	width: 100%;
@@ -541,7 +545,7 @@ ul.story-infor{
 	line-height: 24px;
 }
 .loadmore{
-	font-family: "Montserrat",sans-serif;
+	font-family: "Droid Arabic Kufi","Montserrat",sans-serif;
 	text-align: center;
 	font-size: 18px;
 	color: #444444;
@@ -589,7 +593,7 @@ ul.story-infor{
 .nav-interative-social li{
 	margin: 0 3px;
 	margin-bottom: 10px;
-	font-family: "Montserrat",sans-serif;
+	font-family: "Droid Arabic Kufi","Montserrat",sans-serif;
 	font-size:12px;
 	text-transform: capitalize;	
 	min-width: 90px;
@@ -675,7 +679,7 @@ ul.story-infor{
 	text-transform: uppercase;
 	font-size: 14px;
 	font-weight: bold;
-	font-family: "Montserrat",sans-serif;
+	font-family: "Droid Arabic Kufi","Montserrat",sans-serif;
 	text-align: center;
 }
 .story-comment a:hover,.story-comment a:focus{
@@ -686,10 +690,10 @@ ul.story-infor{
 }
 .comment-content{
 	display: none;
-	font-family: "Montserrat",sans-serif;
+	font-family: "Droid Arabic Kufi","Montserrat",sans-serif;
 }
 .story-infor{
-	font-family: "Montserrat",sans-serif;
+	font-family: "Droid Arabic Kufi","Montserrat",sans-serif;
 	font-size: 11px;
 	color: #999999;
 }
@@ -713,7 +717,7 @@ ul.story-infor{
 .yma-like-post{
 	margin: 0;
 	padding: 10px 0;
-	font-family: "Montserrat",sans-serif;
+	font-family: "Droid Arabic Kufi","Montserrat",sans-serif;
 	border-top: 1px #dddddd solid;
 }
 .yma-like-post .col-md-2{
@@ -742,12 +746,12 @@ ul.story-infor{
 .menu-pageinfor li{
 	display: block;
 	text-align: right;
-	font-family: "Montserrat",sans-serif;
+	font-family: "Droid Arabic Kufi","Montserrat",sans-serif;
 	text-transform: capitalize;
 	-webkit-text-transform:capitalize;
 }
 .page-content h1{
-	font-family: "Montserrat",sans-serif;
+	font-family: "Droid Arabic Kufi","Montserrat",sans-serif;
 	margin-top: 0;
 	font-size: 24px;
 	font-weight: bold;
@@ -755,7 +759,7 @@ ul.story-infor{
 	-webkit-text-transform:capitalize;
 }
 .page-content h2{
-	font-family:"Montserrat",sans-serif;
+	font-family:"Droid Arabic Kufi","Montserrat",sans-serif;
 	font-size: 16px;
 	font-weight: bold;
 }
@@ -836,7 +840,7 @@ ul.story-infor{
 	padding: 30px 90px;
 	float: none !important;
 	background: #f6f6f6;	
-	font-family: "Montserrat",sans-serif;
+	font-family: "Droid Arabic Kufi","Montserrat",sans-serif;
 	max-width: 570px;
 }
 @media screen and (max-width:768px){
@@ -850,12 +854,12 @@ ul.story-infor{
 		padding:  30px 10px;	
 	}
 	.login-register-container h1{
-		font-family: "Montserrat",sans-serif;
+		font-family: "Droid Arabic Kufi","Montserrat",sans-serif;
 	}
 }
 .login-register-container h1{
 	 font-size: 24px;
-	 font-family: "Oswald",sans-serif;
+	 font-family: "Droid Arabic Kufi","Oswald",sans-serif;
 	 font-weight: bold;
 }
 .login-register-container p{
@@ -901,7 +905,7 @@ ul.story-infor{
 	display: block;
 }
 .nav-account-page li a{
-	font-family: "Montserrat",sans-serif;
+	font-family: "Droid Arabic Kufi","Montserrat",sans-serif;
 	text-align: right;
 }
 .user-infor{
@@ -912,7 +916,7 @@ ul.story-infor{
 	line-height: 30px;
 }
 .user-infor .form-control{
-	font-family: "Montserrat",sans-serif;
+	font-family: "Droid Arabic Kufi","Montserrat",sans-serif;
 	font-weight: bold;
 	color: #555555;
 	border-radius: 0;
@@ -928,7 +932,7 @@ ul.story-infor{
 /*MAIN FOOTER*/
 #main-footer{
 	padding: 30px 0;
-	font-family: Montserrat;
+	font-family: "Droid Arabic Kufi","Montserrat";
 	background-color: #000000;
 	margin-top: 30px;
 }
@@ -956,7 +960,7 @@ ul.story-infor{
 .page_not_found{
 	background: #999999;
 	text-align: center;
-	font-family: "Montserrat",sans-serif;
+	font-family: "Droid Arabic Kufi","Montserrat",sans-serif;
 	text-transform: uppercase;
 	font-size: 50px;
 	padding: 100px 0;
@@ -973,7 +977,7 @@ ul.story-infor{
 	display: inline-block;
 }
 .account-btn input{
-	font-family: "Montserrat",sans-serif;
+	font-family: "Droid Arabic Kufi","Montserrat",sans-serif;
 }
 .account-btn input:last-child{
 	color: #337ab7;
@@ -989,7 +993,7 @@ ul.story-infor{
 	margin-bottom: 0;
 }
 .nav-map-maker ul li{
-	font-family: "Montserrat",sans-serif;
+	font-family: "Droid Arabic Kufi","Montserrat",sans-serif;
 	font-size: 12px;
 	margin: 0 5px;
 }
@@ -1003,7 +1007,7 @@ ul.story-infor{
 	width: 100%;
 }
 .search-message{
-	font-family: "Montserrat",sans-serif;
+	font-family: "Droid Arabic Kufi","Montserrat",sans-serif;
 	font-size: 20px;
 	text-align: center;
 	background: #dddddd;
@@ -1069,9 +1073,9 @@ ul.story-infor{
 }
 .slide-control li{
 	background: #eeeeee;
-	padding: 5px 2px;
-	font-size:20px;
-	line-height: 20px;
+	padding: 10px 5px;
+	font-size:30px;
+	line-height: 30px;
 	list-style: none;
 	opacity: 0.1;
 }
@@ -1089,6 +1093,9 @@ ul.story-infor{
 	opacity: 1;
 	display: block;
 }
+.count-slide p{
+	margin: 0;
+}
 .count-slide{
 	position: absolute;
 	bottom: 5px;
@@ -1096,4 +1103,7 @@ ul.story-infor{
 	color: #ffffff;
 	font-size: 12px;
 	font-weight: normal;
+}
+.featured-video-plus iframe{
+	width: 100% !important;
 }
