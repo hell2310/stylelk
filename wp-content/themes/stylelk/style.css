@@ -874,10 +874,12 @@ ul.story-infor{
 }
 .login-password input, .login-password label,.login-username input, .login-username label{
 	display: inline-block;
+	line-height: 25px;
 	width: 100%;
 }
 .login-register-container a,.login-register-container .button-primary,.login-register-container input{
 	border-radius: 0;
+	line-height: 25px;
 }
 .login-register-container .facebook-connect,.login-register-container .button-primary{
 	width: 100%;
@@ -1008,11 +1010,12 @@ ul.story-infor{
 }
 .search-message{
 	font-family: "Droid Arabic Kufi","Montserrat",sans-serif;
+	font-size: 14px;
+	text-align: right;	
+	margin-bottom: 150px;
+}
+.search-message span{
 	font-size: 20px;
-	text-align: center;
-	background: #dddddd;
-	min-height: 500px;
-	line-height: 100px;
 }
 .story-content>p>iframe{
 	width: 100% !important;
@@ -1106,4 +1109,34 @@ ul.story-infor{
 }
 .featured-video-plus iframe{
 	width: 100% !important;
+}
+#disqus_thread{
+display: none;
+}
+.searchform-page input{
+height:50px ;
+font-size:20px ;
+font-family:'Droid Arabic Kufi','Oswald';
+border:none;color:#333333;
+line-height: 20px;
+}
+
+.searchform-page input.input-search:focus{
+	border: none !important;
+	box-shadow: none;
+	-webkit-box-shadow:none;
+}
+.subscription-success{
+	font-size: "Droid Arabic Kufi","Montserrat",sans-serif;
+	text-align: center;
+}
+.user-menu ul.sub-menu{
+	font-size: 14px;
+}
+.setting-menu{
+	padding: 0 !important;
+	border: none;
+}
+.logout-menu a{
+	padding: 0 !important;
 }

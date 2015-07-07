@@ -5,3 +5,5 @@
 26-06-2015 03:17:47 - ERROR - 13.9 MB - mail> Could not instantiate mail function.
 26-06-2015 03:26:32 - ERROR - 13.9 MB - mail> Could not instantiate mail function.
 26-06-2015 03:27:14 - ERROR - 13.9 MB - mail> Could not instantiate mail function.
+06-07-2015 08:15:24 - ERROR - 19.5 MB - mail> Could not instantiate mail function.
+06-07-2015 08:16:47 - ERROR - 19.5 MB - mail> Could not instantiate mail function.

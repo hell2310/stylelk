@@ -28,10 +28,11 @@
     	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1">
       	<meta name="apple-mobile-web-app-capable" content="yes">
       	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+      	<!-- <meta property="fb:app_id" content="1598812297023639" /> -->
       	<link href='http://fonts.googleapis.com/css?family=Montserrat:700,400' rel='stylesheet' type='text/css'>
       	<link href='http://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
       	<link href='http://fonts.googleapis.com/css?family=Droid+Arabic+Kufi	' rel='stylesheet' type='text/css'>
-      	<link href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+      	<link href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
       	<link rel="apple-touch-icon" sizes="57x57" href="<?php echo get_template_directory_uri();?>/images/apple-icon-57x57.png">
 		<link rel="apple-touch-icon" sizes="60x60" href="<?php echo get_template_directory_uri();?>/images/apple-icon-60x60.png">
 		<link rel="apple-touch-icon" sizes="72x72" href="<?php echo get_template_directory_uri();?>/images/apple-icon-72x72.png">
@@ -50,9 +51,9 @@
 		<meta name="msapplication-TileImage" content="<?php echo get_template_directory_uri();?>/images/ms-icon-144x144.png">
 		<meta name="theme-color" content="#ffffff">
 		<script>
-		window.fbAsyncInit = function() {
+		/*window.fbAsyncInit = function() {
 		FB.init({
-		appId : '1603443363261032',
+		appId : '1598812297023639',
 		xfbml : true,
 		version : 'v2.3'
 		});
@@ -64,7 +65,7 @@
 		js = d.createElement(s); js.id = id;
 		js.src = "//connect.facebook.net/en_US/sdk.js";
 		fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));
+		}(document, 'script', 'facebook-jssdk'));*/
 		</script>
     <?php
 	}
@@ -427,5 +428,12 @@ function comment_list_theme( $comment,$args,$depth) {
 	</article>
     <?php
 }
-
+add_filter('wp_mail_from', 'new_mail_from');
+add_filter('wp_mail_from_name', 'new_mail_from_name');
+function new_mail_from(){
+	return 'noreply@stylelk.net';
+}
+function new_mail_from_name(){
+	return 'STYLELK';
+}
 ?>

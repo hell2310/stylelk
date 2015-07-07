@@ -23,6 +23,18 @@
 			<li><a href="<?php echo (get_option('qs_contact_custom_pinterest')); ?>" target="_blank"><span class="fa fa-pinterest"></span></a></li>
 			<li><a href="<?php echo HOME; ?>/?feed=rss"><span class="fa fa-rss" target="_blank"></span></a></li>
 		</ul>
+		<?php 
+					if( is_user_logged_in()):
+						?>
+					<ul class="nav nav-pillss user-menu">
+						<?php wp_nav_menu( array( 'theme_location' => 'accountpage_menu', 'container' =>false, 'menu_class' => 'setting-menu') ); ?>
+						<li class='logout-menu'><a href="<?php echo wp_logout_url(HOME); ?>"><?php _e('Logout') ?></a></li>
+					</ul>
+					<?php
+					else :
+						wp_nav_menu( array( 'theme_location' => 'user_menu', 'container' =>false, 'menu_class' => 'nav nav-pills user-menu') ); 				
+					endif;
+		?>	
 		<?php wp_nav_menu( array( 'theme_location' => 'pageinfor_menu_1', 'container' =>false, 'menu_class' => 'menu-pageinfor') ); ?>				
 		<div class="menu-footer">
 			<?php wp_nav_menu( array( 'theme_location' => 'pageinfor_menu_2', 'container' =>false, 'menu_class' => 'menu-term') ); ?>

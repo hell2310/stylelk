@@ -27,7 +27,9 @@ header('Content-Type: text/html;charset=UTF-8');
 if (is_file(WP_CONTENT_DIR . '/extensions/newsletter/subscription/page.php')) {
     include WP_CONTENT_DIR . '/extensions/newsletter/subscription/page.php';
     die();
+
 }
+redirect_to_page(HOME.'/successubscription?message='.$message);
 ?>
 <html>
     <head>

@@ -2,7 +2,7 @@
 			<p class="loadmore"><?php _e('Load more')?></p> 
 		<?php endif; ?>
 		</div> <!-- END BODY-CONTENT -->
-		<?php if(is_page()|is_404()):?>
+		<?php if(!is_page('successubscription')&&(is_page()|is_404())):?>
 		<footer id="main-footer">
 			<div class="container">
 				<div class="row">

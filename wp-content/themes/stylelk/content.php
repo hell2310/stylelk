@@ -7,6 +7,10 @@
 			<!--  display slide image use with plugin dynamic feature image-->
 			<?php if(has_post_video($post_id)): ?>
 				<?php echo get_the_post_video( $post_id, full ); ?>
+				<script type="text/javascript">
+				var iframeWisth=$(".featured-video-plus iframe").width();
+				$(".featured-video-plus iframe").height(iframeWisth*2/3);
+				</script>
 			<?php else:?>
 			<?php 
 				global $dynamic_featured_image;
@@ -33,15 +37,15 @@
 				$(".slide-feature-image-<?php echo $post_id;?> img:first-child").addClass("image-focus");
 			    $(".count-slide").html("<p>"+(eindex+1)+"/"+count+"</p>");
 			    function setimagefocus() {
-			        $(".slide-feature-image-<?php echo $post_id;?> img").stop().fadeOut(500).animate({
+			        $(".slide-feature-image-<?php echo $post_id;?> img").stop().fadeOut(300).animate({
 			            opacity: 0
 			        });
-			        $(".slide-feature-image-<?php echo $post_id;?> img:eq(" + eindex + ")").stop().fadeIn(500).animate({
+			        $(".slide-feature-image-<?php echo $post_id;?> img:eq(" + eindex + ")").stop().fadeIn(300).animate({
 			            opacity: 1
 			        });
 			         $(".count-slide").html("<p>"+(eindex+1)+"/"+count+"</p>");
 			    }
-			    function slideswap() {
+			   /* function slideswap() {
 			        eindex++;
 			        if (eindex == count) {
 			            eindex = 0;
@@ -56,7 +60,7 @@
 			        clearInterval(play);
 			    }, function () {
 			        start_slideswap();
-			    });
+			    });*/
 			    $(".control-left").click(function () {
 			        eindex--;
 			        if (eindex == -1) eindex = count - 1;
@@ -83,9 +87,9 @@
 				<li class="social-twitter"><a href="https://twitter.com/intent/tweet?url=<?php the_permalink()?>" target='_blank'><span class="fa fa-twitter"></span><span class="hidden-xs"> tweet</span></a></li>
 				<li class="social-reddit"><a href="http://www.reddit.com/submit?url=<?php the_permalink()?>" target='_blank'><span class="fa fa-reddit"></span><span class="hidden-xs"> submit</span></a></li>
 				<li class="social-pinterest"><a href="http://www.pinterest.com/pin/create/button/?url=<?php the_permalink()?> " target='_blank'><span class="fa fa-pinterest"></span><span class="hidden-xs"> pin it</span></a></li>
-				<li class="hidden-md hidden-lg hidden-sm social-whatsapp"><a href="whatsapp://send?text=<?php the_permalink()?> " data-action="share/whatsapp/share" target='_blank'><span class="fa fa-paper-plane"></span></a></li>
+				<li class="hidden-md hidden-lg hidden-sm social-whatsapp"><a href="whatsapp://send?text=<?php the_permalink()?> " data-action="share/whatsapp/share" target='_blank'><span class="fa fa-whatsapp"></span></a></li>
 				<li class="hidden-md hidden-lg hidden-sm social-telegram"><a href="#" data-action="share/whatsapp/share" target='_blank'><span class="fa fa-paper-plane"></span></a></li>
-				<li class="social-email"><a href="mailto:?subject=MailfromStylelk&body=<?php the_permalink()?>" target='_blank'><span class="fa fa-envelope-o"></span><span class="hidden-xs"> email</span></a></li>
+				<li class="social-email"><a href="mailto:?subject=<?php the_title() ?>&body=<?php the_permalink()?>" target='_blank'><span class="fa fa-envelope-o"></span><span class="hidden-xs"> email</span></a></li>
 				<li class="social-link hidden-xs"><a class="social-link-button" onclick="toggleLinkContent(<?php echo get_the_ID();?>)"><span class="fa fa-link"></span><span class="hidden-xs"> link</span></a><div class="link-container link-container-<?php echo get_the_ID();?>"><label>Share this link</label><input type="text" value="<?php the_permalink()?>"></div></li>		
 			</ul>
 			<div class="story-content">
@@ -95,7 +99,8 @@
 			<ul class="nav nav-align-right story-infor"><li><strong>Category: </strong><p><?php the_category() ?></p></li><li class="divider">/</li><li><strong>tag: </strong><p><?php the_tags('','','')?></p></li><li class="divider">/</li><li><strong>views: </strong><p><?php echo getPostViews(get_the_ID()); ?></p></li></ul>
 			<p class="story-comment" onclick="toggleCommentContent(<?php echo $post_id; ?>)" ><a><?php echo get_comments_number();?> <?php _e('comments')?></a></p>
 			<?php if ( comments_open()) : 
-				get_template_part('comments'); 			
+				/*get_template_part('comments'); */	
+				comments_template();		
 			endif; ?>
 		<script type="text/javascript">
 			function toggleLinkContent(postID){
@@ -103,7 +108,7 @@
 				$(".link-container-"+postID+" input").focus();
 			}
 			function toggleCommentContent(postID){
-				$(".comment-content-"+postID).slideToggle();
+				$("#disqus_thread").slideToggle();
 			}
 		</script>
 			<?php 

@@ -148,7 +148,6 @@ if(	isset($_POST['userID'])){
 						<div id="edit-newsletter-content" class="tab-pane fade">
 							<h1><?php _e('Newsletter Setting') ?></h1>
 							<hr>
-							
 						</div>
 					</div>
 			</div>
