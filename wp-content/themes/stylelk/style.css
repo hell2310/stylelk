@@ -1110,7 +1110,7 @@ ul.story-infor{
 .featured-video-plus iframe{
 	width: 100% !important;
 }
-#disqus_thread{
+.comments-content{
 display: none;
 }
 .searchform-page input{
@@ -1120,7 +1120,6 @@ font-family:'Droid Arabic Kufi','Oswald';
 border:none;color:#333333;
 line-height: 20px;
 }
-
 .searchform-page input.input-search:focus{
 	border: none !important;
 	box-shadow: none;
@@ -1129,9 +1128,6 @@ line-height: 20px;
 .subscription-success{
 	font-size: "Droid Arabic Kufi","Montserrat",sans-serif;
 	text-align: center;
-}
-.user-menu ul.sub-menu{
-	font-size: 14px;
 }
 .setting-menu{
 	padding: 0 !important;

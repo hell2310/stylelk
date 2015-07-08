@@ -45,22 +45,6 @@
 			        });
 			         $(".count-slide").html("<p>"+(eindex+1)+"/"+count+"</p>");
 			    }
-			   /* function slideswap() {
-			        eindex++;
-			        if (eindex == count) {
-			            eindex = 0;
-			        }
-			        setimagefocus();
-			    }
-			    function start_slideswap() {
-			        timeinterval = 4000;
-			        play = setInterval(slideswap, timeinterval);
-			    }
-			    $(".slide-feature-image-<?php echo $post_id;?>").hover(function () {
-			        clearInterval(play);
-			    }, function () {
-			        start_slideswap();
-			    });*/
 			    $(".control-left").click(function () {
 			        eindex--;
 			        if (eindex == -1) eindex = count - 1;
@@ -75,7 +59,7 @@
 			<?php 
 			else:?>
 			<!-- display video or feature image when not have slide image -->
-				<a href="<?php the_permalink() ?>"><?php the_post_thumbnail() ?></a>	
+				<a href="<?php the_permalink() ?>"><?php the_post_thumbnail('large') ?></a>	
 			<?php
 			endif;?>
 		<?php endif;?>
@@ -98,9 +82,9 @@
 			<ul class="nav nav-align-right story-infor"><li><strong>Date: </strong><p><?php the_date() ?></p></li><li class="divider">/</li><li><strong>Author: </strong><p><a href="<?php the_author_link() ?>"><?php the_author() ?></a></p></li></ul>
 			<ul class="nav nav-align-right story-infor"><li><strong>Category: </strong><p><?php the_category() ?></p></li><li class="divider">/</li><li><strong>tag: </strong><p><?php the_tags('','','')?></p></li><li class="divider">/</li><li><strong>views: </strong><p><?php echo getPostViews(get_the_ID()); ?></p></li></ul>
 			<p class="story-comment" onclick="toggleCommentContent(<?php echo $post_id; ?>)" ><a><?php echo get_comments_number();?> <?php _e('comments')?></a></p>
-			<?php if ( comments_open()) : 
-				/*get_template_part('comments'); */	
-				comments_template();		
+			<?php if ( comments_open()) :?>
+				<div id="comments-content-<?php echo $post_id ;?>" class="comments-content"><?php comments_template();?></div>
+					<?php	
 			endif; ?>
 		<script type="text/javascript">
 			function toggleLinkContent(postID){
@@ -108,10 +92,10 @@
 				$(".link-container-"+postID+" input").focus();
 			}
 			function toggleCommentContent(postID){
-				$("#disqus_thread").slideToggle();
+				$("#comments-content-"+postID).slideToggle();
 			}
 		</script>
-			<?php 
+		<?php 
 				global $wpdb;
 				global $post;
 				$cat_ID=array();
