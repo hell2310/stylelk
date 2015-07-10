@@ -1,6 +1,7 @@
 <!-- DISPLAY POST WRAPPER IN POST PAGE -->
 <?php 	$post_id=get_the_ID();
-		$post_pemarlink=get_permalink(get_the_ID());
+		$post_permalink=get_permalink(get_the_ID());
+		$post_title=get_the_title(get_the_ID());
 ?>
 <div class="row story-wrapper postpage-story-wrapper post-page-story-<?php echo $post_id;?>">
 		<div class="story-image" > 
@@ -27,33 +28,35 @@
 				<!-- 			loadscript for slide -->
 			<script type="text/javascript">
 				var slideImageWidth=$(".slide-feature-image-<?php echo $post_id;?>").width();
-				var eindex = 0;
+				var eindex_<?php echo $post_id;?> = 0;
 			    var play='';
 			    var timeinterval=''; 
 				$(".slide-feature-image-<?php echo $post_id;?>").height(slideImageWidth*2/3);
-				var count = $('.slide-feature-image-<?php echo $post_id;?> img').length;
-				$('.slide-feature-image-<?php echo $post_id;?>').append('<ul class="slide-control"><li class="fa fa-chevron-right control-right"></li><li class="fa fa-chevron-left control-left"></li></ul>');
-				$('.slide-feature-image-<?php echo $post_id;?>').append('<div class="count-slide"></div>');
+				var count_<?php echo $post_id;?> = $('.slide-feature-image-<?php echo $post_id;?> img').length;
+				$('.slide-feature-image-<?php echo $post_id;?>').append('<ul class="slide-control"><li id="control-right-<?php echo $post_id;?>" class="fa fa-chevron-right control-right"></li><li id="control-left-<?php echo $post_id;?>"class="fa fa-chevron-left control-left"></li></ul>');
+				$('.slide-feature-image-<?php echo $post_id;?>').append('<div class="count-slide count-slide-<?php echo $post_id;?>"></div>');
 				$(".slide-feature-image-<?php echo $post_id;?> img:first-child").addClass("image-focus");
-			    $(".count-slide").html("<p>"+(eindex+1)+"/"+count+"</p>");
-			    function setimagefocus() {
-			        $(".slide-feature-image-<?php echo $post_id;?> img").stop().fadeOut(300).animate({
+			    $(".count-slide-<?php echo $post_id;?>").html("<p>"+(eindex_<?php echo $post_id;?>+1)+"/"+count_<?php echo $post_id;?>+"</p>");
+			    if (typeof setimagefocus == "undefined") { 
+			    function setimagefocus(postID,eIndex,count) {
+			        $(".slide-feature-image-"+postID+" img").stop().fadeOut(300).animate({
 			            opacity: 0
 			        });
-			        $(".slide-feature-image-<?php echo $post_id;?> img:eq(" + eindex + ")").stop().fadeIn(300).animate({
+			        $(".slide-feature-image-"+postID+" img:eq(" + eIndex + ")").stop().fadeIn(300).animate({
 			            opacity: 1
 			        });
-			         $(".count-slide").html("<p>"+(eindex+1)+"/"+count+"</p>");
+			         $(".count-slide-"+postID).html("<p>"+(eIndex+1)+"/"+count+"</p>");
 			    }
-			    $(".control-left").click(function () {
-			        eindex--;
-			        if (eindex == -1) eindex = count - 1;
-			        setimagefocus();
+			    }
+			    $("#control-left-<?php echo $post_id;?>").click(function () {
+			        eindex_<?php echo $post_id;?>--;
+			        if (eindex_<?php echo $post_id;?> == -1) eindex_<?php echo $post_id;?> = count_<?php echo $post_id;?> - 1;
+			        setimagefocus(<?php echo $post_id;?>,eindex_<?php echo $post_id;?>,count_<?php echo $post_id;?>);
 			    });
-			    $(".control-right").click(function () {
-			        eindex++;
-			        if (eindex == count) eindex = 0;
-			        setimagefocus();
+			    $("#control-right-<?php echo $post_id;?>").click(function () {
+			        eindex_<?php echo $post_id;?>++;
+			        if (eindex_<?php echo $post_id;?> == count_<?php echo $post_id;?>) eindex_<?php echo $post_id;?> = 0;
+			        setimagefocus(<?php echo $post_id;?>,eindex_<?php echo $post_id;?>,count_<?php echo $post_id;?>);
 			    });
 			</script>		
 			<?php 
@@ -74,25 +77,50 @@
 				<li class="hidden-md hidden-lg hidden-sm social-whatsapp"><a href="whatsapp://send?text=<?php the_permalink()?> " data-action="share/whatsapp/share" target='_blank'><span class="fa fa-whatsapp"></span></a></li>
 				<li class="hidden-md hidden-lg hidden-sm social-telegram"><a href="#" data-action="share/whatsapp/share" target='_blank'><span class="fa fa-paper-plane"></span></a></li>
 				<li class="social-email"><a href="mailto:?subject=<?php the_title() ?>&body=<?php the_permalink()?>" target='_blank'><span class="fa fa-envelope-o"></span><span class="hidden-xs"> email</span></a></li>
-				<li class="social-link hidden-xs"><a class="social-link-button" onclick="toggleLinkContent(<?php echo get_the_ID();?>)"><span class="fa fa-link"></span><span class="hidden-xs"> link</span></a><div class="link-container link-container-<?php echo get_the_ID();?>"><label>Share this link</label><input type="text" value="<?php the_permalink()?>"></div></li>		
+				<li class="social-link hidden-xs"><a class="social-link-button" onclick="toggleLinkContent(<?php echo get_the_ID();?>)"><span class="fa fa-link"></span><span class="hidden-xs"> link</span></a><div id="link-container-<?php echo get_the_ID();?>" class="link-container"><label>Share this link</label><input type="text" value="<?php the_permalink()?>"></div></li>		
 			</ul>
 			<div class="story-content">
 				<?php the_content() ?>
 			</div>
 			<ul class="nav nav-align-right story-infor"><li><strong>Date: </strong><p><?php the_date() ?></p></li><li class="divider">/</li><li><strong>Author: </strong><p><a href="<?php the_author_link() ?>"><?php the_author() ?></a></p></li></ul>
 			<ul class="nav nav-align-right story-infor"><li><strong>Category: </strong><p><?php the_category() ?></p></li><li class="divider">/</li><li><strong>tag: </strong><p><?php the_tags('','','')?></p></li><li class="divider">/</li><li><strong>views: </strong><p><?php echo getPostViews(get_the_ID()); ?></p></li></ul>
-			<p class="story-comment" onclick="toggleCommentContent(<?php echo $post_id; ?>)" ><a><?php echo get_comments_number();?> <?php _e('comments')?></a></p>
+			<p id="story-comment-<?php echo $post_id;?>" class="story-comment" onclick="toggleCommentContent(<?php echo $post_id; ?>,'<?php echo $post_title;?>','<?php echo $post_permalink;?>')" ><a> <span class="disqus-comment-count"  data-role="mobile" data-disqus-url="<?php echo $post_permalink;?>"></span></a></p>
+			<script type="text/javascript" src="https://stylelk.net/wp-content/plugins/disqus-comment-system/media/js/count.js"></script>
 			<?php if ( comments_open()) :?>
-				<div id="comments-content-<?php echo $post_id ;?>" class="comments-content"><?php comments_template();?></div>
-					<?php	
-			endif; ?>
-		<script type="text/javascript">
+				<div id="comments-content-<?php echo $post_id ;?>" class="comments-content">
+					<?php;
+					/*echo disqus_embed('stylelk',$post_title,$post_id,$post_pemarlink);*/
+					/* comments_template();*/?>
+				</div>
+			<?php endif; ?>
+			<script type="text/javascript">
 			function toggleLinkContent(postID){
-				$(".link-container-"+postID).slideToggle();
-				$(".link-container-"+postID+" input").focus();
+				$("#link-container-"+postID).slideToggle();
+				$("#link-container-"+postID+" input").focus();
 			}
-			function toggleCommentContent(postID){
+			function toggleCommentContent(postID,postTitle,postPermalink){
+				var js = document.createElement("script");
+				js.type = "text/javascript";
+				js.src = "http://stylelk.disqus.com/embed.js";
+				$(".story-comment").slideDown();
+				$("#story-comment-"+postID).slideUp();
+				$(".comments-content").slideUp();
+				$(".comments-content").html("");
 				$("#comments-content-"+postID).slideToggle();
+				$("#comments-content-"+postID).html('<div id="disqus_thread" mobile="yes"></div>');	
+				$("#comments-content-"+postID).append(js);
+				DISQUS.reset({
+			      reload: true,
+			      config: function () {  
+			        this.page.identifier = "stylelk-"+postID;
+			        this.page.url = postPermalink;
+			        this.page.title = postTitle;
+			      }
+			    });
+			/*	var disqus_shortname = "stylelk";
+				var disqus_title = postTitle;
+				var disqus_url = postPermalink;
+				var disqus_identifier = "stylelk-"+postID;*/
 			}
 		</script>
 		<?php 

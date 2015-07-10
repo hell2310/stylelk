@@ -8,7 +8,8 @@
 					get_template_part( 'content', get_post_format() );
 				endwhile;
 				endif;
-				setPostViews(get_the_ID());
+				$post_id=get_the_ID();
+				setPostViews($post_id);
 				?>	
 			</div> <!-- END TABCONTENT -->
 		</div>

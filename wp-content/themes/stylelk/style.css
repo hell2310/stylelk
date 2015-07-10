@@ -450,6 +450,9 @@ ul.sub-menu li a:hover{
 	font-size: 12px;
 
 }
+ul.story-time{
+	margin-top: 10px;
+}
 ul.story-time li{
 	color: #006fbb;
 }
@@ -1110,6 +1113,9 @@ ul.story-infor{
 .featured-video-plus iframe{
 	width: 100% !important;
 }
+.fluid-width-video-wrapper iframe{
+	height: 100% !important;
+}
 .comments-content{
 display: none;
 }
@@ -1126,7 +1132,7 @@ line-height: 20px;
 	-webkit-box-shadow:none;
 }
 .subscription-success{
-	font-size: "Droid Arabic Kufi","Montserrat",sans-serif;
+	font-family: "Droid Arabic Kufi","Montserrat",sans-serif;
 	text-align: center;
 }
 .setting-menu{

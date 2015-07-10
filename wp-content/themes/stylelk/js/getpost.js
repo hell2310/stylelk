@@ -45,7 +45,8 @@ $(document).ready(function(){
 		        			else if(post_addr==2) $("#popular-content").append(result);
 		        			else  $(".tab-content").append(result);
 		        			if(result=='') $(".loadmore").html('END');
-		        		isloadingData=0;}
+		        			isloadingData=0;
+		        		}
 	    				})
 	    		}
 

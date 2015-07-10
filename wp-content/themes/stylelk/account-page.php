@@ -147,6 +147,7 @@ if(	isset($_POST['userID'])){
 						</div>
 						<div id="edit-newsletter-content" class="tab-pane fade">
 							<h1><?php _e('Newsletter Setting') ?></h1>
+							<?php echo subscription_post_subscribe_setting();?>
 							<hr>
 						</div>
 					</div>

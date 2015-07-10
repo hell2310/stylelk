@@ -15,7 +15,8 @@ get_header();
 				<div class="login-register-container">
 					<h1><?php _e('Login to STYLELK')?></h1>
 					<p><?php _e('Connect to STYLELK with your Facebook account')?></p>
-					<p><a class="btn btn-primary btn-block facebook-connect" href="<?php echo HOME; ?>/wp-login.php?loginFacebook=1&redirect=<?php echo HOME;?>" onclick="window.location = '<?php echo HOME;?>/wp-login.php?loginFacebook=1&redirect='+window.location.href; return false;" target="_blank"><span class="fa fa-facebook"></span>  <?php _e('Login with facebook')?></a></p>
+					<!-- <p><a class="btn btn-primary btn-block facebook-connect" href="https://www.facebook.com/dialog/oauth?client_id=1603443363261032&redirect_uri=<?php echo HOME;?>/login-page" target="_blank"><span class="fa fa-facebook"></span>  <?php _e('Login with facebook')?></a></p> -->
+					<p><a class="btn btn-primary btn-block facebook-connect" target="_blank" href="<?php echo HOME; ?>/wp-login.php?loginFacebook=1&redirect=<?php echo HOME;?>" onclick="window.location = '<?php echo HOME;?>/wp-login.php?loginFacebook=1&redirect='+window.location.href; return false;" target="_blank"><span class="fa fa-facebook"></span>  <?php _e('Login with facebook')?></a></p>
 					<hr>
 					<p><?php _e('Sign in with your email address username.')?></p>
 				<?php if(isset($message)) :?>

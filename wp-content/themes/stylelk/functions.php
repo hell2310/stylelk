@@ -188,7 +188,7 @@
 	function popularPosts($curentpost,$numpost) {
 	    global $wpdb;
 	    global $post;
-	    $posts = $wpdb->get_results("SELECT $wpdb->posts.ID,$wpdb->posts.post_title,$wpdb->posts.comment_count,$wpdb->posts.post_date FROM $wpdb->posts INNER JOIN $wpdb->postmeta ON $wpdb->postmeta.post_id=$wpdb->posts.ID WHERE $wpdb->postmeta.meta_key='post_views_count' AND $wpdb->posts.post_type='post'  ORDER BY $wpdb->postmeta.meta_value+0  DESC LIMIT $curentpost, $numpost");	  
+	    $posts = $wpdb->get_results("SELECT $wpdb->posts.ID/*,$wpdb->posts.post_title,$wpdb->posts.comment_count,$wpdb->posts.post_date */ FROM $wpdb->posts INNER JOIN $wpdb->postmeta ON $wpdb->postmeta.post_id=$wpdb->posts.ID WHERE $wpdb->postmeta.meta_key='post_views_count' AND $wpdb->posts.post_type='post'  ORDER BY $wpdb->postmeta.meta_value+0  DESC LIMIT $curentpost, $numpost");	  
 	   	if ( $posts) : 
 			foreach ($posts as $post):
 				setup_postdata($post);
@@ -204,7 +204,7 @@
 	function latestPosts($curentpost,$numpost){
 		global $wpdb;
 		global $post;
-		$posts = $wpdb->get_results("SELECT ID,post_title,comment_count,post_date FROM $wpdb->posts WHERE post_type='post' AND post_status='publish' ORDER BY post_date DESC LIMIT $curentpost, $numpost");	  
+		$posts = $wpdb->get_results("SELECT ID/*,post_title,comment_count,post_date*/ FROM $wpdb->posts WHERE post_type='post' AND post_status='publish' ORDER BY post_date DESC LIMIT $curentpost, $numpost");	  
 		if ( $posts) : 
 			foreach ($posts as $post):
 				setup_postdata($post);
@@ -436,4 +436,5 @@ function new_mail_from(){
 function new_mail_from_name(){
 	return 'STYLELK';
 }
+
 ?>
