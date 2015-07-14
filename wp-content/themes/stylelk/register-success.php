@@ -3,7 +3,7 @@ get_header();
 /*
  Template Name: Register Success Page
  */
- ?>
+?>
 <div class="container body-content">
 			<div class="row">
 				<div class="login-register-container register-success-container">

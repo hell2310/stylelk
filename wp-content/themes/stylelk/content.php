@@ -18,7 +18,7 @@
 				$feature_image=$dynamic_featured_image->get_featured_images() ;
 				if(!$feature_image==null): ?>		
 				<div class="slide-feature-image slide-feature-image-<?php echo $post_id;?>">	
-				<?php the_post_thumbnail() ?>
+				<?php the_post_thumbnail('medium') ?>
 				<?php 
 				foreach ($feature_image as $feature_image) {?>
 					<img src="<?php echo $feature_image['full'];?>">
@@ -29,11 +29,9 @@
 			<script type="text/javascript">
 				var slideImageWidth=$(".slide-feature-image-<?php echo $post_id;?>").width();
 				var eindex_<?php echo $post_id;?> = 0;
-			    var play='';
-			    var timeinterval=''; 
 				$(".slide-feature-image-<?php echo $post_id;?>").height(slideImageWidth*2/3);
 				var count_<?php echo $post_id;?> = $('.slide-feature-image-<?php echo $post_id;?> img').length;
-				$('.slide-feature-image-<?php echo $post_id;?>').append('<ul class="slide-control"><li id="control-right-<?php echo $post_id;?>" class="fa fa-chevron-right control-right"></li><li id="control-left-<?php echo $post_id;?>"class="fa fa-chevron-left control-left"></li></ul>');
+				$('.slide-feature-image-<?php echo $post_id;?>').append('<ul class="slide-control"><li id="control-right-<?php echo $post_id;?>" class="fa fa-chevron-right control-button-<?php echo $post_id;?> control-right control-active"></li><li id="control-left-<?php echo $post_id;?>"class="fa fa-chevron-left control-button-<?php echo $post_id;?> control-left"></li></ul>');
 				$('.slide-feature-image-<?php echo $post_id;?>').append('<div class="count-slide count-slide-<?php echo $post_id;?>"></div>');
 				$(".slide-feature-image-<?php echo $post_id;?> img:first-child").addClass("image-focus");
 			    $(".count-slide-<?php echo $post_id;?>").html("<p>"+(eindex_<?php echo $post_id;?>+1)+"/"+count_<?php echo $post_id;?>+"</p>");
@@ -45,7 +43,21 @@
 			        $(".slide-feature-image-"+postID+" img:eq(" + eIndex + ")").stop().fadeIn(300).animate({
 			            opacity: 1
 			        });
-			         $(".count-slide-"+postID).html("<p>"+(eIndex+1)+"/"+count+"</p>");
+			        $(".count-slide-"+postID).html("<p>"+(eIndex+1)+"/"+count+"</p>");
+			        if(eIndex==(count-1)){
+			         	$("#control-right-"+postID).removeClass("control-active");
+			         	$("#control-left-"+postID).addClass("control-active");
+			         }
+			        else if(eIndex==0){
+			         	$("#control-left-"+postID).removeClass("control-active");
+			         	$("#control-right-"+postID).addClass("control-active");
+			         }
+			        else if(eIndex==(count-2)|eIndex==1){
+			        	$("#control-left-"+postID+",#control-right-"+postID).addClass("control-active");
+			        }
+			        else{
+			        	;
+			        }
 			    }
 			    }
 			    $("#control-left-<?php echo $post_id;?>").click(function () {
@@ -75,7 +87,7 @@
 				<li class="social-reddit"><a href="http://www.reddit.com/submit?url=<?php the_permalink()?>" target='_blank'><span class="fa fa-reddit"></span><span class="hidden-xs"> submit</span></a></li>
 				<li class="social-pinterest"><a href="http://www.pinterest.com/pin/create/button/?url=<?php the_permalink()?> " target='_blank'><span class="fa fa-pinterest"></span><span class="hidden-xs"> pin it</span></a></li>
 				<li class="hidden-md hidden-lg hidden-sm social-whatsapp"><a href="whatsapp://send?text=<?php the_permalink()?> " data-action="share/whatsapp/share" target='_blank'><span class="fa fa-whatsapp"></span></a></li>
-				<li class="hidden-md hidden-lg hidden-sm social-telegram"><a href="#" data-action="share/whatsapp/share" target='_blank'><span class="fa fa-paper-plane"></span></a></li>
+				<li class="hidden-md hidden-lg hidden-sm social-telegram"><a href="tg://msg?text=<?php the_permalink()?>" data-action="share/whatsapp/share" target='_blank'><span class="fa fa-paper-plane"></span></a></li>
 				<li class="social-email"><a href="mailto:?subject=<?php the_title() ?>&body=<?php the_permalink()?>" target='_blank'><span class="fa fa-envelope-o"></span><span class="hidden-xs"> email</span></a></li>
 				<li class="social-link hidden-xs"><a class="social-link-button" onclick="toggleLinkContent(<?php echo get_the_ID();?>)"><span class="fa fa-link"></span><span class="hidden-xs"> link</span></a><div id="link-container-<?php echo get_the_ID();?>" class="link-container"><label>Share this link</label><input type="text" value="<?php the_permalink()?>"></div></li>		
 			</ul>
@@ -117,6 +129,8 @@
 			        this.page.title = postTitle;
 			      }
 			    });
+			    topPosition=("#comment-content-"+postID).position().top;
+			     $('html,body').animate({"scrollTop":topPosition},'slow');
 			/*	var disqus_shortname = "stylelk";
 				var disqus_title = postTitle;
 				var disqus_url = postPermalink;
@@ -138,7 +152,7 @@
 						<h4>you may also like</h4>
 					<?php while ($the_query->have_posts()):$the_query->the_post(); setup_postdata( $post)?>
 						<div class="row yma-like-post">
-							<div class="col-md-2 yma-like-image"><a href="<?php the_permalink() ?>"><?php the_post_thumbnail() ?></a></div>
+							<div class="col-md-2 yma-like-image"><a href="<?php the_permalink() ?>"><?php the_post_thumbnail("small") ?></a></div>
 							<div class="col-md-10 yma-like-content">
 								<p class="yma-like-title"><a href="<?php the_permalink()?>"><?php the_title() ?></a></p>
 								<ul class="nav nav-align-right nav-padding-none yma-like-infor"><li><?php the_category() ?></li><li class="divider">/</li><li><?php echo get_the_date(); ?></li><li class="divider">/</li><li><?php echo getPostViews(get_the_ID());?></li><li class="divider">/</li><li><?php echo  get_comments_number();?> comments</li></ul>

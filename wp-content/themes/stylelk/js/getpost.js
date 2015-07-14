@@ -20,7 +20,7 @@ $(document).ready(function(){
 					}
 				}
 				else{
-						currentpost=$(".tab-content").children(".story-wrapper").length;
+						currentpost=$(".tab-content").children(".story-wrapper").length;	
 				}
 /*-------------------------------------------------------*/
 				if($(window).scrollTop()>(poisition.top-$(window).height()-$(window).height()/2)&&isloadingData==0) loadData();

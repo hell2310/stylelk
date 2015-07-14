@@ -11,7 +11,8 @@
 		<div class="newsletter-form">	
 			<?php 
 			$newsletter=new NewsletterWidget;
-			echo $newsletter->get_widget_form(); 
+			$widget_form=$newsletter->get_widget_form();
+			echo $widget_form; 
 			?>
 		</div>
 		<ul class="nav nav-pills menu-social">
@@ -124,15 +125,15 @@
 					?>				
 				</div>
 			</nav>
-			<?php if(is_page_template('account-page.php')): ?>
+			<?php if(is_page_template('setting-profile.php')|is_page_template('setting-newsletter.php')): ?>
 				<nav class="navbar navbar-default container hidden-xs nav-map-maker">
 					<ul class="nav pull-right">
 						<li><span class="fa fa-map-marker"></span> <?php echo get_location(); ?></li>
-						<li><span class="fa fa-globe"></span> <?php echo _e(English);?></li>
+						<li><span class="fa fa-globe"></span> <?php _e('English');?></li>
 					</ul>
 				</nav>
 			<?php endif;?>
-			<?php if(is_home()|is_page_template('account-page.php')): ?>
+			<?php if(is_home()|is_page_template('setting-avatar.php')|is_page_template('setting-profile.php')|is_page_template('setting-newsletter.php')): ?>
 				<?php get_template_part('logo');?>	
 			<?php endif; ?>
 			<?php if(is_home()): ?>

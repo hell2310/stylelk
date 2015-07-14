@@ -50,9 +50,8 @@ body{
 	width: 100%;
 	font-family: "Droid Arabic Kufi","Oswald",sans-serif;
 	position: relative;
-	overflow-x: hidden;
 }
-body.hidden-overflow{
+.hidden-overflow{
 	overflow: hidden;
 }
 .wrapper{	
@@ -67,13 +66,18 @@ body.hidden-overflow{
 	font-family: "Droid Arabic Kufi","Montserrat",sans-serif;
 	text-transform: capitalize;
 	height: 100%;
-	overflow-y: auto;
+	overflow: auto; 
+	overflow-y: auto; 
+	overflow-x: hidden; 
 	position: fixed;
 	width: 300px;
 	right:-300px;
 	top: 0;
 	z-index: 9999;
 	background: #ffffff;
+/*	transition: transform 400ms ease;
+ 	-webkit-transition-property: -webkit-transform,left,right;
+    -webkit-backface-visibility: hidden;*/
 }
 #slide_menu h1,#slide_menu ul,#slide_menu p,#slide_menu form{
 	padding:0 30px;
@@ -200,7 +204,7 @@ ul.menu-social li a span{
 }
 #navbar-top .menu-home .logo a{
 	display: block;
-	line-height: 40px;
+	line-height: 50px;
 }
 #navbar-top ul.menu-short-categories-top li a{
 	text-transform: uppercase;
@@ -295,6 +299,9 @@ ul.menu-social li a span{
 }
 .menu-item-has-children:hover{
 	cursor: pointer;
+}
+.menu-item-has-children ul.sub-menu{
+	min-width: 200px;
 }
 .sub-menu{
 	display: none;
@@ -426,6 +433,7 @@ ul.sub-menu li a:hover{
 	border: 0;
 }
 .story-image{
+	display: relative;
 	padding: 0;
 	text-align: center;
 }
@@ -1087,6 +1095,8 @@ ul.story-infor{
 }
 .slide-control li:hover{
 	cursor: pointer;
+}
+.slide-control li.control-active{
 	opacity: 1;
 }
 .control-right{
@@ -1141,4 +1151,16 @@ line-height: 20px;
 }
 .logout-menu a{
 	padding: 0 !important;
+}
+.video-play-button{
+	font-size: 60px;
+	color: #000000;
+	display: block;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 97;
+	margin-left: -30px;
+	margin-top: -30px;
+	opacity: 0.7;
 }

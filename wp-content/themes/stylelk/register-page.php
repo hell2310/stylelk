@@ -43,7 +43,19 @@ if(isset($_POST['email'])){
 				<div class="login-register-container">
 					<h1><?php _e('Register to STYLELK')?></h1>
 					<p><?php _e('Connect to STYLELK with your Facebook account')?></p>
-					<p><a class="btn btn-primary btn-block facebook-connect" href="http://localhost/stylelk/wp-login.php?loginFacebook=1&redirect=http://localhost/stylelk" onclick="window.location = 'http://localhost/stylelk/wp-login.php?loginFacebook=1&redirect='+window.location.href; return false;"><span class="fa fa-facebook"></span> Connect with facebook</a></p>
+					<p><a class="btn btn-primary btn-block facebook-connect" href="#" onclick="redirectFacebook()"><span class="fa fa-facebook"></span>  <?php _e('Login with facebook')?></a></p> 		
+					<script type="text/javascript">
+					function redirectFacebook(){
+						var popup = window.open("https://www.facebook.com/dialog/oauth?client_id=1603443363261032&redirect_uri=<?php echo HOME;?>/login-facebook", "Popup", "chrome=yes");
+        				popup.focus();
+        				var timer = setInterval(function() {   
+						    if(popup.closed) {  
+						        clearInterval(timer);  
+						        window.location="<?php echo HOME;?>";
+						    }  
+						}, 1000);
+					}
+					</script>ct with facebook</a></p>
 					<hr>
 					<?php if(!$success==''&&$error=='') : ?>
 						<p class="message-login"> <?php echo $success; ?></p>

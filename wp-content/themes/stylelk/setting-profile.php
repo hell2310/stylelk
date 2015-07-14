@@ -1,7 +1,17 @@
-<?php get_header();
+<?php 
+if(!is_user_logged_in()){
+	redirect_to_page();
+}
+get_header();
 /*
  Template Name: Account Page
  */
+global $wpdb;
+global $current_user;
+/*die(print_r($current_user));*/
+$query="SELECT status FROM wp_newsletter WHERE email='$current_user->user_email'";
+$result_status=$wpdb->get_results($query);
+$result_status=$result_status['0']->status;
 if(	isset($_POST['userID'])){
 	$user_id=$wpdb->escape(trim($_POST['userID']));
 	$email = $wpdb->escape(trim($_POST['userEmail']));
@@ -10,7 +20,7 @@ if(	isset($_POST['userID'])){
 	$lastname=$wpdb->escape(trim($_POST['userLastname']));
     $newpassword = $wpdb->escape(trim($_POST['userNewPassword'])); 
     $repeatpassword = $wpdb->escape(trim($_POST['userRepeatPassword'])); 
-    $location=$wpdb->escape(trim($_POST['location'])); 
+    $location=$wpdb->escape(trim($_POST['location']));
     $birthday_date=$wpdb->escape(trim($_POST['birthday_date'])); 
     $birthday_month=$wpdb->escape(trim($_POST['birthday_month']));  
     $birthday_year=$wpdb->escape(trim($_POST['birthday_year']));   
@@ -30,10 +40,10 @@ if(	isset($_POST['userID'])){
     	}
     	else
     	$user_id = wp_update_user( array( 'ID' => $user_id,'user_email' => $email,'user_displayname'=>$displayname,'first_name'=>$firstname,'last_name'=>$lastname, ) );
-    	if(get_user_meta( $user_id,'location',true)=='')
-    		add_user_meta($user_id,'location',$location);
+    	if(get_user_meta( $user_id,'user_location',true)=='')
+    		add_user_meta($user_id,'user_location',$location);
     	else 
-    		update_user_meta($user_id,'location',$location);
+    		update_user_meta($user_id,'user_location',$location);
     	if(get_user_meta( $user_id,'birthday_date',true)=='')
     		add_user_meta($user_id,'birthday_date',$birthday_date);
     	else 
@@ -54,6 +64,24 @@ if(	isset($_POST['userID'])){
     	}
     }
 }
+if(isset($_POST['newsletter-form']))
+{	
+	if($_POST['newsletter-stylelk']==1)	
+	{	
+		if($result_status==null)
+		{
+			$token=substr(md5(rand()), 0, 10);
+			$wpdb->insert('wp_newsletter',array('email'=>$current_user->user_email,'status'=>'C','token'=>$token));
+		}
+		else if($result_status=='S'){
+			$wpdb->update( 'wp_newsletter', array('status'=>'C'),array( 'email'=>$current_user->user_email));
+		}
+	}
+	else
+	{	
+		$wpdb->update( 'wp_newsletter', array('status'=>'S'), array('email'=>$current_user->user_email));
+	}
+}
 ?>
  	<div class="container body-content">
 		<div class="row">
@@ -61,15 +89,14 @@ if(	isset($_POST['userID'])){
 				<div class="col-md-3  left-column">
 					<ul class="nav nav-account-page">
 						<li><a><?php _e('Account Setting')?></a></li>
-						<li class="active"><a href="#edit-profile-content" data-toggle="tab"><?php _e('Profile')?></a></li>
-						<li><a href="#edit-avatar-content" data-toggle="tab"><?php _e('Avatar')?></a></li>
-						<li><a href="#edit-newsletter-content" data-toggle="tab"><?php _e('Newsletter')?></a></li>
+						<li class="active"><a href="<?php echo HOME;?>/setting/profile" ><?php _e('Profile')?></a></li>
+						<li><a href="<?php echo HOME;?>/setting/avatar" ><?php _e('Avatar')?></a></li>
+						<li><a href="<?php echo HOME;?>/setting/newsletter" ><?php _e('Newsletter')?></a></li>
 					</ul>
 				</div>
 				<div class="col-md-9 right-column">
 					<div class="page-content tab-content">
-						<div id="edit-profile-content" class="tab-pane fade in active">
-							<?php global $current_user;  get_currentuserinfo();?>
+						<div id="edit-profile-content">
 							<h1><?php _e('Edit Profile') ?></h1>
 							<?php if(isset($message)) echo $message;?>
 							<form class="user-infor" method="POST">
@@ -103,8 +130,8 @@ if(	isset($_POST['userID'])){
 										<input class="col-md-6 form-control" name="userRepeatPassword" type="password">
 									</div>
 									<div class="form-group row">							
-										<label class="control-label col-md-3"><?php _e('Location') ?></label>
-										<input class="col-md-6 form-control" name="location" type="text">
+										<label class="control-label col-md-3" for="location"><?php _e('Location') ?></label>
+										<input class="col-md-6 form-control" name="location" type="text" value="<?php echo $current_user->user_location ; ?>">
 									</div>
 									<div class="form-group row">							
 										<label class="control-label col-md-3"><?php _e('Birthday') ?></label>
@@ -134,7 +161,7 @@ if(	isset($_POST['userID'])){
 									<div class="form-group row">
 										<div class="col-md-6  col-md-offset-3 none-padding account-btn">
 											<input class="btn btn-primary" type="submit" value="<?php _e('Update Profile')?>">
-											<input class="btn btn-primary" onclick=" query_delete()" value="<?php _e('Close Account')?>">					
+											<input class="btn btn-primary" type="button" onclick=" query_delete()" value="<?php _e('Close Account')?>">					
 										</div>
 									</div>
 							</form>
@@ -147,7 +174,12 @@ if(	isset($_POST['userID'])){
 						</div>
 						<div id="edit-newsletter-content" class="tab-pane fade">
 							<h1><?php _e('Newsletter Setting') ?></h1>
-							<?php echo subscription_post_subscribe_setting();?>
+							<p><?php _e('Select/unselect subscribe to.'); ?></p>
+							<form class="newsletter-config" method="POST">
+								<input type="hidden" name="newsletter-form" value="1">
+								<label class="newsletter-stylelk"><input type="checkbox" name="newsletter-stylelk" value="1" <?php if($result_status=='C'):?>checked="checked"<?php endif;?>><?php _e(' Editoria');?></label></br>
+								<input type="submit" class="btn btn-primary" value="<?php _e('Save Changes');?>">
+							</form>
 							<hr>
 						</div>
 					</div>

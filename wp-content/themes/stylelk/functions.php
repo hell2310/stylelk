@@ -28,7 +28,7 @@
     	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1">
       	<meta name="apple-mobile-web-app-capable" content="yes">
       	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-      	<!-- <meta property="fb:app_id" content="1598812297023639" /> -->
+      	<meta property="fb:app_id" content="1603443363261032" /> 
       	<link href='http://fonts.googleapis.com/css?family=Montserrat:700,400' rel='stylesheet' type='text/css'>
       	<link href='http://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
       	<link href='http://fonts.googleapis.com/css?family=Droid+Arabic+Kufi	' rel='stylesheet' type='text/css'>
@@ -51,21 +51,20 @@
 		<meta name="msapplication-TileImage" content="<?php echo get_template_directory_uri();?>/images/ms-icon-144x144.png">
 		<meta name="theme-color" content="#ffffff">
 		<script>
-		/*window.fbAsyncInit = function() {
+		window.fbAsyncInit = function() {
 		FB.init({
-		appId : '1598812297023639',
+		appId : '1603443363261032',
 		xfbml : true,
 		version : 'v2.3'
 		});
 		};
-
 		(function(d, s, id){
 		var js, fjs = d.getElementsByTagName(s)[0];
 		if (d.getElementById(id)) {return;}
 		js = d.createElement(s); js.id = id;
 		js.src = "//connect.facebook.net/en_US/sdk.js";
 		fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));*/
+		}(document, 'script', 'facebook-jssdk'));
 		</script>
     <?php
 	}
@@ -395,11 +394,14 @@ function modify_contact_methods($profile_fields) {
 add_filter('user_contactmethods', 'modify_contact_methods');
 
 function get_location(){
-	$location = file_get_contents('http://freegeoip.net/json/'.$_SERVER['HTTP_X_FORWARDED_FOR']);
-	$location =explode(',', $location);
-	$location=explode(':',$location[2]);
-	$location=str_replace('"','', $location[1]);
-	return $location;
+	$ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+	$query = @unserialize(file_get_contents('http://ip-api.com/php/'.$ip));
+	if($query && $query['status'] == 'success') {
+	  return $query['country'];
+	} else {
+	  echo 'Unable country';
+	}
+
 }
 /*ADD REDIRECT PAGE*/
 function app_output_buffer() {
