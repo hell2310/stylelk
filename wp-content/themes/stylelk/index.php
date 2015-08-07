@@ -41,12 +41,12 @@
 	<div class="col-md-4 visible-md visible-lg right-column newsletter-column">
 		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 		<ins class="adsbygoogle"
-		style="display:block"
-		data-ad-client="ca-pub-8242009209629639"
-		data-ad-slot="8776381107"
-		data-ad-format="auto"></ins>
-		<script>
-		(adsbygoogle = window.adsbygoogle || []).push({});
+			style="display:block"
+			data-ad-client="ca-pub-8242009209629639"
+			data-ad-slot="8776381107"
+			data-ad-format="auto"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
 		</script>
 		<h4><?php _e('follow us')?></h4>
 		<hr>
